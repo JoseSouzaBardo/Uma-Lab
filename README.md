@@ -16,10 +16,9 @@ Umamusume: Pretty Derby (servidor Global), montados entre 20 e 21/08/2026.
 | `UMA - metas de CM (comunidade).txt` | Meta da comunidade por CM (game8 + uma.guide) |
 | `RELATORIO - revisao e correcoes.md` | Relatório geral de fontes, correções e metodologia |
 | `RELATORIO - validacao de pistas.md` | Validação cruzada das pistas (gametora × umalator × in-game) |
-| `analyst/` | **Analisador de CM** (protótipo web: `app/index.html` + `app/data.json`). Rode com `python3 -m http.server` dentro de `analyst/app/` |
-| `umalator-global/` | Cópia do simulador de corridas **umalator** (alpha123/uma-tools), versão Global. Rode com `python3 -m http.server` dentro da pasta |
+| `analyst/` | **Analisador de CM** (protótipo web: `app/index.html` + `app/data.json`).|
+| `umalator-global/` | Cópia do simulador de corridas **umalator** (alpha123/uma-tools), versão Global.|
 | `uma_data/`, `gametora_data/`, `game8_guides/`, `uma_guides/` | Dados brutos baixados e scripts geradores (o "rastro" de como cada .txt foi produzido) |
-| `uploads/` | Arquivos originais enviados pelo usuário |
 
 ## Como rodar os aplicativos
 
