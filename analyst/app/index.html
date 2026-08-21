@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analisador de CM — Umamusume</title>
+<style>
+:root{
+  --bg:#0f1420; --panel:#1a2130; --panel2:#232c3e; --line:#33405a;
+  --txt:#e8edf7; --dim:#9fb0c9; --acc:#7cc4ff; --ok:#63d97f; --warn:#ffc46b; --bad:#ff7a7a; --purple:#c69cff;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--bg); color:var(--txt); font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; padding:0 0 60px}
+header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg,var(--bg) 80%,transparent); padding:14px 16px 10px}
+h1{font-size:19px; letter-spacing:.3px}
+h1 small{color:var(--dim); font-weight:400; font-size:12px}
+.cmnav{display:flex; gap:5px; flex-wrap:wrap; margin-top:10px}
+.cmbtn{border:1px solid var(--line); background:var(--panel); color:var(--txt); border-radius:7px; padding:5px 10px; cursor:pointer; font-size:12.5px}
+.cmbtn:hover{border-color:var(--acc)}
+.cmbtn.sel{background:var(--acc); color:#06121f; font-weight:700; border-color:var(--acc)}
+main{max-width:1080px; margin:0 auto; padding:0 16px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px}
+.chip{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:6px 12px; font-size:12.5px}
+.chip b{color:var(--acc)}
+.tabs{display:flex; gap:6px; margin:14px 0; border-bottom:1px solid var(--line); flex-wrap:wrap}
+.tab{padding:9px 16px; cursor:pointer; color:var(--dim); border-radius:9px 9px 0 0; border:1px solid transparent; font-size:13.5px}
+.tab:hover{color:var(--txt)}
+.tab.sel{color:var(--txt); background:var(--panel); border-color:var(--line); border-bottom-color:var(--panel); margin-bottom:-1px; font-weight:600}
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:14px}
+h2{font-size:15px; margin-bottom:10px; color:var(--acc)}
+h3{font-size:13.5px; margin:14px 0 6px; color:var(--purple)}
+table{border-collapse:collapse; width:100%; font-size:12.5px}
+th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top}
+th{color:var(--dim); font-weight:600; font-size:11.5px}
+td.num,th.num{text-align:center}
+tr:hover td{background:var(--panel2)}
+.badge{display:inline-block; min-width:26px; text-align:center; border-radius:5px; padding:1px 5px; font-size:11px; font-weight:700}
+.bSS{background:#e33; color:#fff}.bS{background:#e80; color:#fff}.bA{background:#bb0; color:#222}.bB{background:#7a7; color:#fff}
+.ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)} .dim{color:var(--dim)}
+.apt{display:inline-block; border:1px solid var(--line); border-radius:4px; padding:0 5px; margin:0 1px; font-size:11px; background:var(--panel2)}
+.apt.good{background:#17332a; color:#63d97f; border-color:#2c6b4b}
+.tag{display:inline-block; background:var(--panel2); border:1px solid var(--line); border-radius:6px; padding:2px 8px; margin:2px 3px 2px 0; font-size:11.5px}
+.tag.g{color:var(--ok); border-color:#2c6b4b}
+.tag.y{color:var(--warn); border-color:#8a6a33}
+.tag.r{color:var(--bad); border-color:#8a4040}
+ul{margin:6px 0 6px 20px}
+li{margin:3px 0; font-size:13px}
+pre{white-space:pre-wrap; font-family:inherit; font-size:12.5px; color:var(--dim)}
+details{margin:8px 0}
+summary{cursor:pointer; color:var(--acc); font-size:13px}
+.note{font-size:12px; color:var(--dim); margin-top:6px}
+.warnline{background:#2c2417; border-left:3px solid var(--warn); padding:6px 10px; margin:6px 0; border-radius:0 6px 6px 0; font-size:12.5px}
+.bar{display:flex; align-items:center; gap:8px; margin:3px 0}
+.barbg{flex:1; background:var(--panel2); border-radius:5px; height:14px; overflow:hidden}
+.barfill{height:100%; background:linear-gradient(90deg,#2c7bd6,#63d97f); border-radius:5px}
+.score{font-weight:700; color:var(--acc); min-width:38px; text-align:right}
+footer{margin-top:30px; color:var(--dim); font-size:11.5px; text-align:center}
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--dim); margin-bottom:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏇 Analisador de Champions Meeting <small>— protótipo · dados: uma.guide + gametora + game8 · 21/08/2026</small></h1>
+  <div class="cmnav" id="cmnav"></div>
+</header>
+<main>
+  <div class="chips" id="chips"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="content"></div>
+  <footer>Protótipo local. Dados: uma.guide (skills/personagens), gametora (pistas), game8 + uma.guide (meta da comunidade). O avaliador de condições é aproximado — valide decisões importantes no jogo/umalator.</footer>
+</main>
+
+<script>
+/* ================== dados ================== */
+let DATA = null;
+let CM = 1, TAB = 'pista', STYLE = 0; // 0=todos, 1..4
+const C = (sel) => document.querySelector(sel);
+
+/* ================== avaliador de condições ================== */
+// retorna: true = determinístico OK · false = determinístico FALHA · null = situacional
+function evalClause(cl, ctx){
+  cl = cl.trim();
+  const num = (op, v) => {
+    const m = cl.match(new RegExp('^'+op+'\\s*(==|!=|>=|<=|>|<)\\s*(-?\\d+(?:\\.\\d+)?)$'));
+    if(!m) return null;
+    const a = Number(m[2]), b = Number(v);
+    switch(m[1]){
+      case '==': return a===b; case '!=': return a!==b;
+      case '>=': return a>=b; case '<=': return a<=b;
+      case '>': return a>b; case '<': return a<b;
+    }
+    return null;
+  };
+  const eq = (op, v) => num(op, v);
+  const F = ()=>false, T = ()=>true, N = ()=>null;
+  // fases/corridas: sempre existem
+  if(cl==='always==1') return true;
+  if(/^phase==\d$/.test(cl) || /^phase>=\d$/.test(cl) || /^phase<=\d$/.test(cl) || /^phase_random==\d$/.test(cl)) return true;
+  if(/^phase_(laterhalf|firsthalf)_random==\d$/.test(cl)) return true;
+  if(/^(is_lastspurt|lastspurt)==[01]$/.test(cl)) return true;
+  if(/^corner(!=0|==0|>=1|>0|==\d)$/.test(cl) && cl!=='corner==0') return true; // curvas existem
+  if(cl==='corner==0' || /^straight(!=0|==\d)$/.test(cl)) return true;          // retas existem
+  if(/^is_finalcorner(_laterhalf|_random)?==[01]$/.test(cl)) return true;
+  if(/^(is_finalstraight|is_last_straight|is_last_straight_onetime|last_straight_random)==[01]$/.test(cl)) return true;
+  if(/^(straight_random|all_corner_random|corner_random|is_finalcorner_random|distance_rate_after_random|phase_firsthalf_random)==\d+$/.test(cl)) return true;
+  if(/^is_last_straight_onetime==1$/.test(cl)) return true;
+  // distância / pista
+  const dt = eq('distance_type', ctx.distanceType); if(dt!==null) return dt;
+  const rt = eq('rotation', ctx.rotation); if(rt!==null) return rt;
+  const ti = eq('track_id', ctx.trackId); if(ti!==null) return ti;
+  const gt = eq('ground_type', ctx.groundType); if(gt!==null) return gt;
+  const gc = eq('ground_condition', ctx.condition); if(gc!==null) return gc;
+  const se = eq('season', ctx.season); if(se!==null) return se;
+  const we = eq('weather', ctx.weather); if(we!==null) return we;
+  const sl = eq('slope', null); // tratado abaixo
+  if(/^slope==1$/.test(cl)) return ctx.hasUphill;
+  if(/^slope==2$/.test(cl)) return ctx.hasDownhill;
+  if(/^slope!=0$/.test(cl)) return ctx.hasUphill||ctx.hasDownhill;
+  if(/^up_slope_random==\d$/.test(cl)) return ctx.hasUphill;
+  if(/^down_slope_random==\d$/.test(cl)) return ctx.hasDownhill;
+  if(/^straight_front_type==[12]$/.test(cl)){
+    const v = Number(cl.slice(-1));
+    if(v===2) return ctx.hasBackstretch;
+    if(v===1) return ctx.hasFinalStraight;
+  }
+  if(/^remain_distance[<>]=?-?\d+$/.test(cl)) {
+    const v = Number(cl.match(/-?\d+/)[0]);
+    return (v>=0 && v<=ctx.distance) ? true : null;
+  }
+  if(/^distance_rate[<>]=?-?\d+$/.test(cl)){ const v=Number(cl.match(/-?\d+/)[0]); return (v>=0&&v<=100)?true:false; }
+  if(/^distance_rate_after_random==\d+$/.test(cl)) return true;
+  if(/^distance_diff_top[<>]=?\d+$/.test(cl)) return null;
+  if(/^distance_diff_rate[<>]=?\d+$/.test(cl)) return null;
+  if(/^is_dirtgrade==\d$/.test(cl)) return ctx.groundType===2;
+  // estilo
+  if(/^running_style==[1-4]$/.test(cl)){
+    if(STYLE===0) return null;
+    const v = Number(cl.slice(-1));
+    return STYLE===v;
+  }
+  // situacionais
+  const situational = /^(order|order_rate|post_number|is_overtake|blocked_front|blocked_side_continuetime|blocked_front_continuetime|change_order_onetime|change_order_up_end_after|change_order_up_finalcorner_after|accumulatetime|is_move_lane|is_behind_in|near_count|bashin_diff_behind|bashin_diff_infront|infront_near_lane_time|behind_near_lane_time|temptation_count|is_temptation|temptation_opponent_count|is_badstart|is_surrounded|hp_per|overtake_target_time|overtake_target_no_order_up_time|activate_count|is_activate_any_skill|is_other_character_activate_advantage_skill|popularity|same_skill_horse_count|lane_type|is_exist_chara_id|compete_fight_count|motivation|time|grade|base_power|remain_distance_viewer_id|order_rate_in|order_rate_out|running_style_count_same|running_style_equal_popularity_one|running_style_temptation_opponent_count)/;
+  if(situational.test(cl)) return null;
+  if(/^running_style_count_(nige|senko|sashi|oikomi)_otherself>=\d$/.test(cl)) return true; // lobby CM tem 8 rivais
+  if(/^random_lot==\d+$/.test(cl)) return true;
+  return null; // desconhecido → situacional
+}
+
+function evalSkill(s, ctx){
+  const blocks = (s.cond||'').split('@').filter(Boolean);
+  const res = { state: 'dead', guaranteed: 0, viable: 0 };
+  for(const b of blocks){
+    const clauses = b.split('&').map(x=>x.trim()).filter(Boolean);
+    let dead = false, allTrue = true;
+    for(const cl of clauses){
+      const r = evalClause(cl, ctx);
+      if(r===false){ dead = true; break; }
+      if(r===null) allTrue = false;
+    }
+    if(dead) continue;
+    if(allTrue) res.guaranteed++;
+    else res.viable++;
+  }
+  // condição alternativa
+  if(s.cond2){
+    for(const b of s.cond2.split('@').filter(Boolean)){
+      const clauses = b.split('&').map(x=>x.trim()).filter(Boolean);
+      let dead=false, allTrue=true;
+      for(const cl of clauses){ const r=evalClause(cl,ctx); if(r===false){dead=true;break;} if(r===null)allTrue=false; }
+      if(!dead){ if(allTrue)res.guaranteed++; else res.viable++; }
+    }
+  }
+  if(res.guaranteed>0) res.state='ok';
+  else if(res.viable>0) res.state='maybe';
+  return res;
+}
+
+function ctxOf(cm){
+  return {
+    distanceType: cm.distanceType,
+    distance: cm.distance,
+    rotation: cm.direction,
+    trackId: cm.trackId,
+    groundType: cm.ground,
+    season: cm.season,
+    weather: cm.weather,
+    condition: cm.condition,
+    hasUphill: (cm.course?.slopes||[]).some(s=>s[2]>0),
+    hasDownhill: (cm.course?.slopes||[]).some(s=>s[2]<0),
+    hasBackstretch: (cm.course?.straights||[]).some(s=>s[2]===2),
+    hasFinalStraight: (cm.course?.straights||[]).some(s=>s[2]===1),
+  };
+}
+
+/* ================== helpers ================== */
+const G = {G:0,F:1,E:2,D:3,C:4,B:5,A:6,S:7};
+const SURF = {1:'Turf',2:'Dirt'};
+const SEAS = {1:'Primavera',2:'Verão',3:'Outono',4:'Inverno'};
+const WEA = {1:'Ensolarado',2:'Nublado',3:'Chuva',4:'Neve'};
+const COND = {turf:{1:'Firme',2:'Bom',3:'Macio',4:'Pesado'}, dirt:{1:'Bom',2:'Lev. pesado',3:'Pesado',4:'Ruim'}};
+const DIR = {1:'Direita (horário)',2:'Esquerda (anti-horário)'};
+const DIST = {1:'Sprint',2:'Mile',3:'Medium',4:'Long'};
+const STYLES = ['','Front Runner','Pace Chaser','Late Surger','End Closer'];
+const STYLE_APT = ['','front','pace','late','end'];
+const PHASE = {0:'Abertura',1:'Meio',2:'Final',3:'Spurt final'};
+const SCEN_NAME = {ura:'URA Finale',unity:'Unity Cup',mant:'Trackblazer',live:'Grand Live'};
+const STAT_NAMES = ['Speed','Stamina','Power','Guts','Wit'];
+
+function gradeClass(g){ return G[g]>=6 ? ' good' : ''; }
+function fmtDate(ts){ return ts? new Date(ts).toLocaleDateString('pt-BR') : '—'; }
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ================== ranking de personagens ================== */
+function rankChars(cm){
+  const ctx = ctxOf(cm);
+  const rows = DATA.chars.map(c => {
+    const distApt = c.apt[[,'sprint','mile','medium','long'][cm.distanceType]];
+    const surfApt = c.apt[cm.ground===1?'turf':'dirt'];
+    let bestStyle=1, bestV=G[c.apt.front];
+    for(let i=2;i<=4;i++){ const v=G[c.apt[STYLE_APT[i]]]; if(v>bestV){bestV=v;bestStyle=i;} }
+    const score = G[distApt]*5 + G[surfApt]*3 + bestV*2;
+    let uniqueBonus = 0, uniqueState = null;
+    if(c.unique){
+      STYLE = bestStyle;
+      const r = evalSkill({cond:c.unique.cond}, ctx);
+      uniqueState = r.state;
+      uniqueBonus = r.state==='ok'?15 : r.state==='maybe'?8 : 0;
+    }
+    STYLE = 0;
+    return { ...c, bestStyle, distApt, surfApt, score: score+uniqueBonus, uniqueState };
+  }).sort((a,b)=>b.score-a.score);
+  return rows;
+}
+
+/* ================== renderização ================== */
+function render(){
+  const cm = DATA.cms.find(x=>x.id===CM);
+  const ctx = ctxOf(cm);
+  const g8 = cm.game8 || {};
+  const scen = DATA.scen[cm.era];
+  // chips
+  C('#chips').innerHTML = `
+    <span class="chip"><b>${esc(cm.name)}</b> · CM ${cm.id} · ${cm.year}</span>
+    <span class="chip">${esc(cm.trackName)} · ${esc(cm.surface)} ${cm.distance}m (${DIST[cm.distanceType]})</span>
+    <span class="chip">${esc(DIR[cm.direction])}</span>
+    <span class="chip">${esc(SEAS[cm.season])} · ${esc(WEA[cm.weather])}</span>
+    <span class="chip">Piso: ${esc((cm.ground===1?COND.turf:COND.dirt)[cm.condition])}</span>
+    <span class="chip">Cenário da época: <b>${esc(SCEN_NAME[cm.era])}</b></span>
+    <span class="chip">Global: ${fmtDate(cm.dates?.start)} → ${fmtDate(cm.dates?.end)}</span>`;
+
+  if(TAB==='pista') renderPista(cm, ctx, g8);
+  else if(TAB==='metas') renderMetas(cm, g8, scen);
+  else if(TAB==='chars') renderChars(cm, g8);
+  else if(TAB==='skills') renderSkills(cm, ctx, g8);
+  else renderAnalise(cm, g8);
+}
+
+function renderPista(cm, ctx, g8){
+  const c = cm.course;
+  if(!c){ C('#content').innerHTML='<div class="panel">Sem dados de layout.</div>'; return; }
+  let h = '<div class="panel"><h2>Layout da pista</h2><table>';
+  h += '<tr><th>Fase</th><th>Início</th><th>Fim</th></tr>';
+  for(const p of c.phases) h += `<tr><td>${PHASE[p[2]]}</td><td class="num">${p[0]} m</td><td class="num">${p[1]} m</td></tr>`;
+  h += '</table>';
+  h += '<h3>Retas</h3><table><tr><th>Retas</th><th>Início</th><th>Fim</th><th>Tipo</th></tr>';
+  c.straights.forEach((s,i)=>h+=`<tr><td>Reta ${i+1}</td><td class="num">${s[0]} m</td><td class="num">${s[1]} m</td><td>${s[2]===1?'final':'oposta'}</td></tr>`);
+  h += '</table>';
+  h += '<h3>Curvas</h3><table><tr><th>Curva</th><th>Início</th><th>Fim</th></tr>';
+  c.corners.forEach((s,i)=>h+=`<tr><td>Curva ${i+1}</td><td class="num">${s[0]} m</td><td class="num">${s[1]} m</td></tr>`);
+  h += '</table>';
+  h += '<h3>Inclinações</h3>';
+  if(c.slopes.length){ h+='<table><tr><th>#</th><th>Início</th><th>Fim</th><th>Tipo</th><th>Gradiente</th></tr>';
+    c.slopes.forEach((s,i)=>h+=`<tr><td>${i+1}</td><td class="num">${s[0]} m</td><td class="num">${s[1]} m</td><td>${s[2]>0?'subida':'descida'}</td><td class="num">${(Math.abs(s[2])/10000).toFixed(1)}%</td></tr>`);
+    h+='</table>'; }
+  else h += '<p class="dim">Pista plana (sem inclinações).</p>';
+  h += `<h3>Stat Thresholds</h3><p>${c.statThresholds.length? c.statThresholds.map(t=>STAT_NAMES[t-1]).join(' · ') : '<span class="dim">nenhum</span>'}</p>`;
+  if(c.spurt) h += `<h3>Spurt final</h3><p>Inicia na volta ${c.spurt.lap}, aos <b>${c.spurt.meters} m</b> (${esc((c.spurt.loc||[]).join(', '))}) · Position Keep termina aos ${c.posKeep} m</p>`;
+  h += '</div>';
+  if(g8.courseNotes && g8.courseNotes.length){
+    h += '<div class="panel"><h2>Análise de pista (game8)</h2><ul>';
+    for(const n of g8.courseNotes) h += `<li>${esc(n)}</li>`;
+    h += '</ul></div>';
+  }
+  C('#content').innerHTML = h;
+}
+
+function parseStatRow(cells){
+  // células de número com sufixo +/-
+  return cells.map(x=>{
+    const m = String(x).match(/(\d+)\s*\+?/);
+    return m? {n:Number(m[1]), plus:/\+/.test(String(x)), raw:String(x).trim()} : null;
+  });
+}
+
+function renderMetas(cm, g8, scen){
+  let h = `<div class="panel"><h2>Cenário da época: ${esc(SCEN_NAME[cm.era])}</h2>
+    <table><tr><th></th>${STAT_NAMES.map(s=>`<th class="num">${s}</th>`).join('')}</tr>
+    <tr><td><b>Caps</b></td>${scen.caps.map(v=>`<td class="num">${v}</td>`).join('')}</tr>
+    <tr><td class="dim">Stats iniciais</td>${scen.stats.map(v=>`<td class="num dim">${v}</td>`).join('')}</tr>
+    </table>
+    <p class="note">Metas acima do cap exigem uncap (fatores azuis no Grand Live, duels da Happy Meek no URA, Spirit Burst na Unity Cup).</p></div>`;
+
+  const rows = g8.stats || [];
+  if(rows.length){
+    let h2 = '<div class="panel"><h2>Metas da comunidade (game8)</h2><p class="dim" style="margin-bottom:8px">Colunas: Speed | Stamina | Power | Guts | Wit</p><ul>';
+    let state = 'base';
+    for(const r of rows){
+      if(/^---|^✕$|^$/.test(r)) continue;
+      const label = r.replace(/\s*\|\s*.*$/,'');
+      const cellsRaw = r.split('|').map(x=>x.trim());
+      const isStyleRow = /^(Front|Pace|Late|End)\s*$/.test(cellsRaw[0]);
+      const isNumRow = cellsRaw.length>=5 && cellsRaw.slice(0,5).every(c=>/^\d+/.test(c));
+      const hasHeader = /Stats|Baselines|Minimum|Recommendation|Distance|Track|Blue Sparks|Prio|---/.test(r);
+      if(hasHeader){ if(/Open League/.test(r)) state='open'; else if(/Minimum/.test(r)) state='min'; else if(/Baselines/.test(r)) state='base'; h2 += `<li class="dim">${esc(r)}</li>`; continue; }
+      let warn = '';
+      if(isStyleRow || isNumRow){
+        const nums = cellsRaw.slice(isStyleRow?1:0, isStyleRow?6:5);
+        for(let i=0;i<5;i++){
+          const p = parseStatRow([nums[i]])[0];
+          if(p && p.n>scen.caps[i]) warn += ` <span class="bad">${STAT_NAMES[i]} ${p.n}${p.plus?'+':''} &gt; cap ${scen.caps[i]}</span>`;
+        }
+      }
+      const numLabel = state==='open' ? '<b>Open:</b> ' : state==='min' ? '<b>Mínimo:</b> ' : '<b>Graded:</b> ';
+      const labelTxt = isStyleRow ? `<b>${cellsRaw[0]}</b>&nbsp;` : (isNumRow ? numLabel : esc(label) + ': ');
+      h2 += `<li>${labelTxt}${esc(cellsRaw.slice(isStyleRow?1:0).join(' | '))}${warn}</li>`;
+    }
+    h2 += '</ul></div>';
+    h += h2;
+  }
+  if(g8.staminaNotes){
+    h += '<div class="panel"><h2>Orientações de Stamina (game8)</h2><ul>';
+    for(const n of g8.staminaNotes) h += `<li>${esc(n)}</li>`;
+    h += '</ul></div>';
+  }
+  const uniq = rows.find(r=>/Blue Sparks/.test(r));
+  if(uniq) h += `<div class="panel"><h2>Sparks azuis recomendados</h2><p>${esc(uniq.split('|').slice(1).join('|'))}</p></div>`;
+  C('#content').innerHTML = h;
+}
+
+function renderChars(cm, g8){
+  const ranked = rankChars(cm);
+  const inTier = {};
+  for(const t of (g8.tiers||[])) for(const ch of t.chars){ const name=ch.split(' (')[0].toLowerCase(); inTier[name]=t.tier; }
+  let h = '<div class="panel"><h2>Ranking calculado (aptidões × viabilidade da única)</h2>';
+  h += '<p class="note">Score = distância (×5) + superfície (×3) + melhor estilo (×2) + bônus da skill única (15/8). Filtro de aptidão mínima: distância C+. É uma heurística para triagem — compare com o meta abaixo.</p><table>';
+  h += '<tr><th>#</th><th>Personagem [Skin]</th><th>Sup.</th><th>Dist.</th><th>Estilo</th><th>Skill única</th><th class="num">Score</th><th>Tier g8</th></tr>';
+  ranked.filter(r=>G[r.distApt]>=4 && G[r.surfApt]>=3).slice(0,20).forEach((r,i)=>{
+    const t = inTier[r.name.toLowerCase()];
+    h += `<tr><td>${i+1}</td><td><b>${esc(r.name)}</b> <span class="dim">[${esc(r.title)}]</span></td>
+      <td><span class="apt${gradeClass(r.surfApt)}">${r.surfApt}</span></td>
+      <td><span class="apt${gradeClass(r.distApt)}">${r.distApt}</span></td>
+      <td>${STYLES[r.bestStyle]} <span class="apt${gradeClass(r.apt[STYLE_APT[r.bestStyle]])}">${r.apt[STYLE_APT[r.bestStyle]]}</span></td>
+      <td>${r.unique? `<span class="tag ${r.uniqueState==='ok'?'g':r.uniqueState==='maybe'?'y':'r'}">${r.uniqueState==='ok'?'✓':r.uniqueState==='maybe'?'~':'✗'}</span> ${esc(r.unique.name)}` : '<span class="dim">—</span>'}</td>
+      <td class="num score">${r.score}</td>
+      <td>${t?`<span class="badge b${t}">${t}</span>`:'<span class="dim">—</span>'}</td></tr>`;
+  });
+  h += '</table></div>';
+
+  if(g8.tiers && g8.tiers.length){
+    h += '<div class="panel"><h2>Tier list (game8)</h2>';
+    for(const t of g8.tiers){
+      if(!t.chars.length) continue;
+      h += `<p><span class="badge b${t.tier}">${t.tier}</span> ${t.chars.map(esc).join(' · ')}</p>`;
+      for(const n of t.notes) h += `<p class="note">ⓘ ${esc(n.slice(0,250))}</p>`;
+    }
+    h += '</div>';
+  }
+  if(g8.recommended && g8.recommended.length){
+    h += '<div class="panel"><h2>Recomendados com pontos-chave (game8)</h2><ul>';
+    for(const r of g8.recommended){
+      h += `<li><b>${esc(r.name)}</b><ul>`;
+      for(const p of r.points) h += `<li class="dim">${esc(p)}</li>`;
+      h += '</ul></li>';
+    }
+    h += '</ul></div>';
+  }
+  if(g8.aces){
+    h += '<div class="panel"><h2>Aces por estilo (game8)</h2>';
+    for(const a of g8.aces) h += `<p><b>${esc(a.style)}:</b> ${(a.chars||[]).map(esc).join(' · ')||'—'}</p>`;
+    h += '</div>';
+  }
+  if(g8.debuffers && g8.debuffers.length){
+    h += `<div class="panel"><h2>Debuffers (game8)</h2><p>${g8.debuffers.map(esc).join(' · ')}</p></div>`;
+  }
+  C('#content').innerHTML = h;
+}
+
+function renderSkills(cm, ctx, g8){
+  const styleBtns = [0,1,2,3,4].map(s=>`<button class="cmbtn${STYLE===s?' sel':''}" onclick="setStyle(${s})">${s===0?'Todos':STYLES[s]}</button>`).join(' ');
+  const cats = ['Passive','Speed Boost','Acceleration','Recovery','Lane Effect','Vision','Debuff'];
+  const ok = {}, maybe = {};
+  let dead = 0;
+  for(const c of cats){ ok[c]=[]; maybe[c]=[]; }
+  for(const s of DATA.skills){
+    if(s.cat==='Unique') continue;
+    const r = evalSkill(s, ctx);
+    if(r.state==='ok') (ok[s.cat]||(ok[s.cat]=[])).push(s);
+    else if(r.state==='maybe') (maybe[s.cat]||(maybe[s.cat]=[])).push(s);
+    else dead++;
+  }
+  let h = `<div class="panel"><h2>Skills ativas nesta pista</h2>
+    <p class="dim" style="margin-bottom:6px">Filtro por estilo (skills com running_style):</p>
+    <div class="cmnav" style="margin:0 0 10px">${styleBtns}</div>
+    <div class="legend"><span><span class="tag g">✓</span> condições determinísticas satisfeitas</span><span><span class="tag y">~</span> depende de posição/bloqueio/sorteio</span><span><span class="tag r">✗</span> determinística falha nesta pista</span></div>`;
+  let okCount=0;
+  for(const c of cats){
+    const list = ok[c]||[];
+    if(!list.length) continue;
+    okCount+=list.length;
+    h += `<h3>${c} (${list.length})</h3><p>`;
+    h += list.map(s=>`<span class="tag g">${esc(s.name)}</span>`).join('');
+    h += '</p>';
+  }
+  if(!okCount) h += '<p class="dim">Nenhuma skill com ativação determinística nesta configuração de filtro.</p>';
+  let mbCount=0; for(const c of cats) mbCount+=(maybe[c]||[]).length;
+  h += `<details><summary>Situacionais (${mbCount}) — dependem de posição, bloqueio, ultrapassagem, sorteio…</summary>`;
+  for(const c of cats){
+    const list = maybe[c]||[];
+    if(!list.length) continue;
+    h += `<h3>${c} (${list.length})</h3><p>`;
+    h += list.map(s=>`<span class="tag y" title="${esc(s.eff)}">${esc(s.name)}</span>`).join('');
+    h += '</p>';
+  }
+  h += `</details>`;
+  h += `<p class="note">❌ Skills que não ativam nesta pista (determinístico): ${dead} — filtradas.</p>`;
+  h += '</div>';
+
+  if(g8.skills && g8.skills.length){
+    h += `<div class="panel"><h2>Skills recomendadas (game8) — ${g8.skills.length}</h2><p>`;
+    h += g8.skills.map(s=>`<span class="tag">${esc(s)}</span>`).join('');
+    h += '</p></div>';
+  }
+  C('#content').innerHTML = h;
+}
+
+function renderAnalise(cm, g8){
+  let h = '';
+  if(g8.analysis && g8.analysis.length){
+    h += '<div class="panel"><h2>Análise da meta (game8)</h2>';
+    for(const p of g8.analysis) h += `<p style="margin:8px 0">${esc(p)}</p>`;
+    h += '</div>';
+  }
+  if(g8.supportNote) h += `<div class="panel"><h2>Nota sobre support cards (game8)</h2><p>${esc(g8.supportNote)}</p></div>`;
+  if(g8.supports && g8.supports.length){
+    h += `<div class="panel"><h2>Support cards recomendados (game8) — ${g8.supports.length}</h2><p>`;
+    h += g8.supports.map(s=>`<span class="tag">${esc(s)}</span>`).join('');
+    h += '</p></div>';
+  }
+  if(cm.umaguide){
+    h += `<details class="panel"><summary style="font-size:15px;color:var(--acc)"><b>Guia técnico completo (uma.guide) — expandir</b></summary><pre>${esc(cm.umaguide.join('\n\n'))}</pre></details>`;
+  }
+  C('#content').innerHTML = h || '<div class="panel"><p class="dim">Sem análise para esta CM.</p></div>';
+}
+
+/* ================== bootstrap ================== */
+function setCM(n){ CM=n; render(); }
+function setStyle(n){ STYLE=n; render(); }
+function setTab(t){ TAB=t; for(const b of document.querySelectorAll('.tab')) b.classList.toggle('sel', b.dataset.t===t); render(); }
+
+fetch('data.json').then(r=>r.json()).then(d=>{
+  DATA = d;
+  C('#cmnav').innerHTML = DATA.cms.map(cm=>`<button class="cmbtn${cm.id===CM?' sel':''}" onclick="setCM(${cm.id})">${cm.id}</button>`).join('');
+  C('#tabs').innerHTML = [
+    ['pista','Pista'],['metas','Metas'],['chars','Personagens'],['skills','Skills'],['analise','Análise'],
+  ].map(([id,label])=>`<button class="tab${id===TAB?' sel':''}" data-t="${id}" onclick="setTab('${id}')">${label}</button>`).join('');
+  render();
+});
+</script>
+</body>
+</html>
