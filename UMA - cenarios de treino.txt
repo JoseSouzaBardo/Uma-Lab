@@ -1,0 +1,139 @@
+================================================================================
+BANCO DE DADOS DE CENÁRIOS DE TREINO — UMA MUSUME: PRETTY DERBY (servidor Global)
+Fontes: gametora (dados de cenários + artigos oficiais URA Finale / Unity Cup /
+Trackblazer / Grand Live, atualizados em 07/2026) e uma.guide. Extraído em 21/08/2026.
+
+Os 4 cenários permanentes disponíveis no servidor Global (em ordem de lançamento):
+  1) URA Finale · 2) Unity Cup (Aoharu Hai) · 3) Trackblazer (MANT) · 4) Grand Live.
+
+CONVENÇÕES:
+- "Caps de status": limite que o treino pode atingir por atributo no cenário.
+- "Spark do cenário": fator branco ganho no fim da carreira (chance), efeito em
+  eventos de inspiração (★1/★2/★3 → +10/+20/+30 de cada atributo, salvo indicação).
+- "Personagens-link": personagens cujas support cards têm eventos fortalecidos no
+  cenário (bônus de scenario link).
+- Stats iniciais conforme os dados estruturados da gametora (podem variar com
+  atualizações; confira no jogo antes de planejar metas exatas).
+================================================================================
+
+
+══════════════════════════════════════════════
+URA FINALE (FINAIS URA)
+══════════════════════════════════════════════
+
+Também conhecido como: URA Finals · 新設！URAファイナルズ
+Lançamento: JP 24/02/2021 (lançamento do jogo) · Global 26/06/2025 (lançamento do servidor)
+Atualização relevante no Global: 01/07/2026 (duelos da Happy Meek e valores de treino melhorados; no JP: nov/2022)
+Personagens-link do cenário: Aoi Kiryuin (桐生院葵).
+Stats iniciais da carreira (dados da gametora): Speed 200 · Stamina 200 · Power 200 · Guts 200 · Wit 200
+
+Mecânica central:
+  - Objetivos POR PERSONAGEM (participar/correr/fãs), depois classificatórias → semifinal → final do URA Finale.
+  - Level-up da skill única (eventos fixos): 60k fãs até início/fev ano 3 · 70k fãs até início/abr ano 3 (exige amizade verde com a Akikawa) · 120k fãs até final/dez ano 3. Personagens de dirt (Haru Urara, Smart Falcon): 40k/60k/80k.
+  - Duelos vs. Happy Meek (atualização Global de 01/07/2026): treino com marca laranja "対決"; vitória dá +4 de uncap no stat, +10-25 de stat, +30 SP, +4 de energia máxima e hint de skill "Essence of Racing". 5 vitórias = Happy Meek Lv MAX (versão fortalecida na final).
+  - Eventos de fãs: 50k fãs → hint (início/nov ano 2); 100k fãs → +30 SP (fim ano 2); 240k fãs → +30 SP (fim ano 3).
+
+Spark do cenário: URA Finale → +Speed e +Stamina (★1/★2/★3: +10/+20/+30 de cada)
+Caps de status: 1400 em todos (Speed/Stamina/Power/Guts/Wit).
+
+Dicas:
+  - Cenário mais rápido para farm de herança/fãs (objetivos curtos).
+  - O spark do cenário (URA Finale) é um dos mais desejados para white sparks (Speed+Stamina).
+
+
+══════════════════════════════════════════════
+UNITY CUP (TAÇA UNITY)
+══════════════════════════════════════════════
+
+Também conhecido como: Aoharu Hai · アオハル杯～輝け、チームの絆～
+Lançamento: JP 30/08/2021 · Global 06/11/2025
+Atualização relevante no Global: 01/07/2026 (JP: 20/01/2023) — Spirit Burst extremo, rank S+ de equipe, elite teams, valores de treino ajustados
+Personagens-link do cenário: Taiki Shuttle, Rice Shower, Haru Urara, Matikanefukukitaru e Riko Kashimoto (樫本理子).
+Stats iniciais da carreira (dados da gametora): Speed 100 · Stamina 100 · Power 100 · Guts 100 · Wit 600
+
+Mecânica central:
+  - Foco em CORRIDAS DE EQUIPE: torneio da Unity Cup a cada 6 meses de carreira (5 corridas, estilo Team Trials), contra equipes NPC (Zenith/"First" na final).
+  - Time = support cards do deck (exceto Pals) + 4 personagens da história (Haru Urara, Rice Shower, Matikanefukukitaru, Taiki Shuttle) + membros aleatórios que entram após cada torneio.
+  - Level das instalações de treino NÃO sobe por uso: sobe com o RANK DA EQUIPE (Unity Training + Spirit Burst; Spirit Burst extremo dá hint das skills "Ignited" e reduz falha do treino a 0%).
+  - Objetivos e agenda praticamente iguais ao URA Finale (incluindo as 3 finais no fim da carreira).
+  - Level-up da skill única: mesmo esquema de fãs do URA (60k/70k/120k), MAS sem exigência de amizade com a Akikawa (ausente do cenário).
+  - Rank de liga da equipe: escolher o adversário NPC certo; derrotar equipes fortes dá mais rank. Rank S+ alcançável após a atualização.
+
+Spark do cenário: Unity Cup → +Power e +Wit (★1/★2/★3: +10/+20/+30 de cada)
+Caps de status: 1300 em Speed/Stamina/Power/Guts e 1800 em Wit.
+
+Dicas:
+  - Cenário preferido para "aces" (stats altas) — leva um pouco mais de tempo que o URA.
+  - Wit com cap altíssimo (1800) favorece builds de Wit; equipe forte é essencial para os torneios.
+
+
+══════════════════════════════════════════════
+TRACKBLAZER (MANT — MAKE A NEW TRACK)
+══════════════════════════════════════════════
+
+Também conhecido como: Make a New Track!! · Make a new track!!～クライマックス開幕～
+Lançamento: JP 24/02/2022 · Global 12/03/2026
+Sem atualização de mecânica relevante até 21/08/2026.
+Personagens-link do cenário: NENHUM (sem mecânica de scenario link).
+Stats iniciais da carreira (dados da gametora): Speed 0 · Stamina 700 · Power 0 · Guts 0 · Wit 300
+
+Mecânica central:
+  - Cenário centrado em CORRIDAS: não há objetivos por personagem — o progresso é por GRADE POINTS (成績Pt).
+  - 4 objetivos: 1) Debut; 2) 60 Grade Points; 3) 300 Grade Points; 4) 300 Grade Points. Personagens de dirt: 30/200 em vez de 60/300; personagens só de sprint (ex.: Curren Chan): 200 no 3º objetivo. Pontos de um objetivo NÃO acumulam para o próximo.
+  - Grade Points vêm de corridas conforme o grade (G1 dá mais); posições menores dão proporcionalmente menos.
+  - Shop Coins (moeda especial) também vêm de corridas (100 por 1º lugar) e são gastas na Loja Especial: Artisan/Master Cleat Hammer (+20%/+35% race bonus), Glow Sticks (+50% fãs), etc.
+  - RIVALS: corridas aleatórias com rival "VS" — vencer dá hint de skill da distância/estratégia da corrida.
+  - Final do cenário: TWINKLE STAR CLIMAX.
+
+Spark do cenário: TS Climax Scenario → +Stamina e +Guts (★1/★2/★3: +10/+20/+30 de cada)
+Caps de status (Global): 1200 em todos (os caps elevados do JP — Stamina 1900, Wit 1500 — chegam em atualização futura).
+
+Dicas:
+  - Como não há objetivos fixos, TODAS as corridas ficam disponíveis — ideal para troféus e farm de sparks de corrida G1.
+  - Planeje os Grade Points por objetivo (excedente não carrega).
+
+
+══════════════════════════════════════════════
+GRAND LIVE (NOSSO GRANDE CONCERTO)
+══════════════════════════════════════════════
+
+Também conhecido como: Brighter Together Our Grand Concert · つなげ、照らせ、ひかれ。私たちのグランドライブ
+Lançamento: JP 24/08/2022 · Global 22/07/2026
+Personagens-link do cenário: Silence Suzuka, Agnes Tachyon, Smart Falcon, Mihono Bourbon e Light Hello (ライトハロー, NPC nova).
+Stats iniciais da carreira (dados da gametora): Speed 400 · Stamina 100 · Power 100 · Guts 300 · Wit 100
+
+Mecânica central:
+  - Cenário de IDOL: 4 "Promotional Lives" (shows) a cada 6 meses a partir do fim/dez do ano 1; meta final = Grand Live com "grande sucesso" (大成功).
+  - Nova mecânica de LESSONS (aulas de música) para subir o Hype Level (ライブ期待度) de cada show.
+  - Tokens de performance: Dance, Passion, Vocal, Visual e Mental (cap inicial 200) — obtidos nos treinos junto com stats.
+  - Herança ESPECIAL: fatores azuis dão UNCAPS de status no início da run (★1=+4, ★2=+9, ★3=+16 por fator; máx. +48 com pai 9★) e eventos de inspiração com fatores verdes também dão uncaps (baseados no growth do dono da skill).
+  - Corridas existem, mas com papel reduzido; objetivos tradicionais substituídos pelos shows.
+
+Spark do cenário: Our Grand Concert → +Speed e +Guts (★1/★2/★3: +10/+20/+30 de cada)
+Caps de status: Speed 1600 · Stamina 1300 · Power 1300 · Guts 1500 · Wit 1300.
+
+Dicas:
+  - Caps assimétricos (Speed 1600 / Guts 1500) mudam as metas de status em relação aos outros cenários.
+  - Fatores azuis 9★ valem muito mais aqui (uncaps iniciais).
+
+
+══════════════════════════════════════════════
+TABELA COMPARATIVA
+══════════════════════════════════════════════
+
+Cenário        | Global      | JP          | Fator (spark)      | Caps destacados
+───────────────┼─────────────┼─────────────┼─────────────────────┼────────────────
+URA Finale     | 26/06/2025  | 24/02/2021  | Speed + Stamina     | 1400 em tudo
+Unity Cup      | 06/11/2025  | 30/08/2021  | Power + Wit         | Wit 1800
+Trackblazer    | 12/03/2026  | 24/02/2022  | Stamina + Guts      | 1200 em tudo (Global)
+Grand Live     | 22/07/2026  | 24/08/2022  | Speed + Guts        | Speed 1600, Guts 1500
+
+Notas de analista:
+  - O spark do Trackblazer aparece nos dados da gametora como "TS Climax Scenario"
+    (Climax) — é o fator do cenário MANT (Stamina + Guts).
+  - Caps do Trackblazer no Global ainda são os clássicos 1200 (os caps elevados do
+    JP vêm em atualização futura, segundo o artigo da gametora).
+  - URA e Unity Cup compartilham a estrutura de objetivos por personagem;
+    Trackblazer usa Grade Points e Grand Live usa os Promotional Lives.
+  - Skills "Ignited" (Ignited/Burning Spirit SPD/STA/PWR/GUTS/WIT) vêm dos Spirit
+    Bursts da Unity Cup — ver arquivo de skills (IDs 210xxx).

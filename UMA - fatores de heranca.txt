@@ -1,0 +1,803 @@
+================================================================================
+BANCO DE DADOS DE FATORES DE HERANÇA — UMA MUSUME: PRETTY DERBY
+Fontes: gametora (factors.json + artigo "Uma Musume Legacies") e uma.guide
+(nomes de skills/corridas). Extraído e conferido em 21/08/2026.
+
+TERMINOLOGIA: "spark" (faísca) = "fator" de herança. A cada carreira, a
+personagem gera sparks que serão herdados por quem a usar como legacy (pai/mãe).
+Tipos: AZUL (atributo), ROSA (aptidão), VERDE (skill única), BRANCO (skill,
+corrida G1 ou cenário).
+
+MECÂNICA (resumo do artigo oficial da gametora):
+- 1 spark azul e 1 spark rosa são GARANTIDOS por carreira; verdes e brancos têm
+  condições específicas (seções abaixo).
+- Estrelas dos brancos: ★1 50% · ★2 45% · ★3 5% (chance de ★2/★3 maior com rank SS).
+- Estrelas dos rosas: aleatórias.
+- Bônus inicial (início do treino): stats azuis somados de legacies + sub-legacies;
+  rosas sobem aptidões (até A); verdes garantem a skill única.
+- Inspiração (2x por treino, abr/anos 2 e 3): bônus extras conforme os sparks;
+  compatibilidade (▲/○/◎) afeta as chances.
+- Dica prática do artigo: Stamina e Power são os sparks azuis mais populares;
+  em rosa, prefira os de distância; em branco, o spark do cenário URA Finale.
+================================================================================
+
+
+
+Sparks AZUIS (blue):
+──────────────────────────────────────────────
+
+1 spark azul por carreira, tipo sorteado entre os 5 atributos. Bônus inicial:
+  ★1 = +5 de atributo | ★2 = +12 | ★3 = +21 (por legacy E por sub-legacy; somam).
+
+Chance de estrelas conforme o valor FINAL do atributo no fim da carreira:
+  Menos de 600:      90% ★1 · 10% ★2
+  600 a 1100:        50% ★1 · 45% ★2 · 5% ★3
+  Acima de 1100:     20% ★1 · 70% ★2 · 10% ★3
+
+  Speed     — bônus de Speed no início do treino (+5/+12/+21 conforme estrelas)
+  Stamina   — bônus de Stamina no início do treino (+5/+12/+21 conforme estrelas)
+  Power     — bônus de Power no início do treino (+5/+12/+21 conforme estrelas)
+  Guts      — bônus de Guts no início do treino (+5/+12/+21 conforme estrelas)
+  Wit       — bônus de Wit no início do treino (+5/+12/+21 conforme estrelas)
+
+
+Sparks ROSA (pink):
+──────────────────────────────────────────────
+
+1 spark rosa por carreira, sorteado entre as aptidões que a personagem "gosta"
+(nunca sai uma aptidão com nota G). Estrelas: aleatórias.
+Melhora a aptidão correspondente no início do treino (até A); se sair de novo em
+inspiração, pode subir de A para S.
+
+Categorias: Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+
+Sparks rosa possíveis por personagem (aptidões base ≠ G):
+
+  Special Week           Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Silence Suzuka         Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Tokai Teio             Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Maruzensky             Turf · Dirt · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
+  Fuji Kiseki            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Oguri Cap              Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Gold Ship              Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Vodka                  Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Daiwa Scarlet          Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Taiki Shuttle          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
+  Grass Wonder           Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Hishi Amazon           Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Mejiro McQueen         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  El Condor Pasa         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  T.M. Opera O           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
+  Narita Brian           Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Symboli Rudolf         Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Air Groove             Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Agnes Digital          Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
+  Seiun Sky              Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Tamamo Cross           Turf · Dirt · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Fine Motion            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Biwa Hayahide          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Mayano Top Gun         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Manhattan Cafe         Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Mihono Bourbon         Turf · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
+  Mejiro Ryan            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Hishi Akebono          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
+  Yukino Bijin           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Rice Shower            Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Ines Fujin             Turf · Front Runner · Pace Chaser · Mile · Medium · Long
+  Agnes Tachyon          Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Admire Vega            Turf · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Inari One              Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Winning Ticket         Turf · Pace Chaser · Late Surger · Mile · Medium · Long
+  Air Shakur             Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Eishin Flash           Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Curren Chan            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile
+  Kawakami Princess      Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Gold City              Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Sakura Bakushin O      Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile
+  Seeking the Pearl      Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
+  Sweep Tosho            Turf · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Super Creek            Turf · Front Runner · Pace Chaser · Late Surger · Medium · Long
+  Smart Falcon           Turf · Dirt · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
+  Tosen Jordan           Turf · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
+  Narita Taishin         Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Nishino Flower         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
+  Haru Urara             Dirt · Late Surger · End Closer · Sprint · Mile
+  Bamboo Memory          Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
+  Matikanefukukitaru     Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Meisho Doto            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Mejiro Dober           Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Nice Nature            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  King Halo              Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Matikanetannhauser     Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Mejiro Palmer          Turf · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
+  Satono Diamond         Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
+  Kitasan Black          Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Sakura Chiyono O       Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Mejiro Ardan           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
+  Yaeno Muteki           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
+  Mejiro Bright          Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
+  Copano Rickey          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
+
+
+Sparks VERDES (green):
+──────────────────────────────────────────────
+
+Só existem se a raridade da personagem for ≥ 3★ no início da carreira (garantido
+nesse caso). Concedem a SKILL ÚNICA da skin usada. Sempre obtidos no início do
+treino; se saírem de novo em inspiração, dão desconto na compra da skill.
+
+Spark verde por skin:
+
+  Special Week           [Special Dreamer] → Shooting Star
+  Special Week           [Hopp'n♪Happy Heart] → Shooting Star
+  Special Week           [Ruler of Japan] → Dreams Donned with Pride!
+  Silence Suzuka         [Innocent Silence] → The View from the Lead Is Mine!
+  Tokai Teio             [Peak Joy] → Sky-High Teio Step
+  Tokai Teio             [Beyond the Horizon] → Certain Victory
+  Maruzensky             [Formula R] → Red Shift/LP1211-M
+  Maruzensky             [Hot☆Summer Night] → Red Shift/LP1211-M
+  Fuji Kiseki            [Shooting Star Revue] → Lights of Vaudeville
+  Fuji Kiseki            [Succès Étoilé] → Lights of Vaudeville
+  Oguri Cap              [Starlight Beat] → Triumphant Pulse
+  Oguri Cap              [Ashen Miracle] → Triumphant Pulse
+  Gold Ship              [Red Strife] → Anchors Aweigh!
+  Gold Ship              [RUN! RUIN! LAUNCHER!] → 564 Escapades
+  Vodka                  [Wild Top Gear] → Cut and Drive!
+  Daiwa Scarlet          [Peak Blue] → Resplendent Red Ace
+  Taiki Shuttle          [Wild Frontier] → Shooting for Victory!
+  Taiki Shuttle          [Bubblegum☆Memories] → Joyful Voyage!
+  Grass Wonder           [Stone-Piercing Blue] → Where There's a Will, There's a Way
+  Grass Wonder           [Saintly Jade Cleric] → Where There's a Will, There's a Way
+  Hishi Amazon           [Azure Amazon] → You and Me! One-on-One!
+  Mejiro McQueen         [Frontline Elegance] → The Duty of Dignity Calls
+  Mejiro McQueen         [End of the Skies] → The Duty of Dignity Calls
+  Mejiro McQueen         [Fair Lady of the Waves] → Legacy of the Strong
+  El Condor Pasa         [El☆Número 1] → Victoria por plancha ☆
+  El Condor Pasa         [Kukulkan Warrior] → Condor's Fury
+  T.M. Opera O           [O Sole Suo!] → This Dance Is for Vittoria!
+  T.M. Opera O           [New Year, Same Radiance!] → This Dance Is for Vittoria!
+  Narita Brian           [Maverick] → Shadow Break
+  Symboli Rudolf         [Emperor's Path] → Behold Thine Emperor's Divine Might
+  Symboli Rudolf         [Archer by Moonlight] → Arrows Whistle, Shadows Disperse
+  Air Groove             [Empress Road] → Blazing Pride
+  Air Groove             [Quercus Civilis] → Blazing Pride
+  Agnes Digital          [Full-Color Fangirling] → OMG! (ﾟ∀ﾟ)  The Final Sprint! ☆
+  Agnes Digital          [Fanatic♡Jiangshi] → OMG! (ﾟ∀ﾟ)  The Final Sprint! ☆
+  Seiun Sky              [Reeling in the Big One] → Angling and Scheming
+  Seiun Sky              [Soirée des Chatons] → Break It Down!
+  Tamamo Cross           [Fast as Lightning] → White Lightning Comin' Through!
+  Fine Motion            [Noble Seamair] → Fairy Tale
+  Fine Motion            [Titania] → Best Day Ever
+  Biwa Hayahide          [pf. Winning Equation...] → ∴win Q.E.D.
+  Biwa Hayahide          [Rouge Caroler] → Presents from X
+  Mayano Top Gun         [Scramble☆Zone] → Flashy☆Landing
+  Mayano Top Gun         [Sunlight Bouquet] → Flowery☆Maneuver
+  Manhattan Cafe         [Creeping Shadow] → Chasing After You
+  Mihono Bourbon         [MB-19890425] → G00 1st. F∞;
+  Mihono Bourbon         [CODE: ICING] → Operation Cacao
+  Mejiro Ryan            [Down the Line] → Let's Pump Some Iron!
+  Hishi Akebono          [Buono ☆ Alla Moda] → YUMMY☆SPEED!
+  Yukino Bijin           [Darl'n Snowflake] → Snow Bright, Snow Flight
+  Rice Shower            [Rosy Dreams] → Blue Rose Closer
+  Rice Shower            [Vampire Makeover!] → Every Rose Has Its Fangs
+  Ines Fujin             [Always Electrifying] → All Charged! It's Go Time!
+  Agnes Tachyon          [tach-nology] → U=ma2
+  Admire Vega            [Starry Nocturne] → Shooting Star of Dioskouroi
+  Inari One              [Edomurasaki] → Now We're Cruisin'!
+  Winning Ticket         [Get to Winning!] → Our Ticket to Win!
+  Winning Ticket         [Dream Deliverer] → Ticket to Your Dreams!
+  Air Shakur             [unsigned] → trigger:BEAT
+  Eishin Flash           [Meisterschaft] → Schwarzes Schwert
+  Eishin Flash           [Precise Chocolatier] → Guten Appetit ♪
+  Curren Chan            [Fille Éclair] → #LookatCurren
+  Curren Chan            [Ma Chérie of the New Moon] → One True Color
+  Kawakami Princess      [Princess of Pink] → A Princess Must Seize Victory!
+  Gold City              [Authentic / 1928] → KEEP IT REAL.
+  Gold City              [Autumn Cosmos] → Dancing in the Leaves
+  Sakura Bakushin O      [Blossom in Learning] → Genius x Bakushin = Victory
+  Seeking the Pearl      [Rocket☆Star] → I'm Possible!
+  Sweep Tosho            [Platanus Witch] → Victory belongs to me—Strelitzia! ☆
+  Super Creek            [Murmuring Stream] → Pure Heart
+  Super Creek            [Chiffon-Wrapped Mummy] → Give Mummy a Hug ♡
+  Smart Falcon           [LOVE☆4EVER] → SPARKLY☆STARDOM
+  Smart Falcon           [Twilight Triumph] → α-star*
+  Tosen Jordan           [Jokester ☆ Vibes] → Pop & Polish
+  Narita Taishin         [Nevertheless] → Nemesis
+  Narita Taishin         [Difference Engineer] → Hephaestus
+  Nishino Flower         [Layered Petals] → Budding Blossom
+  Haru Urara             [Bestest Prize ♪] → Super-Duper Climax
+  Haru Urara             [New Year ♪ New Urara!] → 114th Time's the Charm
+  Bamboo Memory          [Iron Ambition] → Red-Hot Discipline!
+  Matikanefukukitaru     [Rising☆Fortune] → I See Victory in My Future!
+  Matikanefukukitaru     [Lucky Tidings] → Bountiful Harvest
+  Meisho Doto            [Turbulent Blue] → I Never Goof Up!
+  Meisho Doto            [Dot-o'-Lantern] → I Never Goof Up!
+  Mejiro Dober           [Off the Line] → Moving Past, and Beyond
+  Mejiro Dober           [Sapphire Sojourn] → Moving Past, and Beyond
+  Nice Nature            [Poinsettia Ribbon] → Just a Little Farther!
+  Nice Nature            [Run & Win] → Go☆Go☆Goal!
+  King Halo              [King of Emeralds] → Prideful King
+  King Halo              [Cheerleader in Noble White] → Louder! Tracen Cheer!
+  Matikanetannhauser     [Clippety-Tippety-Clop] → Go, Go, Mun!
+  Mejiro Palmer          [Line Breakthrough] → Keep Pushing Ahead
+  Satono Diamond         [Natural Brilliance] → Eternal Encompassing Shine
+  Kitasan Black          [Gilded Shrine to Glory] → Victory Cheer!
+  Sakura Chiyono O       [Strength in Full Bloom] → Ambition to Surpass the Sakura
+  Mejiro Ardan           [Crystalline] → A Lifelong Dream, A Moment's Flight
+  Yaeno Muteki           [Blazed Head, Covered Fists] → Peerless Dance of Flowering Flames
+  Mejiro Bright          [Brunissage Line] → Lovely Spring Breeze
+  Copano Rickey          [Eightfold☆Fortune] → Luck Runs My Way
+
+
+Sparks BRANCOS (white) — de CORRIDA:
+──────────────────────────────────────────────
+
+Chance de 20% por corrida G1 VENCIDA na carreira. Cada spark dá 2 efeitos
+(atributo + dica de skill, ou 2 atributos). Valor por estrela: 3/6/9;
+dica de skill no nível 1. (Star chances: ★1 50% · ★2 45% · ★3 5%.)
+
+  February Stakes                    Power +3/+6/+9 (★1/★2/★3) + dica de skill Winter Runner ○ (Nv 1)
+      Tokyo, 1600 m, Mile
+  Takamatsunomiya Kinen              Speed +3/+6/+9 (★1/★2/★3) + dica de skill Chukyo Racecourse ○ (Nv 1)
+      Chukyo, 1200 m, Short
+  Osaka Hai                          Guts +3/+6/+9 (★1/★2/★3) + dica de skill Standard Distance ○ (Nv 1)
+      Hanshin, 2000 m, Middle
+  Oka Sho                            Guts +3/+6/+9 (★1/★2/★3) + dica de skill Hanshin Racecourse ○ (Nv 1)
+      Hanshin, 1600 m, Mile
+  Satsuki Sho                        Power +3/+6/+9 (★1/★2/★3) + dica de skill Nakayama Racecourse ○ (Nv 1)
+      Nakayama, 2000 m, Middle
+  Tenno Sho (Spring)                 Stamina +3/+6/+9 (★1/★2/★3) + dica de skill Spring Runner ○ (Nv 1)
+      Kyoto, 3200 m, Long
+  NHK Mile Cup                       Speed +3/+6/+9 (★1/★2/★3) + Power +3/+6/+9 (★1/★2/★3)
+      Tokyo, 1600 m, Mile
+  Victoria Mile                      Speed +3/+6/+9 (★1/★2/★3) + Power +3/+6/+9 (★1/★2/★3)
+      Tokyo, 1600 m, Mile
+  Japanese Oaks                      Stamina +3/+6/+9 (★1/★2/★3) + dica de skill Tokyo Racecourse ○ (Nv 1)
+      Tokyo, 2400 m, Middle
+  Tokyo Yushun (Japanese Derby)      Guts +3/+6/+9 (★1/★2/★3) + dica de skill Tokyo Racecourse ○ (Nv 1)
+      Tokyo, 2400 m, Middle
+  Yasuda Kinen                       Speed +3/+6/+9 (★1/★2/★3) + dica de skill Tokyo Racecourse ○ (Nv 1)
+      Tokyo, 1600 m, Mile
+  Takarazuka Kinen                   Guts +3/+6/+9 (★1/★2/★3) + dica de skill Summer Runner ○ (Nv 1)
+      Hanshin, 2200 m, Middle
+  Sprinters Stakes                   Speed +3/+6/+9 (★1/★2/★3) + dica de skill Standard Distance ○ (Nv 1)
+      Nakayama, 1200 m, Short
+  Shuka Sho                          Wit +3/+6/+9 (★1/★2/★3) + dica de skill Kyoto Racecourse ○ (Nv 1)
+      Kyoto, 2000 m, Middle
+  Kikuka Sho                         Stamina +3/+6/+9 (★1/★2/★3) + dica de skill Kyoto Racecourse ○ (Nv 1)
+      Kyoto, 3000 m, Long
+  Tenno Sho (Autumn)                 Speed +3/+6/+9 (★1/★2/★3) + dica de skill Fall Runner ○ (Nv 1)
+      Tokyo, 2000 m, Middle
+  Queen Elizabeth II Cup             Stamina +3/+6/+9 (★1/★2/★3) + dica de skill Non-Standard Distance ○ (Nv 1)
+      Kyoto, 2200 m, Middle
+  Mile Championship                  Speed +3/+6/+9 (★1/★2/★3) + dica de skill Standard Distance ○ (Nv 1)
+      Kyoto, 1600 m, Mile
+  Japan Cup                          Stamina +3/+6/+9 (★1/★2/★3) + dica de skill Tokyo Racecourse ○ (Nv 1)
+      Tokyo, 2400 m, Middle
+  Champions Cup                      Power +3/+6/+9 (★1/★2/★3) + dica de skill Chukyo Racecourse ○ (Nv 1)
+      Chukyo, 1800 m, Mile
+  Hanshin Juvenile Fillies           Speed +3/+6/+9 (★1/★2/★3) + Power +3/+6/+9 (★1/★2/★3)
+      Hanshin, 1600 m, Mile
+  Asahi Hai Futurity Stakes          Speed +3/+6/+9 (★1/★2/★3) + Guts +3/+6/+9 (★1/★2/★3)
+      Hanshin, 1600 m, Mile
+  Arima Kinen                        Guts +3/+6/+9 (★1/★2/★3) + dica de skill Nakayama Racecourse ○ (Nv 1)
+      Nakayama, 2500 m, Long
+  Hopeful Stakes                     Speed +3/+6/+9 (★1/★2/★3) + Stamina +3/+6/+9 (★1/★2/★3)
+      Nakayama, 2000 m, Middle
+  Teio Sho                           Power +3/+6/+9 (★1/★2/★3) + dica de skill Oi Racecourse ○ (Nv 1)
+      Oi, 2000 m, Middle
+  Japan Dirt Derby                   Power +3/+6/+9 (★1/★2/★3) + dica de skill Oi Racecourse ○ (Nv 1)
+      Oi, 2000 m, Middle
+  JBC Ladies’ Classic                Speed +3/+6/+9 (★1/★2/★3) + Guts +3/+6/+9 (★1/★2/★3)
+      Oi, 1800 m, Mile
+  JBC Sprint                         Power +3/+6/+9 (★1/★2/★3) + Guts +3/+6/+9 (★1/★2/★3)
+      Oi, 1200 m, Short
+  JBC Classic                        Stamina +3/+6/+9 (★1/★2/★3) + Guts +3/+6/+9 (★1/★2/★3)
+      Oi, 2000 m, Middle
+  Tokyo Daishoten                    Power +3/+6/+9 (★1/★2/★3) + dica de skill Oi Racecourse ○ (Nv 1)
+      Oi, 2000 m, Middle
+  Mile Championship Nambu Hai        Wit +3/+6/+9 (★1/★2/★3) + dica de skill Morioka Racecourse ○ (Nv 1)
+      Morioka, 1600 m, Mile
+  Kashiwa Kinen                      Speed +3/+6/+9 (★1/★2/★3) + dica de skill Funabashi Racecourse ○ (Nv 1)
+      Funabashi, 1600 m, Mile
+  Zen-Nippon Junior Yushun           Power +3/+6/+9 (★1/★2/★3) + dica de skill Night Races ○ (Nv 1)
+      Kawasaki, 1600 m, Mile
+  Kawasaki Kinen                     Wit +3/+6/+9 (★1/★2/★3) + dica de skill Kawasaki Racecourse ○ (Nv 1)
+      Kawasaki, 2100 m, Middle
+  Prix de l'Arc de Triomphe          Stamina +3/+6/+9 (★1/★2/★3) + dica de skill ロンシャンレース場○ [JP, sem nome EN] (Nv 1)
+      Longchamp, 2400 m, Middle
+  アメリカンオークス_ストーリーレース用                Wit +3/+6/+9 (★1/★2/★3) + dica de skill サンタアニタパークレース場○ [JP, sem nome EN] (Nv 1)
+      (corrida de história — não listada no uma.guide)
+  Hanshin Umamusume Stakes (Story Race Use) Wit +3/+6/+9 (★1/★2/★3) + dica de skill デルマーレース場○ [JP, sem nome EN] (Nv 1)
+      (corrida de história — não listada no uma.guide)
+
+
+Sparks BRANCOS (white) — de CENÁRIO:
+──────────────────────────────────────────────
+
+Spark da própria carreira (final do cenário). Valor por estrela: 10/20/30 nos
+cenários clássicos; outros cenários usam valores próprios (listados abaixo).
+
+  URA Finale                       Speed +10/20/30 + Stamina +10/20/30
+  Unity Cup                        Power +10/20/30 + Wit +10/20/30
+  TS Climax Scenario               Stamina +10/20/30 + Guts +10/20/30
+  Our Grand Concert                Speed +10/20/30 + Guts +10/20/30
+  Grandmasters                     Speed +10/20/30 + Power +10/20/30
+  L'Arcシナリオ                        Stamina +10/20/30 + Power +10/20/30
+  L'Arc・海外洋芝適性                     Power +1/4/7/10/13
+  L'Arc・ロンシャン適性                    Recurso especial do cenário +1/4/7/10/13
+  L'Arc・生活リズム                      Guts +1/4/7/10/13
+  L'Arc・栄養管理                       Stamina +1/4/7/10/13
+  L'Arc・フランス語力                     Wit +1/4/7/10/13
+  L'Arc・海外遠征                       Speed +1/4/7/10/13
+  L'Arc・強心臓                        Stamina +3/6/9 + Guts +3/6/9
+  L'Arc・精神力                        Power +3/6/9 + Wit +3/6/9
+  L'Arcの希望                         Speed +3/6/9 + undefined +200332/200332/200332
+  凱旋門賞連覇の夢                         Recurso especial do cenário +3/6/9 + undefined +202172/202172/202172
+  U.A.F.シナリオ・スフィア                  Speed +5/10/15 + Recurso especial do cenário +5/10/15
+  U.A.F.シナリオ・ファイト                  Power +5/10/15 + Recurso especial do cenário +5/10/15
+  U.A.F.シナリオ・フリー                   Guts +5/10/15 + Recurso especial do cenário +5/10/15
+  豊食祭シナリオ・にんじん                     Speed +3/6/9 + Recurso especial do cenário +3/6/9
+  豊食祭シナリオ・にんにく                     Stamina +3/6/9 + Recurso especial do cenário +3/6/9
+  豊食祭シナリオ・じゃがいも                    Power +3/6/9 + Recurso especial do cenário +3/6/9
+  豊食祭シナリオ・唐辛子                      Guts +3/6/9 + Recurso especial do cenário +3/6/9
+  豊食祭シナリオ・いちご                      Wit +3/6/9 + Recurso especial do cenário +3/6/9
+  メカウマ娘シナリオ・SPD                    Speed +4/8/12 + Recurso especial do cenário +4/8/12
+  メカウマ娘シナリオ・STM                    Stamina +4/8/12 + Recurso especial do cenário +4/8/12
+  メカウマ娘シナリオ・POW                    Power +4/8/12 + Recurso especial do cenário +4/8/12
+  メカウマ娘シナリオ・GUTS                   Guts +4/8/12 + Recurso especial do cenário +4/8/12
+  メカウマ娘シナリオ・WIT                    Wit +4/8/12 + Recurso especial do cenário +4/8/12
+  Legendsシナリオ                      Power +12/24/36 + Guts +12/24/36
+  無人島シナリオ                          Stamina +12/24/36 + Wit +12/24/36
+  温泉郷シナリオ                          Guts +12/24/36 + Wit +12/24/36
+  Dreamsシナリオ                       Speed +12/24/36 + Guts +12/24/36
+  トレセン軒シナリオ                        Power +12/24/36 + Guts +12/24/36
+
+
+Sparks BRANCOS (white) — de SKILL:
+──────────────────────────────────────────────
+
+Chance no fim da carreira por skill normal aprendida: 20% (25% skills ◎, 40%
+skills douradas). Em inspiração, liberam a skill com desconto conforme estrelas.
+
+Pool de skills que podem virar spark branco (439):
+
+  20001  Right-Handed ○ (200012)
+  20002  Left-Handed ○ (200022)
+  20003  Tokyo Racecourse ○ (200032)
+  20004  Nakayama Racecourse ○ (200042)
+  20005  Hanshin Racecourse ○ (200052)
+  20006  Kyoto Racecourse ○ (200062)
+  20007  Chukyo Racecourse ○ (200072)
+  20008  Sapporo Racecourse ○ (200082)
+  20009  Hakodate Racecourse ○ (200092)
+  20010  Fukushima Racecourse ○ (200102)
+  20011  Niigata Racecourse ○ (200112)
+  20012  Kokura Racecourse ○ (200122)
+  20013  Standard Distance ○ (200132)
+  20014  Non-Standard Distance ○ (200142)
+  20015  Firm Conditions ○ (200152)
+  20016  Wet Conditions ○ (200162)
+  20017  Spring Runner ○ (200172)
+  20018  Summer Runner ○ (200182)
+  20019  Fall Runner ○ (200192)
+  20020  Winter Runner ○ (200202)
+  20021  Sunny Days ○ (200212)
+  20022  Cloudy Days ○ (200222)
+  20023  Rainy Days ○ (200232)
+  20024  Snowy Days ○ (200242)
+  20025  Inner Post Proficiency ○ (200252)
+  20026  Outer Post Proficiency ○ (200262)
+  20027  Maverick ○ (200272)
+  20028  Competitive Spirit ○ (200282)
+  20029  Target in Sight ○ (200292)
+  20030  Long Shot ○ (200302)
+  20033  Corner Adept ○ (200332)
+  20034  Corner Acceleration ○ (200342)
+  20035  Corner Recovery ○ (200352)
+  20036  Straightaway Adept (200362)
+  20037  Straightaway Acceleration (200372)
+  20038  Straightaway Recovery (200382)
+  20043  Focus (200432)
+  20044  Lay Low (200442)
+  20045  Prudent Positioning (200452)
+  20046  Ramp Up (200462)
+  20047  Pace Strategy (200472)
+  20048  Calm in a Crowd (200482)
+  20049  Nimble Navigator (200492)
+  20050  Go with the Flow (200502)
+  20051  Homestretch Haste (200512)
+  20053  Early Lead (200532)
+  20054  Fast-Paced (200542)
+  20055  Final Push (200552)
+  20056  Stamina to Spare (200562)
+  20057  Preferred Position (200572)
+  20058  Prepared to Pass (200582)
+  20059  Position Pilfer (200592)
+  20060  Slick Surge (200602)
+  20061  Outer Swell (200612)
+  20062  Standing By (200622)
+  20063  Masterful Gambit (200632)
+  20064  Straightaway Spurt (200642)
+  20065  Sprinting Gear (200652)
+  20066  Wait-and-See (200662)
+  20067  Gap Closer (200672)
+  20068  Productive Plan (200682)
+  20069  Watchful Eye (200692)
+  20070  Updrafters (200702)
+  20071  Rosy Outlook (200712)
+  20072  Up-Tempo (200722)
+  20073  Steadfast (200732)
+  20074  Deep Breaths (200742)
+  20075  Inside Scoop (200752)
+  20076  Extra Tank (200762)
+  20077  Trick (Front) (200771)
+  20078  Trick (Rear) (200781)
+  20079  Frenzied Front Runners (200791)
+  20080  Frenzied Pace Chasers (200801)
+  20081  Frenzied Late Surgers (200811)
+  20082  Frenzied End Closers (200821)
+  20083  Subdued Front Runners (200831)
+  20084  Flustered Front Runners (200841)
+  20085  Hesitant Front Runners (200851)
+  20086  Subdued Pace Chasers (200861)
+  20087  Flustered Pace Chasers (200871)
+  20088  Hesitant Pace Chasers (200881)
+  20089  Subdued Late Surgers (200891)
+  20090  Flustered Late Surgers (200901)
+  20091  Hesitant Late Surgers (200911)
+  20092  Subdued End Closers (200921)
+  20093  Flustered End Closers (200931)
+  20094  Hesitant End Closers (200941)
+  20095  Oi Racecourse ○ (200952)
+  20096  Sprint Straightaways ○ (200962)
+  20097  Sprint Corners ○ (200972)
+  20098  Huge Lead (200982)
+  20099  Countermeasure (200992)
+  20100  Meticulous Measures (201002)
+  20101  Intimidate (201012)
+  20102  Stop Right There! (201022)
+  20103  Mile Straightaways ○ (201032)
+  20104  Mile Corners ○ (201042)
+  20105  Shifting Gears (201052)
+  20106  Acceleration (201062)
+  20107  Unyielding Spirit (201072)
+  20108  Speed Eater (201082)
+  20109  Opening Gambit (201092)
+  20110  Medium Straightaways ○ (201102)
+  20111  Medium Corners ○ (201112)
+  20112  Hawkeye (201122)
+  20113  Thunderbolt Step (201132)
+  20114  Soft Step (201142)
+  20115  Tether (201152)
+  20116  Murmur (201162)
+  20117  Long Straightaways ○ (201172)
+  20118  Long Corners ○ (201182)
+  20119  Keeping the Lead (201192)
+  20120  Passing Pro (201202)
+  20121  Pressure (201212)
+  20122  Stamina Eater (201222)
+  20123  Smoke Screen (201232)
+  20124  Front Runner Straightaways ○ (201242)
+  20125  Front Runner Corners ○ (201252)
+  20126  Dodging Danger (201262)
+  20127  Leader's Pride (201272)
+  20128  Moxie (201282)
+  20129  Second Wind (201292)
+  20130  Restart (201302)
+  20131  Pace Chaser Straightaways ○ (201312)
+  20132  Pace Chaser Corners ○ (201322)
+  20133  Shrewd Step (201332)
+  20134  Straight Descent (201342)
+  20135  Hydrate (201352)
+  20136  Tactical Tweak (201362)
+  20137  Disorient (201372)
+  20138  Late Surger Straightaways ○ (201382)
+  20139  Late Surger Corners ○ (201392)
+  20140  Fighter (201402)
+  20141  1,500,000 CC (201412)
+  20142  A Small Breather (201422)
+  20143  Studious (201432)
+  20144  Sharp Gaze (201442)
+  20145  End Closer Straightaways ○ (201452)
+  20146  End Closer Corners ○ (201462)
+  20147  I Can See Right Through You (201472)
+  20148  After-School Stroll (201482)
+  20149  Levelheaded (201492)
+  20150  Strategist (201502)
+  20151  Intense Gaze (201512)
+  20152  Front Runner Savvy ○ (201522)
+  20153  Pace Chaser Savvy ○ (201532)
+  20154  Late Surger Savvy ○ (201542)
+  20155  End Closer Savvy ○ (201552)
+  20156  Lucky Seven (201562)
+  20157  Triple 7s (201571)
+  20158  Highlander (201581)
+  20159  Uma Stan (201591)
+  20160  Groundwork (201601)
+  20161  Tail Held High (201611)
+  20162  Shake It Out (201621)
+  20163  Sympathy (201631)
+  20164  Lone Wolf (201641)
+  20165  Slipstream (201651)
+  20166  Playtime's Over! (201661)
+  20167  Top Pick (201672)
+  20168  Forward, March! (201682)
+  20169  Be Still (201692)
+  20170  All I've Got (201702)
+  20190  Head-On (201902)
+  20200  Familiar Ground (202002)
+  20201  Feature Act (202012)
+  20202  Early Start (202022)
+  20203  Risky Business (202032)
+  20204  Light as a Feather (202042)
+  20207  Free-Spirited (202072)
+  20208  Take the Chance (202082)
+  20209  Fighting Spirit (202092)
+  20210  Eager (202102)
+  20211  Pumped (202112)
+  20212  Fearless (202122)
+  20213  With All My Soul (202132)
+  20215  Full Throttle (202152)
+  20216  Restraint (202161)
+  20217  Downhill Speedster (202172)
+  20219  All Set (202192)
+  20220  Kawasaki Racecourse ○ (202202)
+  20221  Funabashi Racecourse ○ (202212)
+  20222  Morioka Racecourse ○ (202222)
+  20223  Night Races ○ (202232)
+  20224  Sharp Turns ○ (202242)
+  20225  Collaborative Graded Races ○ (202252)
+  20226  Sunny Sign (202262)
+  20227  Comeback (202272)
+  20228  Full Tilt (202282)
+  20229  Rational (202292)
+  20230  Down in the Dirt ○ (202302)
+  20231  Got the Spirit! (202312)
+  20232  Rapid Gain (202322)
+  20233  Solid Steps (202332)
+  20234  Muddy ○ (202343)
+  20235  Dust Cloud (202352)
+  20236  Oppression (202362)
+  20237  On the Attack (202372)
+  20238  Breakin' Out (202382)
+  20239  Mad Dash (202392)
+  20240  Leap Forward (202402)
+  20241  Aspire (202412)
+  20242  Scramble (202422)
+  20243  Steady Gait (202432)
+  20244  やまっけ [JP, sem nome EN] (202442)
+  20245  Pedal to the Metal (202452)
+  20246  Firm Resolve (202462)
+  20247  Latch On (202472)
+  20248  My True Strength (202482)
+  20249  切れ味 [JP, sem nome EN] (202492)
+  20250  No Looking Back (202502)
+  20252  型破り [JP, sem nome EN] (202522)
+  20253  しとやかな足取り [JP, sem nome EN] (202532)
+  20254  プレッシャー [JP, sem nome EN] (202542)
+  20255  快速 [JP, sem nome EN] (202552)
+  20256  ロックオン [JP, sem nome EN] (202562)
+  20258  脇目も振らず [JP, sem nome EN] (202582)
+  20259  大急ぎ [JP, sem nome EN] (202592)
+  20260  イグニッション [JP, sem nome EN] (202602)
+  20261  溢れる情熱 [JP, sem nome EN] (202612)
+  20262  進出開始 [JP, sem nome EN] (202622)
+  20264  一歩から [JP, sem nome EN] (202642)
+  20265  自信家 [JP, sem nome EN] (202652)
+  20266  込み上げる熱 [JP, sem nome EN] (202662)
+  20267  心弾んで [JP, sem nome EN] (202672)
+  20268  バイブス上昇 [JP, sem nome EN] (202682)
+  20269  一番乗り [JP, sem nome EN] (202692)
+  20270  探求心 [JP, sem nome EN] (202702)
+  20271  会心の一歩 [JP, sem nome EN] (202712)
+  20272  折れない心 [JP, sem nome EN] (202722)
+  20273  ロンシャンレース場○ [JP, sem nome EN] (202732)
+  20274  品行方正 [JP, sem nome EN] (202742)
+  20275  ひたむき前進 [JP, sem nome EN] (202752)
+  20276  勝利に向かって [JP, sem nome EN] (202762)
+  20277  狙いを定めて [JP, sem nome EN] (202772)
+  20279  中盤巧者 [JP, sem nome EN] (202792)
+  20280  序盤巧者 [JP, sem nome EN] (202802)
+  20281  大詰め [JP, sem nome EN] (202812)
+  20282  迷いなし [JP, sem nome EN] (202822)
+  20283  二段構え [JP, sem nome EN] (202832)
+  20284  砂払い [JP, sem nome EN] (202842)
+  20285  ごぼう抜き [JP, sem nome EN] (202852)
+  20286  急発進 [JP, sem nome EN] (202862)
+  20287  渾身の足取り [JP, sem nome EN] (202872)
+  20288  たぎる血潮 [JP, sem nome EN] (202882)
+  20289  不動の心 [JP, sem nome EN] (202892)
+  20290  推力十分 [JP, sem nome EN] (202902)
+  20291  切り崩し [JP, sem nome EN] (202912)
+  20292  惜しみなし [JP, sem nome EN] (202922)
+  20293  影踏み [JP, sem nome EN] (202932)
+  20294  鬼気迫って [JP, sem nome EN] (202942)
+  20295  パイオニア [JP, sem nome EN] (202952)
+  20296  滾る想い [JP, sem nome EN] (202962)
+  20297  好機を捉えて [JP, sem nome EN] (202972)
+  20298  飛躍の予感 [JP, sem nome EN] (202982)
+  20299  直線コース○ [JP, sem nome EN] (202992)
+  20300  手練手管 [JP, sem nome EN] (203002)
+  20301  瞬発力 [JP, sem nome EN] (203012)
+  20302  風切り [JP, sem nome EN] (203022)
+  20303  素直な一歩 [JP, sem nome EN] (203032)
+  20304  胸の高鳴り [JP, sem nome EN] (203042)
+  20305  揺るがぬ信念 [JP, sem nome EN] (203052)
+  20306  無二 [JP, sem nome EN] (203061)
+  20307  無三 [JP, sem nome EN] (203071)
+  20308  力の限り [JP, sem nome EN] (203082)
+  20309  ダート直線○ [JP, sem nome EN] (203093)
+  20310  ダートコーナー○ [JP, sem nome EN] (203103)
+  20311  正面突破 [JP, sem nome EN] (203112)
+  20312  さらなる高みへ [JP, sem nome EN] (203122)
+  20313  決定打 [JP, sem nome EN] (203132)
+  20314  克己心 [JP, sem nome EN] (203142)
+  20315  むきだしの情熱 [JP, sem nome EN] (203152)
+  20316  後先恐れず [JP, sem nome EN] (203162)
+  20317  切り替え上手 [JP, sem nome EN] (203172)
+  20318  裏腹なキモチ [JP, sem nome EN] (203182)
+  20320  目にも留まらず [JP, sem nome EN] (203202)
+  20321  気の向くままに [JP, sem nome EN] (203212)
+  20322  アグレッシブ [JP, sem nome EN] (203222)
+  20323  逸る足取り [JP, sem nome EN] (203232)
+  20324  端緒 [JP, sem nome EN] (203242)
+  20325  急襲 [JP, sem nome EN] (203252)
+  20326  覚悟を決めて [JP, sem nome EN] (203262)
+  20327  切り込み隊長 [JP, sem nome EN] (203272)
+  20330  熱狂的 [JP, sem nome EN] (203302)
+  20331  光差す方へ [JP, sem nome EN] (203312)
+  20332  駆け降り [JP, sem nome EN] (203322)
+  20333  下準備 [JP, sem nome EN] (203332)
+  20334  這い寄る足音 [JP, sem nome EN] (203342)
+  20335  ハイピッチ [JP, sem nome EN] (203352)
+  20336  一歩ずつ前へ [JP, sem nome EN] (203362)
+  20337  切り返し [JP, sem nome EN] (203372)
+  20338  逃げ切り体勢 [JP, sem nome EN] (203382)
+  20339  破天荒 [JP, sem nome EN] (203392)
+  20340  追い風に乗って [JP, sem nome EN] (203402)
+  20341  地道に重ねて [JP, sem nome EN] (203412)
+  20342  己を信じて [JP, sem nome EN] (203422)
+  20343  躍動 [JP, sem nome EN] (203432)
+  20344  憧れを越えて [JP, sem nome EN] (203442)
+  20345  ターニングポイント [JP, sem nome EN] (203452)
+  20346  抜きん出る一歩 [JP, sem nome EN] (203462)
+  20347  みなぎる闘志 [JP, sem nome EN] (203472)
+  20348  譲れぬ一歩 [JP, sem nome EN] (203482)
+  20349  火花散らして [JP, sem nome EN] (203492)
+  20350  比類なき [JP, sem nome EN] (203502)
+  20351  覇気十分 [JP, sem nome EN] (203512)
+  20352  垣間見た光 [JP, sem nome EN] (203522)
+  20353  登竜門 [JP, sem nome EN] (203532)
+  20354  足任せ [JP, sem nome EN] (203542)
+  20355  ステップアップ [JP, sem nome EN] (203552)
+  20356  奮闘 [JP, sem nome EN] (203562)
+  20357  足がかり [JP, sem nome EN] (203572)
+  20358  捕捉 [JP, sem nome EN] (203582)
+  20359  押し通る！ [JP, sem nome EN] (203592)
+  20360  砂蹴り [JP, sem nome EN] (203602)
+  20361  精進 [JP, sem nome EN] (203612)
+  20362  真っ直ぐな走り [JP, sem nome EN] (203622)
+  20363  夢への挑戦 [JP, sem nome EN] (203632)
+  20364  光明 [JP, sem nome EN] (203642)
+  20365  活路を拓く！ [JP, sem nome EN] (203652)
+  20366  健脚 [JP, sem nome EN] (203662)
+  20367  静かな熱 [JP, sem nome EN] (203672)
+  20368  不断の鍛錬 [JP, sem nome EN] (203682)
+  20370  思い切り [JP, sem nome EN] (203702)
+  20371  勇気の一歩 [JP, sem nome EN] (203712)
+  20373  張り切り [JP, sem nome EN] (203732)
+  20374  間隙を突いて [JP, sem nome EN] (203742)
+  20375  影を追って [JP, sem nome EN] (203752)
+  20376  追駆 [JP, sem nome EN] (203762)
+  20377  臆せぬ心 [JP, sem nome EN] (203772)
+  20378  衝動 [JP, sem nome EN] (203781)
+  20379  好戦的 [JP, sem nome EN] (203792)
+  20380  想い焦がれて [JP, sem nome EN] (203802)
+  20381  精神力 [JP, sem nome EN] (203812)
+  20382  内なる獣 [JP, sem nome EN] (203822)
+  20383  頂を目指して [JP, sem nome EN] (203832)
+  20384  優等生 [JP, sem nome EN] (203842)
+  20385  心惹かれて [JP, sem nome EN] (203852)
+  20386  気ままな足取り [JP, sem nome EN] (203862)
+  20387  弾ける足取り [JP, sem nome EN] (203872)
+  20388  待ったなし [JP, sem nome EN] (203882)
+  20389  ヒートアップ [JP, sem nome EN] (203892)
+  20390  急降下 [JP, sem nome EN] (203902)
+  20391  誇りを抱いて [JP, sem nome EN] (203912)
+  20392  プレリュード [JP, sem nome EN] (203922)
+  20393  練達の一歩 [JP, sem nome EN] (203932)
+  20394  シビれる走り [JP, sem nome EN] (203942)
+  20395  天才肌 [JP, sem nome EN] (203952)
+  20396  気丈な姿勢 [JP, sem nome EN] (203962)
+  20397  なりふり構わず [JP, sem nome EN] (203972)
+  20398  バイタリティ [JP, sem nome EN] (203982)
+  20399  目覚めの時 [JP, sem nome EN] (203992)
+  20400  意地っ張り [JP, sem nome EN] (204002)
+  20401  力業 [JP, sem nome EN] (204012)
+  20402  ここ一番 [JP, sem nome EN] (204022)
+  20403  労を惜しまず [JP, sem nome EN] (204032)
+  20404  華麗な足取り [JP, sem nome EN] (204042)
+  20405  灯を胸に [JP, sem nome EN] (204052)
+  20406  凛然と [JP, sem nome EN] (204062)
+  20407  気持ちを乗せて [JP, sem nome EN] (204072)
+  20408  余勢を駆って [JP, sem nome EN] (204082)
+  20409  逃げるが勝ち！ [JP, sem nome EN] (204092)
+  20410  轟く足音 [JP, sem nome EN] (204102)
+  20411  淀みなし [JP, sem nome EN] (204112)
+  20412  勝負を懸けて [JP, sem nome EN] (204122)
+  20413  大志を抱いて [JP, sem nome EN] (204132)
+  20414  あふれる活力 [JP, sem nome EN] (204142)
+  20415  前進あるのみ [JP, sem nome EN] (204152)
+  20416  押しの一手 [JP, sem nome EN] (204162)
+  20417  溌剌 [JP, sem nome EN] (204172)
+  20418  巨歩 [JP, sem nome EN] (204182)
+  20419  アプローチ [JP, sem nome EN] (204192)
+  20420  戦略家 [JP, sem nome EN] (204202)
+  20421  卓越する走り [JP, sem nome EN] (204212)
+  20422  もう一踏ん張り [JP, sem nome EN] (204222)
+  20423  サンタアニタパークレース場○ [JP, sem nome EN] (204233)
+  20424  デルマーレース場○ [JP, sem nome EN] (204243)
+  20427  急旋回 [JP, sem nome EN] (204272)
+  20428  猛プッシュ [JP, sem nome EN] (204282)
+  20429  超長距離回復○ [JP, sem nome EN] (204293)
+  20430  個性的 [JP, sem nome EN] (204302)
+  20431  押せ押せムード [JP, sem nome EN] (204312)
+  20432  阿吽の呼吸 [JP, sem nome EN] (204322)
+  20433  実直な走り [JP, sem nome EN] (204332)
+  20434  弾みをつけて [JP, sem nome EN] (204342)
+  20435  勇を奮って [JP, sem nome EN] (204352)
+  20436  大立ち回り [JP, sem nome EN] (204362)
+  20437  流れに任せて [JP, sem nome EN] (204372)
+  20438  輝きを放って [JP, sem nome EN] (204382)
+  20439  息抜き上手 [JP, sem nome EN] (204392)
+  20441  憂いなし [JP, sem nome EN] (204412)
+  20443  影より速く [JP, sem nome EN] (204432)
+  20444  追尾 [JP, sem nome EN] (204442)
+  20446  いざ我が道へ！ [JP, sem nome EN] (204462)
+  20447  奮い立つ心 [JP, sem nome EN] (204472)
+  20448  筆に任せて [JP, sem nome EN] (204482)
+  20449  ポイントマン [JP, sem nome EN] (204492)
+  20450  ダブルアクセル [JP, sem nome EN] (204502)
+  20454  先導者 [JP, sem nome EN] (204542)
+  20455  奥の手 [JP, sem nome EN] (204552)
+  20456  勝負勘 [JP, sem nome EN] (204562)
+  21001  Ignited Spirit SPD (210012)
+  21002  Ignited Spirit STA (210022)
+  21003  Ignited Spirit PWR (210032)
+  21004  Ignited Spirit GUTS (210042)
+  21005  Ignited Spirit WIT (210052)
+  21006  Glittering Star (210062)
+  21007  On the Way to Our Dream (210072)
+  21008  Racing Spirit: Speed (210091)
+  21009  Racing Spirit: Stamina (210101)
+  21010  Racing Spirit: Power (210111)
+  21011  Racing Spirit: Guts (210121)
+  21012  Racing Spirit: Wit (210131)
+  21013  Racing Spirit: Mood (210141)
+  21014  skill 2 (2)
+  21015  skill 2 (2)
+  21016  skill 2 (2)
+  21017  skill 2 (2)
+  21018  skill 2 (2)
+  21019  skill 2 (2)
+  21020  Eyes on the Goal (210082)
+  21021  skill 2 (2)
+  21022  skill 2 (2)
+  21023  skill 2 (2)
+  21024  skill 2 (2)
+  21025  skill 2 (2)
+  21026  陽の加護 [JP, sem nome EN] (210262)
+  21027  海の加護 [JP, sem nome EN] (210272)
+  21028  地の加護 [JP, sem nome EN] (210282)
+  21029  想いを背負って [JP, sem nome EN] (210292)
+  21030  バーニングソウル [JP, sem nome EN] (210302)
+  21032  いつまでも健やかに [JP, sem nome EN] (210322)
+  21034  夢の再生方法 [JP, sem nome EN] (210342)
+  21035  時代を変える者 [JP, sem nome EN] (210352)
+  21036  あるがままに [JP, sem nome EN] (210362)
+  21037  本気で休んで、もう一度 [JP, sem nome EN] (210372)
+  21038  アメリカンドリーム [JP, sem nome EN] (210382)
+  21039  恩返し、召し上がれ [JP, sem nome EN] (210392)
+  31014  アスリート魂 [JP, sem nome EN] (210311)
+  31020  食の極意 [JP, sem nome EN] (210331)

@@ -1,0 +1,5017 @@
+================================================================================
+BANCO DE DADOS — UMA MUSUME: PRETTY DERBY (versão Global)
+Fonte: uma.guide/characters — dados extraídos e conferidos em 20/08/2026 (revisão v2)
+Cobertura: 99 cartas listadas no site (64 personagens únicos; personagens com
+múltiplas skins aparecem uma vez por skin, pois aptidões/fator/skills variam por skin).
+Inclui a camada de overrides oficial do site e correções de skills únicas de skins alternativas.
+
+CONVENÇÕES DESTE ARQUIVO:
+- Aptidões: G < F < E < D < C < B < A < S (G é a pior, S a melhor).
+- Efeitos de velocidade/aceleração convertidos de m/s² para % (ex.: Target Speed +0.45 = +45%).
+- Efeitos dinâmicos (acúmulo por skill passiva, duração por stamina) são descritos por extenso,
+  pois a exibição plana do site esconde essa informação (ver relatório de revisão).
+- Skills inatas: skills nativas da skin. Skills potenciais: desbloqueiam por nível de potencial (Nv.).
+- Requisitos de ativação: condições do banco de dados (cada linha = uma condição; todas devem valer).
+  "--- OU ---" separa blocos alternativos de ativação. "Condição alternativa:" = 2ª variante da skill.
+- Glossário completo das condições: ver arquivo RELATORIO - revisao e correcoes.md.
+================================================================================
+
+Personagem: Special Week [Special Dreamer]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Shooting Star
+Efeito da skill única: Acceleration +10%, Current Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+order>=1
+order_rate<=50
+change_order_onetime<0
+
+
+Skills inatas: Homestretch Haste, Steadfast, Hydrate
+Skills potenciais: Wet Conditions ○ (Nv.2), Gourmand (Nv.3), Outer Swell (Nv.4), In Body and Mind (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: King Halo [King of Emeralds]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - A
+Mile - B
+Medium - B
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+10% Guts
+0% Wit
+
+
+Skill única - Prideful King
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+temptation_count==0
+remain_distance<=201
+remain_distance>=199
+order>=4
+order_rate<=70
+
+
+Skills inatas: Outer Post Proficiency ○, Gap Closer, Studious
+Skills potenciais: Soft Step (Nv.2), Blinding Flash (Nv.3), Unyielding Spirit (Nv.4), The Bigger Picture (Nv.5)
+
+
+Notas: temptation também é conhecido como rushed.
+
+
+
+
+Personagem: Nice Nature [Poinsettia Ribbon]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - B
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+0% Guts
+10% Wit
+
+
+Skill única - Just a Little Farther!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+order==3
+bashin_diff_behind<=1
+
+
+Skills inatas: Kokura Racecourse ○, Murmur, Sharp Gaze
+Skills potenciais: Hesitant Late Surgers (Nv.2), Mystifying Murmur (Nv.3), A Small Breather (Nv.4), All-Seeing Eyes (Nv.5)
+
+
+Notas: bashin_diff_behind significa que tem um personagem a menos de 1 corpo (1L) de distância atrás dele.
+
+
+
+
+Personagem: Matikanefukukitaru [Rising☆Fortune]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - I See Victory in My Future!
+Efeito da skill única: Target Speed +35%, Acceleration +10%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+order>=3
+blocked_front==1
+
+
+Skills inatas: Smoke Screen, A Small Breather, Lucky Seven
+Skills potenciais: Triple 7s (Nv.2), Illusionist (Nv.3), Trick (Rear) (Nv.4), Super Lucky Seven (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Haru Urara [Bestest Prize ♪]
+
+
+Aptidões de superfície:
+Turf - G
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - A
+Mile - B
+Medium - G
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - G
+Late Surger - A
+End Closer - B
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+10% Power
+20% Guts
+0% Wit
+
+
+Skill única - Super-Duper Climax
+Efeito da skill única: HP Recovery +5.5%
+Duração base: 0 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+order_rate>50
+near_count>=1
+
+
+Skills inatas: Lay Low, Sprinting Gear, 1,500,000 CC
+Skills potenciais: Pace Strategy (Nv.2), Iron Will (Nv.3), Long Shot ○ (Nv.4), Indomitable (Nv.5)
+
+
+Notas: near_count verifica se tem um personagem por perto. Creio que seja em um raio de 1 corpo (1L).
+
+
+
+
+Personagem: Sakura Bakushin O [Blossom in Learning]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - A
+Mile - B
+Medium - G
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - A
+Late Surger - F
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Genius x Bakushin = Victory
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order<=3
+blocked_side_continuetime>=2
+
+
+Skills inatas: Sprinting Gear, Flustered Front Runners, Pace Chaser Straightaways ○
+Skills potenciais: Huge Lead (Nv.2), Turbo Sprint (Nv.3), Countermeasure (Nv.4), Staggering Lead (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Winning Ticket [Get to Winning!]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Our Ticket to Win!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+order<=5
+blocked_side_continuetime>=2
+
+
+Skills inatas: Firm Conditions ○, Steadfast, Fighter
+Skills potenciais: Position Pilfer (Nv.2), Hard Worker (Nv.3), Late Surger Corners ○ (Nv.4), Fast & Furious (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Agnes Tachyon [tach-nology]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - D
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - E
+Pace Chaser - A
+Late Surger - B
+End Closer - F
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - U=ma2
+Efeito da skill única: HP Recovery +5.5%, Target Speed +25%
+Duração base: 4 segundos
+Requisitos de ativação:
+distance_rate>=50
+corner!=0
+order>=3
+order_rate<=40
+
+
+Skills inatas: Standard Distance ○, Preferred Position, Tether
+Skills potenciais: Medium Straightaways ○ (Nv.2), Dominator (Nv.3), Medium Corners ○ (Nv.4), Race Planner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Silence Suzuka [Innocent Silence]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - D
+Mile - A
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - C
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - The View from the Lead Is Mine!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order==1
+bashin_diff_behind>=1
+
+
+Skills inatas: Focus, Final Push, Rosy Outlook
+Skills potenciais: Left-Handed ○ (Nv.2), Concentration (Nv.3), Fast-Paced (Nv.4), Unrestrained (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Tokai Teio [Peak Joy]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - E
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - C
+End Closer - E
+
+
+Fator crescimento:
+20% Speed
+10% Stamina
+0% Power
+0% Guts
+0% Wit
+
+
+Skill única - Sky-High Teio Step
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+phase>=2
+order<=3
+bashin_diff_infront<=1
+is_overtake==1
+
+
+Skills inatas: Prudent Positioning, Thunderbolt Step, Shrewd Step
+Skills potenciais: Go with the Flow (Nv.2), Technician (Nv.3), Soft Step (Nv.4), Lightning Step (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro McQueen [Frontline Elegance]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - D
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - The Duty of Dignity Calls
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+distance_diff_rate<=30
+distance_type==4
+lastspurt==2
+
+Condição alternativa:
+is_finalcorner==1
+corner!=0
+distance_diff_rate<=30
+
+
+Skills inatas: Spring Runner ○, Stamina to Spare, Keeping the Lead
+Skills potenciais: Long Corners ○ (Nv.2), Vanguard Spirit (Nv.3), Hydrate (Nv.4), Calm and Collected (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Gold Ship [Red Strife]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - Anchors Aweigh!
+Efeito da skill única: Target Speed +25%
+Duração base: 6 segundos
+Requisitos de ativação:
+distance_rate>=50
+distance_rate<=60
+order_rate>50
+
+
+Skills inatas: Pressure, I Can See Right Through You, Uma Stan
+Skills potenciais: After-School Stroll (Nv.2), The Coast Is Clear! (Nv.3), Standing By (Nv.4), Go-Home Specialist (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Oguri Cap [Starlight Beat]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - Triumphant Pulse
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+order>=2
+order<=5
+order_rate<=50
+remain_distance<=201
+remain_distance>=199
+
+
+Skills inatas: Corner Acceleration ○, Acceleration, Hydrate
+Skills potenciais: Cloudy Days ○ (Nv.2), Gourmand (Nv.3), Nimble Navigator (Nv.4), Corner Connoisseur (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Daiwa Scarlet [Peak Blue]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - A
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+20% Guts
+0% Wit
+
+
+Skill única - Resplendent Red Ace
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order==1
+bashin_diff_behind<=1
+--- OU ---
+order==2
+is_overtake==1
+
+
+Skills inatas: Competitive Spirit ○, Preferred Position, Up-Tempo
+Skills potenciais: Stamina to Spare (Nv.2), Killer Tunes (Nv.3), Prepared to Pass (Nv.4), Race Planner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Vodka [Wild Top Gear]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - F
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - B
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Cut and Drive!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+order>=3
+order_rate<=50
+remain_distance<=200
+bashin_diff_infront<=1
+--- OU ---
+bashin_diff_behind<=1
+
+
+Skills inatas: Straightaway Recovery, Slick Surge, Updrafters
+Skills potenciais: Straightaway Acceleration (Nv.2), Breath of Fresh Air (Nv.3), Mile Straightaways ○ (Nv.4), Furious Feat (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Special Week [Hopp'n♪Happy Heart]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+10% Power
+10% Guts
+0% Wit
+
+
+Skill única - Dazzl'n ♪ Diver
+Efeito da skill única: HP Recovery +5.5%
+Duração base: 0 segundos
+Requisitos de ativação:
+phase==1
+order>=2
+order_rate<=70
+activate_count_middle>=2
+
+
+Skills inatas: Ramp Up, Position Pilfer, Thunderbolt Step
+Skills potenciais: Sunny Days ○ (Nv.2), Fast & Furious (Nv.3), Tail Held High (Nv.4), It's On! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Special Week [Ruler of Japan]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+10% Speed
+10% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Dreams Donned with Pride!
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +25%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+is_finalcorner==1
+corner!=0
+is_activate_any_skill==1
+track_id==10005
+
+Condição alternativa:
+phase>=2
+is_finalcorner==1
+corner!=0
+is_activate_any_skill==1
+
+
+Skills inatas: Corner Adept ○, Outer Swell, Pressure
+Skills potenciais: Long Straightaways ○ (Nv.2), Overwhelming Pressure (Nv.3), Long Corners ○ (Nv.4), Best in Japan (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Tokai Teio [Beyond the Horizon]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - E
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - C
+End Closer - E
+
+
+Fator crescimento:
+10% Speed
+10% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - Certain Victory
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+is_overtake==1
+order<=5
+order_rate<=50
+overtake_target_no_order_up_time>=2
+
+
+Skills inatas: Prudent Positioning, Preferred Position, Soft Step
+Skills potenciais: Spring Runner ○ (Nv.2), Race Planner (Nv.3), Corner Recovery ○ (Nv.4), Miraculous Step (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Maruzensky [Formula R]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - D
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - B
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - E
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - Red Shift/LP1211-M
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner==1
+order<=5
+order_rate<=50
+
+
+Skills inatas: Straightaway Adept, Early Lead, Shifting Gears
+Skills potenciais: Acceleration (Nv.2), Changing Gears (Nv.3), Focus (Nv.4), Step on the Gas! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Maruzensky [Hot☆Summer Night]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - D
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - B
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - E
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+15% Speed
+0% Stamina
+0% Power
+0% Guts
+15% Wit
+
+
+Skill única - A Kiss for Courage
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+activate_count_heal>=1
+order<=3
+
+
+Skills inatas: Corner Recovery ○, Productive Plan, Moxie
+Skills potenciais: Triple 7s (Nv.2), Restless (Nv.3), Speed Eater (Nv.4), Mile Maven (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Fuji Kiseki [Shooting Star Revue]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - B
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+0% Guts
+10% Wit
+
+
+Skill única - Lights of Vaudeville
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=300
+phase>=2
+order_rate<=40
+behind_near_lane_time_set1>=1
+
+
+Skills inatas: Preferred Position, Trick (Front), Unyielding Spirit
+Skills potenciais: Shifting Gears (Nv.2), Big-Sisterly (Nv.3), Mile Corners ○ (Nv.4), Race Planner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Fuji Kiseki [Succès Étoilé]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - B
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+8% Speed
+0% Stamina
+14% Power
+0% Guts
+8% Wit
+
+
+Skill única - Ravissant
+Efeito da skill única: Target Speed +45%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner==1
+change_order_onetime<0
+order_rate<=40
+
+
+Skills inatas: Prepared to Pass, Trick (Front), Mile Corners ○
+Skills potenciais: Shrewd Step (Nv.2), Tantalizing Trick (Nv.3), Head-On (Nv.4), Speed Star (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Oguri Cap [Ashen Miracle]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+15% Speed
+15% Stamina
+0% Power
+0% Guts
+0% Wit
+
+
+Skill única - Festive Miracle
+Efeito da skill única: Target Speed +25%, Acceleration +30%, HP Recovery +3.5%
+Duração base: 5 segundos
+Requisitos de ativação:
+activate_count_heal>=3
+distance_rate>=50
+
+
+Skills inatas: Inside Scoop, Hydrate, Shake It Out
+Skills potenciais: A Small Breather (Nv.2), Gourmand (Nv.3), Triple 7s (Nv.4), Innate Experience (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Gold Ship [RUN! RUIN! LAUNCHER!]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+0% Guts
+10% Wit
+
+
+Skill única - 564 Escapades
+Efeito da skill única: Target Speed +15%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate_after_random==50
+
+
+Skills inatas: Inside Scoop, After-School Stroll, Lucky Seven
+Skills potenciais: Eager (Nv.2), Innate Experience (Nv.3), Risky Business (Nv.4), Elated (Nv.5)
+
+
+Notas: Atenção: além do efeito listado, a skill ativa 2 skills raras (douradas) aleatórias do personagem, ignorando as condições delas.
+
+
+
+
+Personagem: Taiki Shuttle [Wild Frontier]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - E
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Shooting for Victory!
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner_laterhalf==1
+corner!=0
+order>=3
+order_rate<=40
+
+
+Skills inatas: Straightaway Adept, Shifting Gears, Pace Chaser Savvy ○
+Skills potenciais: Productive Plan (Nv.2), Changing Gears (Nv.3), Mile Straightaways ○ (Nv.4), Mile Maven (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Taiki Shuttle [Bubblegum☆Memories]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - E
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+30% Power
+0% Guts
+0% Wit
+
+
+Skill única - Joyful Voyage!
+Efeito da skill única: Target Speed +35%, Current Speed +15%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_diff_top<=5
+order>=2
+order_rate<=40
+remain_distance<=201
+remain_distance>=199
+
+Condição alternativa:
+order>=2
+order_rate<=40
+remain_distance<=201
+remain_distance>=199
+
+
+Skills inatas: Wet Conditions ○, Productive Plan, Head-On
+Skills potenciais: Mile Corners ○ (Nv.2), Mile Maven (Nv.3), Pace Chaser Corners ○ (Nv.4), Neck and Neck (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Grass Wonder [Stone-Piercing Blue]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - A
+Medium - B
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - Where There's a Will, There's a Way
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+change_order_onetime<0
+order>=3
+
+
+Skills inatas: Slick Surge, Flustered Pace Chasers, Tether
+Skills potenciais: Homestretch Haste (Nv.2), Dominator (Nv.3), Position Pilfer (Nv.4), On Your Left! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Grass Wonder [Saintly Jade Cleric]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - A
+Medium - B
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+15% Stamina
+0% Power
+0% Guts
+15% Wit
+
+
+Skill única - Superior Heal
+Efeito da skill única: HP Recovery +7.5%
+Duração base: 0 segundos
+Requisitos de ativação:
+phase==1
+change_order_onetime>0
+order_rate>=40
+
+
+Skills inatas: Pace Strategy, Deep Breaths, A Small Breather
+Skills potenciais: Trick (Front) (Nv.2), Cooldown (Nv.3), Late Surger Savvy ○ (Nv.4), Relax (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Hishi Amazon [Azure Amazon]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - D
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - C
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+10% Guts
+0% Wit
+
+
+Skill única - You and Me! One-on-One!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+is_behind_in==1
+change_order_onetime<0
+order_rate>=40
+
+
+Skills inatas: Go with the Flow, Masterful Gambit, Steadfast
+Skills potenciais: End Closer Straightaways ○ (Nv.2), Unyielding (Nv.3), End Closer Corners ○ (Nv.4), Sturm und Drang (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro McQueen [End of the Skies]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - D
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+10% Power
+0% Guts
+10% Wit
+
+
+Skill única - Legacy of the Strong
+Efeito da skill única: Target Speed +35%
+Duração base: 6 segundos
+Requisitos de ativação:
+phase>=2
+is_finalcorner==1
+order<=4
+overtake_target_time>=1
+
+
+Skills inatas: Straightaway Adept, Stamina to Spare, Deep Breaths
+Skills potenciais: Fall Runner ○ (Nv.2), Cooldown (Nv.3), Ramp Up (Nv.4), Beeline Burst (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro McQueen [Fair Lady of the Waves]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - D
+End Closer - F
+
+
+Fator crescimento:
+8% Speed
+8% Stamina
+0% Power
+0% Guts
+14% Wit
+
+
+Skill única - Your Smile Sparkles as the Waves
+Efeito da skill única: Target Speed +15%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate<=40
+
+
+Skills inatas: Focus, Pace Chaser Savvy ○, Feature Act
+Skills potenciais: All Set (Nv.2), Headliner (Nv.3), Stamina to Spare (Nv.4), Heart All Set (Nv.5)
+
+
+Notas: Atenção: segundo a descrição oficial, é um "long spurt" cuja duração aumenta conforme a stamina (HP) restante.
+
+
+
+
+Personagem: El Condor Pasa [El☆Número 1]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - E
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Victoria por plancha ☆
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+hp_per>=30
+order<=2
+
+
+Skills inatas: Straightaway Adept, Hawkeye, Pace Chaser Straightaways ○
+Skills potenciais: Stamina to Spare (Nv.2), Clairvoyance (Nv.3), Up-Tempo (Nv.4), Calm and Collected (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: El Condor Pasa [Kukulkan Warrior]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - E
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+15% Speed
+0% Stamina
+0% Power
+15% Guts
+0% Wit
+
+
+Skill única - Condor's Fury
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+is_overtake==1
+order>=4
+order_rate<=75
+
+
+Skills inatas: Homestretch Haste, Outer Swell, Updrafters
+Skills potenciais: Unyielding Spirit (Nv.2), Furious Feat (Nv.3), 1,500,000 CC (Nv.4), Rising Dragon (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: T.M. Opera O [O Sole Suo!]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - E
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - This Dance Is for Vittoria!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+bashin_diff_behind<=1
+order<=4
+--- OU ---
+bashin_diff_infront<=1
+
+
+Skills inatas: Non-Standard Distance ○, Prepared to Pass, Up-Tempo
+Skills potenciais: Straightaway Adept (Nv.2), Speed Star (Nv.3), Stamina to Spare (Nv.4), Killer Tunes (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: T.M. Opera O [New Year, Same Radiance!]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - E
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+14% Speed
+8% Stamina
+0% Power
+0% Guts
+8% Wit
+
+
+Skill única - Barcarole of Blessings
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=401
+remain_distance>=399
+order_rate<=40
+activate_count_all>=7
+
+Condição alternativa:
+remain_distance<=401
+remain_distance>=399
+order_rate<=40
+activate_count_all<=6
+
+
+Skills inatas: Corner Recovery ○, Pace Chaser Straightaways ○, Feature Act
+Skills potenciais: Inner Post Proficiency ○ (Nv.2), Swinging Maestro (Nv.3), Winter Runner ○ (Nv.4), Headliner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Narita Brian [Maverick]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - B
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+10% Speed
+20% Stamina
+0% Power
+0% Guts
+0% Wit
+
+
+Skill única - Shadow Break
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+order>=2
+order_rate<=75
+is_behind_in==1
+change_order_onetime<0
+phase==1
+blocked_side_continuetime>=2
+
+Condição alternativa:
+is_finalcorner==1
+order>=2
+order_rate<=75
+is_behind_in==1
+change_order_onetime<0
+
+
+Skills inatas: Straightaway Adept, Preferred Position, Medium Straightaways ○
+Skills potenciais: Homestretch Haste (Nv.2), Beeline Burst (Nv.3), Lone Wolf (Nv.4), In Body and Mind (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Symboli Rudolf [Emperor's Path]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - Behold Thine Emperor's Divine Might
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+change_order_up_end_after>=3
+corner==0
+
+
+Skills inatas: Corner Adept ○, Preferred Position, Tether
+Skills potenciais: Subdued Late Surgers (Nv.2), Dominator (Nv.3), Pace Chaser Corners ○ (Nv.4), Professor of Curvature (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Symboli Rudolf [Archer by Moonlight]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+8% Speed
+14% Stamina
+0% Power
+0% Guts
+8% Wit
+
+
+Skill única - Arrows Whistle, Shadows Disperse
+Efeito da skill única: Target Speed +35%
+Duração base: 6 segundos
+Requisitos de ativação:
+is_finalcorner==1
+phase>=2
+order_rate<=50
+overtake_target_time>=2
+
+
+Skills inatas: Fall Runner ○, Stamina to Spare, Inside Scoop
+Skills potenciais: Straight Descent (Nv.2), Calm and Collected (Nv.3), Pace Chaser Straightaways ○ (Nv.4), Fall Frenzy (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Air Groove [Empress Road]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - C
+Mile - B
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Blazing Pride
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+order>=3
+change_order_onetime<0
+
+
+Skills inatas: Go with the Flow, Up-Tempo, Disorient
+Skills potenciais: Hesitant End Closers (Nv.2), Dazzling Disorientation (Nv.3), Flustered End Closers (Nv.4), Lane Legerdemain (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Air Groove [Quercus Civilis]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - C
+Mile - B
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+10% Power
+10% Guts
+0% Wit
+
+
+Skill única - Eternal Moments
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase==1
+order>=3
+order_rate<=50
+is_overtake==1
+
+
+Skills inatas: Corner Acceleration ○, Unyielding Spirit, Pace Chaser Corners ○
+Skills potenciais: Pace Chaser Savvy ○ (Nv.2), Big-Sisterly (Nv.3), Ramp Up (Nv.4), Corner Connoisseur (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Agnes Digital [Full-Color Fangirling]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - B
+
+
+Fator crescimento:
+8% Speed
+8% Stamina
+7% Power
+0% Guts
+7% Wit
+
+
+Skill única - OMG! (ﾟ∀ﾟ)  The Final Sprint! ☆
+Efeito da skill única: Target Speed +35%, Lane Movement +3.5%
+Duração base: 5 segundos
+Requisitos de ativação:
+change_order_up_end_after>=2
+
+
+Skills inatas: Late Surger Straightaways ○, Uma Stan, Forward, March!
+Skills potenciais: Wet Conditions ○ (Nv.2), Superstan (Nv.3), Medium Straightaways ○ (Nv.4), Lead the Charge! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Agnes Digital [Fanatic♡Jiangshi]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - B
+
+
+Fator crescimento:
+7% Speed
+7% Stamina
+8% Power
+8% Guts
+0% Wit
+
+
+Skill única - THE MOE AAAA Thanks for My Life
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+near_count>=3
+phase==1
+corner!=0
+order_rate>=40
+
+
+Skills inatas: Ramp Up, Updrafters, Comeback
+Skills potenciais: Uma Stan (Nv.2), It's On! (Nv.3), Forward, March! (Nv.4), Can't Keep Me Down (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Seiun Sky [Reeling in the Big One]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - B
+Late Surger - D
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - Angling and Scheming
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+phase>=2
+corner!=0
+order==1
+
+
+Skills inatas: Fast-Paced, Hesitant Pace Chasers, Keeping the Lead
+Skills potenciais: Front Runner Savvy ○ (Nv.2), Vanguard Spirit (Nv.3), Tail Held High (Nv.4), Escape Artist (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Seiun Sky [Soirée des Chatons]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - B
+Late Surger - D
+End Closer - E
+
+
+Fator crescimento:
+8% Speed
+0% Stamina
+8% Power
+14% Guts
+0% Wit
+
+
+Skill única - Break It Down!
+Efeito da skill única: Target Speed +35%, Acceleration +20%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+corner==0
+order<=2
+straight_front_type==2
+
+Condição alternativa:
+phase>=2
+corner==0
+order<=2
+
+
+Skills inatas: Spring Runner ○, Fast-Paced, Rosy Outlook
+Skills potenciais: Leader's Pride (Nv.2), Escape Artist (Nv.3), Early Lead (Nv.4), Top Runner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Tamamo Cross [Fast as Lightning]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - G
+Mile - E
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - A
+Late Surger - A
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - White Lightning Comin' Through!
+Efeito da skill única: Target Speed +35%, Acceleration +10%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+corner==0
+order_rate>=70
+order_rate<=75
+is_overtake==1
+--- OU ---
+order_rate<=30
+order_rate>=20
+
+
+Skills inatas: Position Pilfer, Thunderbolt Step, Tail Held High
+Skills potenciais: Preferred Position (Nv.2), Fast & Furious (Nv.3), Straightaway Spurt (Nv.4), Tail Nine (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Fine Motion [Noble Seamair]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - E
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+15% Power
+0% Guts
+15% Wit
+
+
+Skill única - Fairy Tale
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order>=2
+order_rate<=40
+blocked_side_continuetime>=2
+
+
+Skills inatas: Fall Runner ○, Prepared to Pass, Medium Corners ○
+Skills potenciais: Straight Descent (Nv.2), Speed Star (Nv.3), Right-Handed ○ (Nv.4), Determined Descent (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Fine Motion [Titania]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - A
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - E
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+0% Power
+10% Guts
+20% Wit
+
+
+Skill única - Best Day Ever
+Efeito da skill única: Target Speed +35%, Acceleration +10%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance>=401
+phase>=2
+is_finalcorner==1
+order_rate>=20
+order_rate<=40
+
+Condição alternativa:
+phase>=2
+is_finalcorner==1
+order_rate>=20
+order_rate<=40
+
+
+Skills inatas: Firm Conditions ○, Shifting Gears, Head-On
+Skills potenciais: Mile Corners ○ (Nv.2), Changing Gears (Nv.3), Fall Runner ○ (Nv.4), Neck and Neck (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Biwa Hayahide [pf. Winning Equation...]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - E
+Pace Chaser - A
+Late Surger - B
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+0% Power
+10% Guts
+20% Wit
+
+
+Skill única - ∴win Q.E.D.
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+is_finalcorner==1
+order<=4
+temptation_count==0
+
+Condição alternativa:
+phase>=2
+is_finalcorner==1
+order<=4
+
+
+Skills inatas: Wet Conditions ○, Stamina to Spare, Deep Breaths
+Skills potenciais: Outer Post Proficiency ○ (Nv.2), Calm and Collected (Nv.3), Frenzied End Closers (Nv.4), Cooldown (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Biwa Hayahide [Rouge Caroler]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - E
+Pace Chaser - A
+Late Surger - B
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+12% Stamina
+12% Power
+0% Guts
+6% Wit
+
+
+Skill única - Presents from X
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+order_rate_in50_continue==1
+phase==1
+distance_rate>=50
+order>=2
+order_rate<=40
+
+
+Skills inatas: Homestretch Haste, Preferred Position, Passing Pro
+Skills potenciais: Pace Chaser Savvy ○ (Nv.2), VIP Pass (Nv.3), Pace Chaser Straightaways ○ (Nv.4), In Body and Mind (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mayano Top Gun [Scramble☆Zone]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - D
+Mile - D
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - A
+Late Surger - B
+End Closer - B
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - Flashy☆Landing
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+blocked_side_continuetime>=2
+order<=3
+
+
+Skills inatas: Straightaway Recovery, Deep Breaths, Leader's Pride
+Skills potenciais: Nimble Navigator (Nv.2), Breath of Fresh Air (Nv.3), Go with the Flow (Nv.4), No Stopping Me! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mayano Top Gun [Sunlight Bouquet]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - D
+Mile - D
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - A
+Late Surger - B
+End Closer - B
+
+
+Fator crescimento:
+10% Speed
+10% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Flowery☆Maneuver
+Efeito da skill única: Target Speed +35%
+Efeito alternativo: Acceleration +40%
+Duração alternativa: 4 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+order_rate<=40
+change_order_onetime<0
+
+Condição alternativa:
+is_finalcorner==1
+order_rate>=50
+order_rate<=80
+change_order_onetime<0
+
+
+Skills inatas: Corner Recovery ○, Murmur, Shrewd Step
+Skills potenciais: Focus (Nv.2), Mystifying Murmur (Nv.3), Corner Adept ○ (Nv.4), Swinging Maestro (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Manhattan Cafe [Creeping Shadow]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - B
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - C
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+30% Stamina
+0% Power
+0% Guts
+0% Wit
+
+
+Skill única - Chasing After You
+Efeito da skill única: Target Speed +25%, Current Speed -5%
+Duração base: 6 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate>=40
+order_rate<=70
+
+
+Skills inatas: Rainy Days ○, Stamina Eater, A Small Breather
+Skills potenciais: Highlander (Nv.2), Relax (Nv.3), Passing Pro (Nv.4), Stamina Siphon (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mihono Bourbon [MB-19890425]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - C
+Mile - B
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - E
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - G00 1st. F∞;
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_badstart==0
+order<=3
+is_finalcorner==1
+corner==0
+order_rate_in20_continue==1
+
+Condição alternativa:
+is_badstart==0
+order<=3
+is_finalcorner==1
+corner==0
+
+
+Skills inatas: Rainy Days ○, Early Lead, Rosy Outlook
+Skills potenciais: Front Runner Straightaways ○ (Nv.2), Taking the Lead (Nv.3), Front Runner Corners ○ (Nv.4), Trackblazer (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mihono Bourbon [CODE: ICING]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - C
+Mile - B
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - E
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+10% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - Operation Cacao
+Efeito da skill única: Target Speed +35%, HP Recovery +1.5%
+Duração base: 5 segundos
+Requisitos de ativação:
+order<=4
+phase==1
+corner!=0
+bashin_diff_behind<=3
+
+
+Skills inatas: Focus, Fast-Paced, Extra Tank
+Skills potenciais: Front Runner Savvy ○ (Nv.2), Escape Artist (Nv.3), Groundwork (Nv.4), Concentration (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Ryan [Down the Line]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+0% Guts
+10% Wit
+
+
+Skill única - Let's Pump Some Iron!
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+phase>=2
+corner!=0
+order_rate>=65
+order_rate<=70
+
+
+Skills inatas: Rainy Days ○, Outer Swell, Up-Tempo
+Skills potenciais: Pace Strategy (Nv.2), Killer Tunes (Nv.3), Medium Straightaways ○ (Nv.4), Rising Dragon (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Hishi Akebono [Buono ☆ Alla Moda]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - A
+Mile - B
+Medium - F
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+10% Guts
+0% Wit
+
+
+Skill única - YUMMY☆SPEED!
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=45
+distance_rate<=60
+order>=3
+order_rate<=50
+hp_per<=70
+
+
+Skills inatas: Sunny Days ○, Meticulous Measures, Hydrate
+Skills potenciais: Tactical Tweak (Nv.2), Perfect Prep! (Nv.3), Intimidate (Nv.4), Gourmand (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Yukino Bijin [Darl'n Snowflake]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - B
+
+
+Aptidões de distância:
+Sprint - D
+Mile - A
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - F
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+20% Guts
+0% Wit
+
+
+Skill única - Snow Bright, Snow Flight
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_diff_top<=5
+remain_distance<=300
+order_rate<=40
+
+
+Skills inatas: Nimble Navigator, Medium Straightaways ○, Straight Descent
+Skills potenciais: Snowy Days ○ (Nv.2), No Stopping Me! (Nv.3), Pace Chaser Corners ○ (Nv.4), Determined Descent (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Rice Shower [Rosy Dreams]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+0% Power
+20% Guts
+0% Wit
+
+
+Skill única - Blue Rose Closer
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+phase>=2
+order<=4
+change_order_onetime<0
+
+
+Skills inatas: Deep Breaths, Subdued Pace Chasers, Straight Descent
+Skills potenciais: Highlander (Nv.2), Determined Descent (Nv.3), Hydrate (Nv.4), Cooldown (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Rice Shower [Vampire Makeover!]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+15% Stamina
+15% Power
+0% Guts
+0% Wit
+
+
+Skill única - Every Rose Has Its Fangs
+Efeito da skill única: HP Recovery +5.5%, HP Recovery -0.5%, Target Speed +25%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase==1
+order>=2
+order_rate<=50
+
+
+Skills inatas: Stamina to Spare, Trick (Front), Long Straightaways ○
+Skills potenciais: Corner Recovery ○ (Nv.2), Calm and Collected (Nv.3), Hesitant Front Runners (Nv.4), Tantalizing Trick (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Ines Fujin [Always Electrifying]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - A
+Medium - A
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - C
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+15% Speed
+0% Stamina
+0% Power
+15% Guts
+0% Wit
+
+
+Skill única - All Charged! It's Go Time!
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +25%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=299
+remain_distance>=295
+order<=2
+slope==0
+--- OU ---
+slope==2
+remain_distance<=305
+remain_distance>=300
+slope==1
+
+Condição alternativa:
+remain_distance<=299
+remain_distance>=295
+order<=2
+
+
+Skills inatas: Moxie, Slipstream, With All My Soul
+Skills potenciais: Tokyo Racecourse ○ (Nv.2), Restless (Nv.3), Speed Eater (Nv.4), Wild Wind (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Admire Vega [Starry Nocturne]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - G
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Shooting Star of Dioskouroi
+Efeito da skill única: Target Speed +35%
+Efeito alternativo: Target Speed +45%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+distance_diff_top>=5
+order_rate<80
+
+Condição alternativa:
+is_finalcorner==1
+corner==0
+distance_diff_top>=5
+order_rate>=80
+
+
+Skills inatas: Nimble Navigator, Tether, Levelheaded
+Skills potenciais: Masterful Gambit (Nv.2), Serenity (Nv.3), Subdued Pace Chasers (Nv.4), Sturm und Drang (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Inari One [Edomurasaki]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - F
+Mile - B
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Now We're Cruisin'!
+Efeito da skill única: Target Speed +45%
+Duração base: 5 segundos
+Requisitos de ativação:
+compete_fight_count>0
+distance_rate>=50
+order_rate_out40_continue==1
+
+
+Skills inatas: End Closer Straightaways ○, Tail Held High, Familiar Ground
+Skills potenciais: Winter Runner ○ (Nv.2), Tail Nine (Nv.3), Straightaway Spurt (Nv.4), Master of the Sands (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Winning Ticket [Dream Deliverer]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+8% Speed
+0% Stamina
+14% Power
+8% Guts
+0% Wit
+
+
+Skill única - Ticket to Your Dreams!
+Efeito da skill única: Target Speed +25% (base) + +5% Target Speed por skill ativada (até 3x; máx. +15%)
+Duração base: 6 segundos
+Requisitos de ativação:
+is_lastspurt==1
+is_finalcorner==1
+corner==0
+order_rate>=40
+
+
+Skills inatas: 1,500,000 CC, All I've Got, Downhill Speedster
+Skills potenciais: Position Pilfer (Nv.2), 15,000,000 CC (Nv.3), Full Throttle (Nv.4), Come What May (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Air Shakur [unsigned]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - E
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - C
+Late Surger - A
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+0% Power
+0% Guts
+30% Wit
+
+
+Skill única - trigger:BEAT
+Efeito da skill única: Target Speed +35%, Lane Movement +3.5%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+order_rate>=40
+order_rate<=75
+lane_type==0
+
+
+Skills inatas: Ramp Up, End Closer Straightaways ○, Eager
+Skills potenciais: Levelheaded (Nv.2), Elated (Nv.3), Strategist (Nv.4), Moonlit Flash (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Eishin Flash [Meisterschaft]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+10% Power
+0% Guts
+20% Wit
+
+
+Skill única - Schwarzes Schwert
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+temptation_count==0
+order>=3
+is_finalcorner==1
+corner==0
+order_rate_in80_continue==1
+order_rate_out40_continue==1
+
+Condição alternativa:
+temptation_count==0
+order>=3
+is_finalcorner==1
+corner==0
+
+
+Skills inatas: Go with the Flow, Medium Corners ○, Late Surger Savvy ○
+Skills potenciais: Homestretch Haste (Nv.2), Lane Legerdemain (Nv.3), Focus (Nv.4), In Body and Mind (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Eishin Flash [Precise Chocolatier]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+0% Speed
+8% Stamina
+8% Power
+0% Guts
+14% Wit
+
+
+Skill única - Guten Appetit ♪
+Efeito da skill única: Target Speed +35%
+Duração base: 6 segundos
+Requisitos de ativação:
+change_order_up_finalcorner_after>=2
+is_finalcorner==1
+corner==0
+
+
+Skills inatas: Long Shot ○, Position Pilfer, Tether
+Skills potenciais: Medium Straightaways ○ (Nv.2), Dominator (Nv.3), Late Surger Corners ○ (Nv.4), Flash Forward (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Curren Chan [Fille Éclair]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - A
+Mile - D
+Medium - G
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - #LookatCurren
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+distance_rate<=65
+order>=2
+order_rate<=40
+change_order_onetime<0
+
+
+Skills inatas: Ramp Up, Intimidate, Disorient
+Skills potenciais: Meticulous Measures (Nv.2), Dazzling Disorientation (Nv.3), Prepared to Pass (Nv.4), Adored by All (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Curren Chan [Ma Chérie of the New Moon]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - A
+Mile - D
+Medium - G
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - E
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+10% Power
+0% Guts
+10% Wit
+
+
+Skill única - One True Color
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=350
+order_rate<=40
+order_rate>=20
+bashin_diff_behind<=1
+
+
+Skills inatas: Hesitant Front Runners, Intimidate, Pace Chaser Corners ○
+Skills potenciais: Sprinting Gear (Nv.2), Adored by All (Nv.3), Pace Chaser Savvy ○ (Nv.4), Turbo Sprint (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Kawakami Princess [Princess of Pink]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - D
+Mile - B
+Medium - A
+Long - F
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - C
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+10% Power
+20% Guts
+0% Wit
+
+
+Skill única - A Princess Must Seize Victory!
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+blocked_side_continuetime>=2
+
+
+Skills inatas: Nimble Navigator, Outer Swell, Unyielding Spirit
+Skills potenciais: Late Surger Straightaways ○ (Nv.2), No Stopping Me! (Nv.3), Standard Distance ○ (Nv.4), Rising Dragon (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Gold City [Authentic / 1928]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - D
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - B
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+10% Power
+20% Guts
+0% Wit
+
+
+Skill única - KEEP IT REAL.
+Efeito da skill única: Acceleration +30%
+Duração base: 6 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate>=40
+order_rate<=70
+is_overtake==1
+
+
+Skills inatas: Hanshin Racecourse ○, Slick Surge, Watchful Eye
+Skills potenciais: Slipstream (Nv.2), Keen Eye (Nv.3), Acceleration (Nv.4), On Your Left! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Gold City [Autumn Cosmos]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - D
+
+
+Aptidões de distância:
+Sprint - F
+Mile - A
+Medium - B
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+8% Speed
+0% Stamina
+8% Power
+0% Guts
+14% Wit
+
+
+Skill única - Dancing in the Leaves
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+order_rate>=30
+order_rate<=70
+blocked_side_continuetime>=2
+
+
+Skills inatas: Rainy Days ○, Opening Gambit, Be Still
+Skills potenciais: Late Surger Savvy ○ (Nv.2), Battle Formation (Nv.3), Late Surger Corners ○ (Nv.4), Lie in Wait (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Seeking the Pearl [Rocket☆Star]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - E
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - A
+End Closer - B
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - I'm Possible!
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=201
+remain_distance>=199
+distance_diff_top<=5
+order>=2
+
+Condição alternativa:
+remain_distance<=201
+remain_distance>=199
+distance_diff_top<=10
+order>=2
+
+
+Skills inatas: Firm Conditions ○, Sprint Straightaways ○, Unyielding Spirit
+Skills potenciais: Light as a Feather (Nv.2), Shocking Flash (Nv.3), Head-On (Nv.4), Big-Sisterly (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Sweep Tosho [Platanus Witch]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - D
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - G
+Late Surger - A
+End Closer - A
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+20% Power
+0% Guts
+0% Wit
+
+
+Skill única - Victory belongs to me—Strelitzia! ☆
+Efeito da skill única: Target Speed +35%
+Duração base: 6 segundos
+Requisitos de ativação:
+remain_distance<=300
+order_rate_out50_continue==1
+temptation_count==0
+is_finalcorner==1
+
+
+Skills inatas: Trick (Rear), After-School Stroll, Take the Chance
+Skills potenciais: Intense Gaze (Nv.2), Go-Home Specialist (Nv.3), Straightaway Spurt (Nv.4), Petrifying Gaze (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Super Creek [Murmuring Stream]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - G
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - B
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - Pure Heart
+Efeito da skill única: HP Recovery +7.5%
+Duração base: 0 segundos
+Requisitos de ativação:
+phase_random==1
+order>=2
+order_rate<=40
+
+
+Skills inatas: Corner Recovery ○, Deep Breaths, Disorient
+Skills potenciais: Ramp Up (Nv.2), Dazzling Disorientation (Nv.3), Hesitant Pace Chasers (Nv.4), Swinging Maestro (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Super Creek [Chiffon-Wrapped Mummy]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - G
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - D
+Pace Chaser - A
+Late Surger - B
+End Closer - G
+
+
+Fator crescimento:
+14% Speed
+8% Stamina
+0% Power
+8% Guts
+0% Wit
+
+
+Skill única - Give Mummy a Hug ♡
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+order<=4
+bashin_diff_infront<=1
+
+
+Skills inatas: Corner Adept ○, Murmur, Hydrate
+Skills potenciais: Pace Chaser Corners ○ (Nv.2), Professor of Curvature (Nv.3), Medium Straightaways ○ (Nv.4), Mystifying Murmur (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Smart Falcon [LOVE☆4EVER]
+
+
+Aptidões de superfície:
+Turf - E
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - D
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+10% Power
+0% Guts
+0% Wit
+
+
+Skill única - SPARKLY☆STARDOM
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase==1
+corner==0
+order<=2
+bashin_diff_behind<=1
+
+
+Skills inatas: Prudent Positioning, Front Runner Savvy ○, Top Pick
+Skills potenciais: Wet Conditions ○ (Nv.2), Center Stage (Nv.3), Oi Racecourse ○ (Nv.4), Trending in the Charts! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Smart Falcon [Twilight Triumph]
+
+
+Aptidões de superfície:
+Turf - E
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - B
+Mile - A
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - D
+Late Surger - G
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - α-star*
+Efeito da skill única: Target Speed +25%, HP Recovery +3.5%
+Efeito alternativo: Target Speed +25%
+Duração alternativa: 6 segundos
+Duração base: 6 segundos
+Requisitos de ativação:
+distance_rate>=40
+distance_rate<=50
+distance_diff_rate<=10
+ground_type==2
+
+Condição alternativa:
+distance_rate>=40
+distance_rate<=50
+distance_diff_rate<=10
+
+
+Skills inatas: Front Runner Corners ○, Top Pick, With All My Soul
+Skills potenciais: Got the Spirit! (Nv.2), Trending in the Charts! (Nv.3), Dust Cloud (Nv.4), Be the Center! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Tosen Jordan [Jokester ☆ Vibes]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - B
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - B
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+10% Power
+10% Guts
+0% Wit
+
+
+Skill única - Pop & Polish
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+order_rate<=40
+overtake_target_time>=1
+--- OU ---
+is_overtake==1
+
+
+Skills inatas: Long Shot ○, Slick Surge, Medium Straightaways ○
+Skills potenciais: Preferred Position (Nv.2), On Your Left! (Nv.3), All I've Got (Nv.4), Race Planner (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Narita Taishin [Nevertheless]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - D
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - F
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+20% Guts
+0% Wit
+
+
+Skill única - Nemesis
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+order_rate>=40
+order_rate<=75
+is_overtake==1
+
+
+Skills inatas: Standing By, Murmur, Lone Wolf
+Skills potenciais: Straightaway Spurt (Nv.2), Sleeping Lion (Nv.3), End Closer Straightaways ○ (Nv.4), Encroaching Shadow (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Narita Taishin [Difference Engineer]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - D
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - F
+Late Surger - B
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+8% Stamina
+0% Power
+8% Guts
+14% Wit
+
+
+Skill única - Hephaestus
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+is_finalcorner_laterhalf==1
+order_rate<=75
+order_rate>=40
+
+
+Skills inatas: Nimble Navigator, Take the Chance, Breakin' Out
+Skills potenciais: End Closer Savvy ○ (Nv.2), Breakin' Ahead (Nv.3), End Closer Straightaways ○ (Nv.4), From the Brink (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Nishino Flower [Layered Petals]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - E
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+15% Speed
+0% Stamina
+15% Power
+0% Guts
+0% Wit
+
+
+Skill única - Budding Blossom
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+phase>=2
+is_finalcorner_laterhalf==1
+order>=3
+order_rate<=40
+--- OU ---
+is_finalcorner==1
+corner==0
+phase==1
+blocked_side_continuetime>=2
+corner!=0
+
+
+Skills inatas: Straightaway Adept, Acceleration, Straight Descent
+Skills potenciais: Sprinting Gear (Nv.2), Beeline Burst (Nv.3), Late Surger Corners ○ (Nv.4), Determined Descent (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Haru Urara [New Year ♪ New Urara!]
+
+
+Aptidões de superfície:
+Turf - G
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - G
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - G
+Late Surger - A
+End Closer - B
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+10% Guts
+0% Wit
+
+
+Skill única - 114th Time's the Charm
+Efeito da skill única: Target Speed +25%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner!=0
+distance_diff_top>=7
+
+
+Skills inatas: Prudent Positioning, Unyielding Spirit, Fighter
+Skills potenciais: Shake It Out (Nv.2), Center Stage (Nv.3), Snowy Days ○ (Nv.4), Hard Worker (Nv.5)
+
+
+Notas: Atenção: segundo a descrição oficial, a duração é proporcional à distância até o líder (quanto mais longe, maior a duração).
+
+
+
+
+Personagem: Bamboo Memory [Iron Ambition]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - D
+
+
+Aptidões de distância:
+Sprint - A
+Mile - A
+Medium - C
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - E
+Late Surger - A
+End Closer - C
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+10% Power
+10% Guts
+0% Wit
+
+
+Skill única - Red-Hot Discipline!
+Efeito da skill única: Acceleration +10% (base) + +10% Acceleration e duração aumentada por adversário ultrapassado (até 3x)
+Duração base: 2 segundos
+Requisitos de ativação:
+phase>=2
+order_rate>=50
+is_finalcorner==1
+bashin_diff_infront<=1
+
+
+Skills inatas: Ramp Up, Outer Swell, Pumped
+Skills potenciais: Sprint Corners ○ (Nv.2), Rising Dragon (Nv.3), Fearless (Nv.4), Full of Vigor (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Matikanefukukitaru [Lucky Tidings]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - F
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+0% Power
+10% Guts
+10% Wit
+
+
+Skill única - Bountiful Harvest
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate>=40
+overtake_target_time>=2
+
+
+Skills inatas: Right-Handed ○, Slick Surge, Pressure
+Skills potenciais: Inside Scoop (Nv.2), Overwhelming Pressure (Nv.3), Kyoto Racecourse ○ (Nv.4), Innate Experience (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Meisho Doto [Turbulent Blue]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - B
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - I Never Goof Up!
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Duração base: 5 segundos
+Requisitos de ativação:
+phase>=2
+change_order_onetime<0
+
+
+Skills inatas: Pace Strategy, Prepared to Pass, Medium Corners ○
+Skills potenciais: Non-Standard Distance ○ (Nv.2), Speed Star (Nv.3), Subdued Pace Chasers (Nv.4), Indomitable (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Meisho Doto [Dot-o'-Lantern]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - B
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+15% Power
+0% Guts
+15% Wit
+
+
+Skill única - Spooky, Scary, Happy
+Efeito da skill única: Target Speed +35%, Current Speed -5%, Current Speed -5%
+Duração base: 5 segundos
+Requisitos de ativação:
+is_last_straight_onetime==1
+order_rate<=40
+
+
+Skills inatas: Corner Recovery ○, Medium Straightaways ○, Head-On
+Skills potenciais: On the Attack (Nv.2), Neck and Neck (Nv.3), Right-Handed ○ (Nv.4), Swinging Maestro (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Dober [Off the Line]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - F
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - B
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - Moving Past, and Beyond
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+phase>=2
+corner!=0
+is_finalcorner==0
+temptation_count==0
+order_rate>=50
+order_rate<=70
+--- OU ---
+phase==1
+is_finalcorner==1
+
+
+Skills inatas: Kyoto Racecourse ○, Soft Step, Sharp Gaze
+Skills potenciais: Late Surger Straightaways ○ (Nv.2), All-Seeing Eyes (Nv.3), Up-Tempo (Nv.4), Yodo Invicta (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Dober [Sapphire Sojourn]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - F
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - B
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+0% Stamina
+0% Power
+0% Guts
+10% Wit
+
+
+Skill única - Wherever This Wonder Leads
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=60
+slope==2
+phase==1
+order_rate>=40
+order_rate<=80
+remain_distance>=500
+
+
+Skills inatas: Kyoto Racecourse ○, Take the Chance, Fearless
+Skills potenciais: Medium Straightaways ○ (Nv.2), Dauntless (Nv.3), Full Throttle (Nv.4), From the Brink (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Nice Nature [Run & Win]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - B
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+0% Speed
+10% Stamina
+10% Power
+0% Guts
+10% Wit
+
+
+Skill única - Go☆Go☆Goal!
+Efeito da skill única: Target Speed +35%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 6 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+order_rate>=40
+order_rate<=70
+popularity>=4
+change_order_onetime<0
+
+Condição alternativa:
+is_finalcorner==1
+corner==0
+order_rate>=40
+order_rate<=70
+popularity<4
+change_order_onetime<0
+
+
+Skills inatas: Nimble Navigator, Tether, Late Surger Savvy ○
+Skills potenciais: Take the Chance (Nv.2), Dominator (Nv.3), Long Shot ○ (Nv.4), No Stopping Me! (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: King Halo [Cheerleader in Noble White]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - A
+Mile - B
+Medium - B
+Long - C
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+10% Power
+10% Guts
+0% Wit
+
+
+Skill única - Louder! Tracen Cheer!
+Efeito da skill única: Acceleration +40%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+distance_rate>=50
+order_rate_out70_continue==1
+temptation_count==0
+
+
+Skills inatas: Spring Runner ○, Outer Swell, Gap Closer
+Skills potenciais: Watchful Eye (Nv.2), Rising Dragon (Nv.3), Late Surger Straightaways ○ (Nv.4), Spring Spectacle (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Matikanetannhauser [Clippety-Tippety-Clop]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - D
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - E
+
+
+Fator crescimento:
+0% Speed
+20% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - Go, Go, Mun!
+Efeito da skill única: HP Recovery +5.5%, Target Speed +25%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+phase==1
+order>=3
+order_rate<=70
+
+
+Skills inatas: Calm in a Crowd, Slick Surge, Pressure
+Skills potenciais: Shake It Out (Nv.2), Unruffled (Nv.3), Homestretch Haste (Nv.4), Overwhelming Pressure (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Palmer [Line Breakthrough]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - F
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - E
+Late Surger - F
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+10% Stamina
+0% Power
+10% Guts
+0% Wit
+
+
+Skill única - Keep Pushing Ahead
+Efeito da skill única: HP Recovery +5.5%, Target Speed +25%
+Duração base: 6 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate_in20_continue==1
+
+
+Skills inatas: Keeping the Lead, Front Runner Straightaways ○, Playtime's Over!
+Skills potenciais: Early Lead (Nv.2), See Ya Later! (Nv.3), Long Shot ○ (Nv.4), Vanguard Spirit (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Satono Diamond [Natural Brilliance]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - G
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - B
+Late Surger - A
+End Closer - D
+
+
+Fator crescimento:
+0% Speed
+15% Stamina
+0% Power
+0% Guts
+15% Wit
+
+
+Skill única - Eternal Encompassing Shine
+Efeito da skill única: Target Speed +45%
+Efeito alternativo: Target Speed +35%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+is_last_straight_onetime==1
+order>=2
+order<=5
+distance_diff_top<=5
+
+Condição alternativa:
+is_last_straight_onetime==1
+order>=2
+order<=5
+distance_diff_top>5
+
+
+Skills inatas: Right-Handed ○, Medium Straightaways ○, Be Still
+Skills potenciais: Feature Act (Nv.2), Lie in Wait (Nv.3), Firm Conditions ○ (Nv.4), Right-Handed Demon (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Kitasan Black [Gilded Shrine to Glory]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - B
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+20% Speed
+10% Stamina
+0% Power
+0% Guts
+0% Wit
+
+
+Skill única - Victory Cheer!
+Efeito da skill única: Target Speed +25%, Acceleration +30%
+Efeito alternativo: Target Speed +25%
+Duração alternativa: 5 segundos
+Duração base: 5 segundos
+Requisitos de ativação:
+phase==2
+straight_front_type==2
+order<=2
+
+Condição alternativa:
+distance_rate>=50
+corner==3
+order<=2
+
+
+Skills inatas: Focus, Early Lead, Long Straightaways ○
+Skills potenciais: Medium Straightaways ○ (Nv.2), Taking the Lead (Nv.3), Leader's Pride (Nv.4), Blast Forward (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Sakura Chiyono O [Strength in Full Bloom]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - E
+Mile - A
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - B
+Pace Chaser - A
+Late Surger - F
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+10% Guts
+10% Wit
+
+
+Skill única - Ambition to Surpass the Sakura
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=300
+order_rate<=40
+bashin_diff_infront<=1
+
+
+Skills inatas: Spring Runner ○, Prepared to Pass, Medium Corners ○
+Skills potenciais: Corner Acceleration ○ (Nv.2), Speed Star (Nv.3), Pace Chaser Savvy ○ (Nv.4), Spring Spectacle (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Ardan [Crystalline]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - F
+
+
+Aptidões de distância:
+Sprint - E
+Mile - B
+Medium - A
+Long - D
+
+
+Aptidões de estratégia:
+Front Runner - C
+Pace Chaser - A
+Late Surger - D
+End Closer - G
+
+
+Fator crescimento:
+10% Speed
+0% Stamina
+0% Power
+0% Guts
+20% Wit
+
+
+Skill única - A Lifelong Dream, A Moment's Flight
+Efeito da skill única: Target Speed +45%, HP Recovery -1%
+Duração base: 4 segundos
+Requisitos de ativação:
+is_finalcorner==1
+corner==0
+bashin_diff_behind<=1
+
+
+Skills inatas: Left-Handed ○, Preferred Position, All I've Got
+Skills potenciais: Pace Chaser Corners ○ (Nv.2), Race Planner (Nv.3), Soft Step (Nv.4), Come What May (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Yaeno Muteki [Blazed Head, Covered Fists]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - E
+
+
+Aptidões de distância:
+Sprint - G
+Mile - B
+Medium - A
+Long - E
+
+
+Aptidões de estratégia:
+Front Runner - F
+Pace Chaser - A
+Late Surger - A
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+20% Power
+10% Guts
+0% Wit
+
+
+Skill única - Peerless Dance of Flowering Flames
+Efeito da skill única: Target Speed +35%
+Duração base: 5 segundos
+Requisitos de ativação:
+remain_distance<=300
+order_rate<=40
+is_finalcorner==1
+change_order_onetime<0
+
+
+Skills inatas: Ramp Up, Steadfast, Pace Chaser Corners ○
+Skills potenciais: Fighting Spirit (Nv.2), It's On! (Nv.3), Corner Acceleration ○ (Nv.4), Unyielding (Nv.5)
+
+
+Notas: 
+
+
+
+
+Personagem: Mejiro Bright [Brunissage Line]
+
+
+Aptidões de superfície:
+Turf - A
+Dirt - G
+
+
+Aptidões de distância:
+Sprint - F
+Mile - C
+Medium - A
+Long - A
+
+
+Aptidões de estratégia:
+Front Runner - G
+Pace Chaser - D
+Late Surger - A
+End Closer - A
+
+
+Fator crescimento:
+0% Speed
+14% Stamina
+0% Power
+8% Guts
+8% Wit
+
+
+Skill única - Lovely Spring Breeze
+Efeito da skill única: Target Speed +15%
+Duração base: 5 segundos
+Requisitos de ativação:
+distance_rate>=50
+order_rate>=40
+order_rate<=80
+
+
+Skills inatas: Pace Strategy, End Closer Corners ○, Free-Spirited
+Skills potenciais: Pressure (Nv.2), Indomitable (Nv.3), Stamina Eater (Nv.4), Of Calm Mind (Nv.5)
+
+
+Notas: Atenção: a duração real varia com a HP restante (breakpoints oficiais): 5s (0 HP) → 7,5s (2000) → 10s (2400) → 11s (2600) → 12,5s (2800) → 15s (3000) → 17,5s (3200) → 20s (3500).
+
+
+
+
+Personagem: Copano Rickey [Eightfold☆Fortune]
+
+
+Aptidões de superfície:
+Turf - F
+Dirt - A
+
+
+Aptidões de distância:
+Sprint - C
+Mile - A
+Medium - A
+Long - G
+
+
+Aptidões de estratégia:
+Front Runner - A
+Pace Chaser - A
+Late Surger - C
+End Closer - G
+
+
+Fator crescimento:
+0% Speed
+0% Stamina
+10% Power
+0% Guts
+20% Wit
+
+
+Skill única - Luck Runs My Way
+Efeito da skill única: Target Speed +25% (base) e Acceleration +0% (base); bônus por skills verdes ativadas: +5% Target Speed e +5% Acceleration a cada 2 skills verdes (máx. +15%/+15% com 6 skills verdes)
+Duração base: 5 segundos
+Requisitos de ativação:
+phase_laterhalf_random==1
+
+
+Skills inatas: Medium Corners ○, Pace Chaser Savvy ○, Sunny Sign
+Skills potenciais: Solid Steps (Nv.2), Chance of Victory (Nv.3), Collaborative Graded Races ○ (Nv.4), Strong Steps (Nv.5)
+
+
+Notas: 

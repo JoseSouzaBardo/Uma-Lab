@@ -1,0 +1,954 @@
+================================================================================
+BANCO DE DADOS DE PISTAS — CHAMPIONS MEETING 1 a 18 (UMA MUSUME: PRETTY DERBY)
+Fonte: https://gametora.com/umamusume/events/champions-meeting?cm=1 (CMs 1–18)
+Dados extraídos dos arquivos públicos da gametora em 21/08/2026:
+- Lista de CMs (JP) e lista de CMs do servidor Global (EN);
+- Dataset de pistas do servidor Global (history/pre_2_5th_anni/racetracks), que é o
+  mesmo que o viewer da gametora usa para exibir as CMs no servidor Global.
+
+VALIDAÇÃO (21/08/2026): dados conferidos contra o simulador umalator-global
+(course_data.json) — 18/18 pistas idênticas (curvas, retas, inclinações, stat
+thresholds, fases, spurt e position keep). Ver "RELATORIO - validacao de pistas.md".
+
+CONVENÇÕES:
+- Metros: distância de corrida a partir da largada (0 m = largada; X m = chegada,
+  onde X é a distância da CM).
+- Direção: sentido do giro da pista (direita = horário; esquerda = anti-horário).
+- Fases: Abertura (início da corrida), Meio, Final e Spurt final (última arrancada).
+- Reta oposta = reta dos fundos (backstretch); reta final = reta da chegada.
+- Inclinações em % de gradiente (subida = aclive; descida = declive).
+- Stat Thresholds: atributos que a pista verifica (mapeamento da gametora:
+  1=Speed, 2=Stamina, 3=Power, 4=Guts, 5=Wit). "Nenhum" = pista sem checagem.
+- Variante da pista: Interna/Externa/Externa→Interna (quando a pista tem mais de
+  um traçado; omitido quando a pista tem traçado único).
+- Datas: o servidor Global repete as CMs do JP na mesma ordem, com datas próprias.
+  A CM18 Global ainda não ocorreu (início estimado pelo algoritmo do próprio site).
+================================================================================
+
+RESUMO — CM 1 A 18
+────────────────────
+CM 01 Taurus Cup         | Tokyo     | Turf 2400 m | Global: 21/08/2025 → 27/08/2025
+CM 02 Gemini Cup         | Kyoto     | Turf 3200 m | Global: 11/09/2025 → 17/09/2025
+CM 03 Cancer Cup         | Tokyo     | Turf 1600 m | Global: 10/10/2025 → 16/10/2025
+CM 04 Leo Cup            | Hanshin   | Turf 2200 m | Global: 03/11/2025 → 09/11/2025
+CM 05 Virgo Cup          | Hanshin   | Turf 1600 m | Global: 20/11/2025 → 26/11/2025
+CM 06 Libra Cup          | Kyoto     | Turf 3000 m | Global: 12/12/2025 → 18/12/2025
+CM 07 Scorpio Cup        | Tokyo     | Turf 2000 m | Global: 01/01/2026 → 07/01/2026
+CM 08 Sagittarius Cup    | Nakayama  | Turf 2500 m | Global: 23/01/2026 → 29/01/2026
+CM 09 Capricorn Cup      | Chukyo    | Turf 1200 m | Global: 13/02/2026 → 19/02/2026
+CM 10 Aquarius Cup       | Tokyo     | Dirt 1600 m | Global: 06/03/2026 → 12/03/2026
+CM 11 Pisces Cup         | Hanshin   | Turf 3200 m | Global: 30/03/2026 → 05/04/2026
+CM 12 Aries Cup          | Nakayama  | Turf 2000 m | Global: 23/04/2026 → 29/04/2026
+CM 13 Taurus Cup         | Tokyo     | Turf 2400 m | Global: 14/05/2026 → 20/05/2026
+CM 14 Gemini Cup         | Tokyo     | Turf 1600 m | Global: 04/06/2026 → 10/06/2026
+CM 15 Cancer Cup         | Hanshin   | Turf 2200 m | Global: 24/06/2026 → 30/06/2026
+CM 16 Leo Cup            | Nakayama  | Turf 1200 m | Global: 15/07/2026 → 21/07/2026
+CM 17 Virgo Cup          | Oi        | Dirt 2000 m | Global: 08/08/2026 → 14/08/2026
+CM 18 Libra Cup          | Hanshin   | Turf 1600 m | Global: estimado 29/08/2026
+
+
+
+══════════════════════════════════════════════
+CM 01 — Taurus Cup (タウラス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 21/08/2025 → 27/08/2025
+  Datas (JP original): 14/05/2021 → 20/05/2021
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Turf (grama)
+  Distância: 2400 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Primavera
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Voltas (diagrama): Volta 1: 0–2088 m · Volta 2: 2088–2400 m
+
+Fases:
+  Abertura (início): 0–400 m
+  Meio: 400–1600 m
+  Final: 1600–2000 m
+  Spurt final: 2000–2400 m
+
+Retas:
+  Reta 1 (final): 0–325 m
+  Reta 2 (oposta): 900–1350 m
+  Reta 3 (final): 1875–2400 m
+
+Curvas:
+  Curva 1: 325–575 m
+  Curva 2: 575–900 m
+  Curva 3: 1350–1625 m
+  Curva 4: 1625–1875 m
+
+Inclinações:
+  Inclinação 1 (subida 1.5%): 0–40 m
+  Inclinação 2 (subida 2%): 1125–1200 m
+  Inclinação 3 (descida 1.5%): 1250–1500 m
+  Inclinação 4 (subida 1.5%): 1950–2100 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 1, aos 1600 m (curva)
+  Position Keep termina: aos 1000 m
+  Sobreposição no diagrama (fases): Abertura (início)+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 02 — Gemini Cup (ジェミニ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 11/09/2025 → 17/09/2025
+  Datas (JP original): 14/06/2021 → 20/06/2021
+
+Corrida:
+  Pista: Kyoto
+  Superfície: Turf (grama)
+  Distância: 3200 m
+  Direção: Direita (sentido horário)
+  Estação: Primavera
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Externa
+  Voltas (diagrama): Volta 1: 0–1840 m · Volta 2: 1840–3200 m
+
+Fases:
+  Abertura (início): 0–533 m
+  Meio: 533–2133 m
+  Final: 2133–2667 m
+  Spurt final: 2667–3200 m
+
+Retas:
+  Reta 1 (oposta): 0–458 m
+  Reta 2 (final): 958–1450 m
+  Reta 3 (oposta): 1850–2300 m
+  Reta 4 (final): 2797–3200 m
+
+Curvas:
+  Curva 3: 458–708 m
+  Curva 4: 708–958 m
+  Curva 1: 1450–1650 m
+  Curva 2: 1650–1850 m
+  Curva 3: 2300–2550 m
+  Curva 4: 2550–2797 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 208–308 m
+  Inclinação 2 (subida 1%): 308–533 m
+  Inclinação 3 (descida 2%): 533–683 m
+  Inclinação 4 (subida 2%): 2050–2150 m
+  Inclinação 5 (subida 1%): 2150–2375 m
+  Inclinação 6 (descida 2%): 2375–2525 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 2, aos 2133 m (reta, subida)
+  Position Keep termina: aos 1333 m
+  Sobreposição no diagrama (fases): Abertura (início)+Meio · Abertura (início)+Final · Meio+Final · Meio+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 03 — Cancer Cup (キャンサー杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 10/10/2025 → 16/10/2025
+  Datas (JP original): 23/07/2021 → 29/07/2021
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Turf (grama)
+  Distância: 1600 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Verão
+  Clima: Ensolarado
+  Condição do piso: Bom
+  Voltas (diagrama): 1 volta (0–1600 m)
+
+Fases:
+  Abertura (início): 0–267 m
+  Meio: 267–1067 m
+  Final: 1067–1333 m
+  Spurt final: 1333–1600 m
+
+Retas:
+  Reta 1 (oposta): 0–550 m
+  Reta 2 (final): 1075–1600 m
+
+Curvas:
+  Curva 3: 550–825 m
+  Curva 4: 825–1075 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 325–400 m
+  Inclinação 2 (descida 1.5%): 450–700 m
+  Inclinação 3 (subida 1.5%): 1150–1300 m
+
+Stat Thresholds:
+  Stamina, Guts
+
+Extras:
+  Spurt final inicia: volta 1, aos 1067 m (curva final)
+  Position Keep termina: aos 667 m
+Notas:
+  - uma.guide descreve esta CM como "Inner"; nos dados da gametora existe apenas um traçado de 1600m turf em Tokyo (sem rótulo de variante) — usamos esse traçado.
+
+
+
+══════════════════════════════════════════════
+CM 04 — Leo Cup (レオ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 03/11/2025 → 09/11/2025
+  Datas (JP original): 24/08/2021 → 30/08/2021
+
+Corrida:
+  Pista: Hanshin
+  Superfície: Turf (grama)
+  Distância: 2200 m
+  Direção: Direita (sentido horário)
+  Estação: Verão
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Interna
+  Voltas (diagrama): Volta 1: 0–1824 m · Volta 2: 1824–2200 m
+
+Fases:
+  Abertura (início): 0–367 m
+  Meio: 367–1467 m
+  Final: 1467–1833 m
+  Spurt final: 1833–2200 m
+
+Retas:
+  Reta 1 (final): 0–520 m
+  Reta 2 (oposta): 900–1250 m
+  Reta 3 (final): 1844–2200 m
+
+Curvas:
+  Curva 1: 520–710 m
+  Curva 2: 710–900 m
+  Curva 3: 1250–1550 m
+  Curva 4: 1550–1844 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 0–290 m
+  Inclinação 2 (subida 2%): 295–420 m
+  Inclinação 3 (descida 1%): 1400–1995 m
+  Inclinação 4 (subida 2%): 2000–2125 m
+
+Stat Thresholds:
+  Speed
+
+Extras:
+  Spurt final inicia: volta 1, aos 1467 m (curva, descida)
+  Position Keep termina: aos 917 m
+  Sobreposição no diagrama (fases): Abertura (início)+Final · Abertura (início)+Spurt final · Meio+Spurt final
+Notas:
+  - uma.guide descreve esta CM como "Outer", mas os dados da gametora têm apenas uma pista de 2200m turf em Hanshin (rotulada como Interna); usamos a pista dos dados.
+
+
+
+══════════════════════════════════════════════
+CM 05 — Virgo Cup (ヴァルゴ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 20/11/2025 → 26/11/2025
+  Datas (JP original): 21/09/2021 → 27/09/2021
+
+Corrida:
+  Pista: Hanshin
+  Superfície: Turf (grama)
+  Distância: 1600 m
+  Direção: Direita (sentido horário)
+  Estação: Outono
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Externa
+  Voltas (diagrama): 1 volta (0–1600 m)
+
+Fases:
+  Abertura (início): 0–267 m
+  Meio: 267–1067 m
+  Final: 1067–1333 m
+  Spurt final: 1333–1600 m
+
+Retas:
+  Reta 1 (oposta): 0–450 m
+  Reta 2 (final): 1127–1600 m
+
+Curvas:
+  Curva 3: 450–800 m
+  Curva 4: 800–1127 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 950–1350 m
+  Inclinação 2 (subida 2%): 1405–1525 m
+
+Stat Thresholds:
+  Power
+
+Extras:
+  Spurt final inicia: volta 1, aos 1067 m (curva final, descida)
+  Position Keep termina: aos 667 m
+
+
+
+══════════════════════════════════════════════
+CM 06 — Libra Cup (ライブラ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 12/12/2025 → 18/12/2025
+  Datas (JP original): 22/10/2021 → 28/10/2021
+
+Corrida:
+  Pista: Kyoto
+  Superfície: Turf (grama)
+  Distância: 3000 m
+  Direção: Direita (sentido horário)
+  Estação: Outono
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Externa
+  Voltas (diagrama): Volta 1: 0–1836 m · Volta 2: 1836–3000 m
+
+Fases:
+  Abertura (início): 0–500 m
+  Meio: 500–2000 m
+  Final: 2000–2500 m
+  Spurt final: 2500–3000 m
+
+Retas:
+  Reta 1 (oposta): 0–261 m
+  Reta 2 (final): 761–1250 m
+  Reta 3 (oposta): 1650–2100 m
+  Reta 4 (final): 2597–3000 m
+
+Curvas:
+  Curva 3: 261–511 m
+  Curva 4: 511–761 m
+  Curva 1: 1250–1450 m
+  Curva 2: 1450–1650 m
+  Curva 3: 2100–2350 m
+  Curva 4: 2350–2597 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 11–111 m
+  Inclinação 2 (subida 1%): 111–336 m
+  Inclinação 3 (descida 2%): 336–486 m
+  Inclinação 4 (subida 2%): 1850–1950 m
+  Inclinação 5 (subida 1%): 1950–2175 m
+  Inclinação 6 (descida 2%): 2175–2325 m
+
+Stat Thresholds:
+  Power, Wit
+
+Extras:
+  Spurt final inicia: volta 2, aos 2000 m (reta, subida)
+  Position Keep termina: aos 1250 m
+  Sobreposição no diagrama (fases): Abertura (início)+Meio · Abertura (início)+Final · Meio+Final · Meio+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 07 — Scorpio Cup (スコーピオ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 01/01/2026 → 07/01/2026
+  Datas (JP original): 23/11/2021 → 29/11/2021
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Turf (grama)
+  Distância: 2000 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Outono
+  Clima: Chuva
+  Condição do piso: Macio
+  Voltas (diagrama): 1 volta (0–2000 m)
+
+Fases:
+  Abertura (início): 0–333 m
+  Meio: 333–1333 m
+  Final: 1333–1667 m
+  Spurt final: 1667–2000 m
+
+Retas:
+  Reta 1 (oposta): 400–950 m
+  Reta 2 (final): 1475–2000 m
+
+Curvas:
+  Curva 2: 200–400 m
+  Curva 3: 950–1225 m
+  Curva 4: 1225–1475 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 725–800 m
+  Inclinação 2 (descida 1.5%): 850–1100 m
+  Inclinação 3 (subida 1.5%): 1550–1700 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 1, aos 1333 m (curva final)
+  Position Keep termina: aos 833 m
+  Trecho neutro (nem reta nem curva): 0–200 m
+
+
+
+══════════════════════════════════════════════
+CM 08 — Sagittarius Cup (サジタリウス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 23/01/2026 → 29/01/2026
+  Datas (JP original): 21/12/2021 → 27/12/2021
+
+Corrida:
+  Pista: Nakayama
+  Superfície: Turf (grama)
+  Distância: 2500 m
+  Direção: Direita (sentido horário)
+  Estação: Inverno
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Interna
+  Voltas (diagrama): Volta 1: 0–1820 m · Volta 2: 1820–2500 m
+
+Fases:
+  Abertura (início): 0–417 m
+  Meio: 417–1667 m
+  Final: 1667–2083 m
+  Spurt final: 2083–2500 m
+
+Retas:
+  Reta 1 (final): 496–875 m
+  Reta 2 (oposta): 1375–1700 m
+  Reta 3 (final): 2190–2500 m
+
+Curvas:
+  Curva 3: 100–246 m
+  Curva 4: 246–496 m
+  Curva 1: 875–1125 m
+  Curva 2: 1125–1375 m
+  Curva 3: 1700–1950 m
+  Curva 4: 1950–2190 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 621–731 m
+  Inclinação 2 (subida 1.5%): 825–1025 m
+  Inclinação 3 (descida 1.5%): 1125–1525 m
+  Inclinação 4 (subida 2%): 2325–2435 m
+
+Stat Thresholds:
+  Stamina, Guts
+
+Extras:
+  Spurt final inicia: volta 1, aos 1667 m (reta)
+  Position Keep termina: aos 1042 m
+  Trecho neutro (nem reta nem curva): 0–100 m
+  Sobreposição no diagrama (fases): Abertura (início)+Final · Abertura (início)+Spurt final · Meio+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 09 — Capricorn Cup (カプリコーン杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 13/02/2026 → 19/02/2026
+  Datas (JP original): 22/01/2022 → 28/01/2022
+
+Corrida:
+  Pista: Chukyo
+  Superfície: Turf (grama)
+  Distância: 1200 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Inverno
+  Clima: Neve
+  Condição do piso: Macio
+  Voltas (diagrama): 1 volta (0–1200 m)
+
+Fases:
+  Abertura (início): 0–200 m
+  Meio: 200–800 m
+  Final: 800–1000 m
+  Spurt final: 1000–1200 m
+
+Retas:
+  Reta 1 (oposta): 0–300 m
+  Reta 2 (final): 788–1200 m
+
+Curvas:
+  Curva 3: 300–550 m
+  Curva 4: 550–788 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 100–875 m
+  Inclinação 2 (subida 2%): 875–975 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 1, aos 800 m (reta final, descida)
+  Position Keep termina: aos 500 m
+
+
+
+══════════════════════════════════════════════
+CM 10 — Aquarius Cup (アクエリアス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 06/03/2026 → 12/03/2026
+  Datas (JP original): 18/02/2022 → 24/02/2022
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Dirt (areia)
+  Distância: 1600 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Inverno
+  Clima: Ensolarado
+  Condição do piso: Bom
+  Voltas (diagrama): 1 volta (0–1600 m)
+
+Fases:
+  Abertura (início): 0–267 m
+  Meio: 267–1067 m
+  Final: 1067–1333 m
+  Spurt final: 1333–1600 m
+
+Retas:
+  Reta 1 (oposta): 0–650 m
+  Reta 2 (final): 1099–1600 m
+
+Curvas:
+  Curva 3: 650–875 m
+  Curva 4: 875–1099 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 575–775 m
+  Inclinação 2 (subida 1.5%): 1100–1350 m
+
+Stat Thresholds:
+  Speed, Stamina
+
+Extras:
+  Spurt final inicia: volta 1, aos 1067 m (curva final)
+  Position Keep termina: aos 667 m
+  Transição de terreno: 0–120 m turf · 120–1600 m dirt
+Notas:
+  - O dataset mais recente da gametora move a transição turf→dirt de 120 m para 100 m; o valor acima é o do dataset exibido pelo viewer Global.
+
+
+
+══════════════════════════════════════════════
+CM 11 — Pisces Cup (ピスケス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 30/03/2026 → 05/04/2026
+  Datas (JP original): 22/03/2022 → 28/03/2022
+
+Corrida:
+  Pista: Hanshin
+  Superfície: Turf (grama)
+  Distância: 3200 m
+  Direção: Direita (sentido horário)
+  Estação: Primavera
+  Clima: Chuva
+  Condição do piso: Pesado
+  Variante da pista: Externa→Interna
+  Voltas (diagrama): Volta 1: 0–2061 m · Volta 2: 2061–3200 m
+
+Fases:
+  Abertura (início): 0–533 m
+  Meio: 533–2133 m
+  Final: 2133–2667 m
+  Spurt final: 2667–3200 m
+
+Retas:
+  Reta 1 (oposta): 0–370 m
+  Reta 2 (final): 1070–1520 m
+  Reta 3 (oposta): 1900–2250 m
+  Reta 4 (final): 2844–3200 m
+
+Curvas:
+  Curva 3: 370–720 m
+  Curva 4: 720–1070 m
+  Curva 1: 1520–1710 m
+  Curva 2: 1710–1900 m
+  Curva 3: 2250–2550 m
+  Curva 4: 2550–2844 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 870–1270 m
+  Inclinação 2 (subida 2%): 1325–1445 m
+  Inclinação 3 (descida 1%): 2400–2995 m
+  Inclinação 4 (subida 2%): 3000–3125 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 2, aos 2133 m (reta)
+  Position Keep termina: aos 1333 m
+  Sobreposição no diagrama (fases): Abertura (início)+Meio · Abertura (início)+Final · Meio+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 12 — Aries Cup (アリエス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 23/04/2026 → 29/04/2026
+  Datas (JP original): 22/04/2022 → 28/04/2022
+
+Corrida:
+  Pista: Nakayama
+  Superfície: Turf (grama)
+  Distância: 2000 m
+  Direção: Direita (sentido horário)
+  Estação: Primavera
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Interna
+  Voltas (diagrama): Volta 1: 0–1694 m · Volta 2: 1694–2000 m
+
+Fases:
+  Abertura (início): 0–333 m
+  Meio: 333–1333 m
+  Final: 1333–1667 m
+  Spurt final: 1667–2000 m
+
+Retas:
+  Reta 1 (final): 0–375 m
+  Reta 2 (oposta): 875–1200 m
+  Reta 3 (final): 1690–2000 m
+
+Curvas:
+  Curva 1: 375–625 m
+  Curva 2: 625–875 m
+  Curva 3: 1200–1450 m
+  Curva 4: 1450–1690 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 125–235 m
+  Inclinação 2 (subida 1.5%): 325–525 m
+  Inclinação 3 (descida 1.5%): 625–1025 m
+  Inclinação 4 (subida 2%): 1825–1935 m
+
+Stat Thresholds:
+  Speed
+
+Extras:
+  Spurt final inicia: volta 1, aos 1333 m (curva)
+  Position Keep termina: aos 833 m
+  Sobreposição no diagrama (fases): Abertura (início)+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 13 — Taurus Cup (タウラス杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 14/05/2026 → 20/05/2026
+  Datas (JP original): 24/05/2022 → 30/05/2022
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Turf (grama)
+  Distância: 2400 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Primavera
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Voltas (diagrama): Volta 1: 0–2088 m · Volta 2: 2088–2400 m
+
+Fases:
+  Abertura (início): 0–400 m
+  Meio: 400–1600 m
+  Final: 1600–2000 m
+  Spurt final: 2000–2400 m
+
+Retas:
+  Reta 1 (final): 0–325 m
+  Reta 2 (oposta): 900–1350 m
+  Reta 3 (final): 1875–2400 m
+
+Curvas:
+  Curva 1: 325–575 m
+  Curva 2: 575–900 m
+  Curva 3: 1350–1625 m
+  Curva 4: 1625–1875 m
+
+Inclinações:
+  Inclinação 1 (subida 1.5%): 0–40 m
+  Inclinação 2 (subida 2%): 1125–1200 m
+  Inclinação 3 (descida 1.5%): 1250–1500 m
+  Inclinação 4 (subida 1.5%): 1950–2100 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 1, aos 1600 m (curva)
+  Position Keep termina: aos 1000 m
+  Sobreposição no diagrama (fases): Abertura (início)+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 14 — Gemini Cup (ジェミニ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 04/06/2026 → 10/06/2026
+  Datas (JP original): 14/06/2022 → 20/06/2022
+
+Corrida:
+  Pista: Tokyo
+  Superfície: Turf (grama)
+  Distância: 1600 m
+  Direção: Esquerda (sentido anti-horário)
+  Estação: Primavera
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Voltas (diagrama): 1 volta (0–1600 m)
+
+Fases:
+  Abertura (início): 0–267 m
+  Meio: 267–1067 m
+  Final: 1067–1333 m
+  Spurt final: 1333–1600 m
+
+Retas:
+  Reta 1 (oposta): 0–550 m
+  Reta 2 (final): 1075–1600 m
+
+Curvas:
+  Curva 3: 550–825 m
+  Curva 4: 825–1075 m
+
+Inclinações:
+  Inclinação 1 (subida 2%): 325–400 m
+  Inclinação 2 (descida 1.5%): 450–700 m
+  Inclinação 3 (subida 1.5%): 1150–1300 m
+
+Stat Thresholds:
+  Stamina, Guts
+
+Extras:
+  Spurt final inicia: volta 1, aos 1067 m (curva final)
+  Position Keep termina: aos 667 m
+
+
+
+══════════════════════════════════════════════
+CM 15 — Cancer Cup (キャンサー杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 24/06/2026 → 30/06/2026
+  Datas (JP original): 14/07/2022 → 20/07/2022
+
+Corrida:
+  Pista: Hanshin
+  Superfície: Turf (grama)
+  Distância: 2200 m
+  Direção: Direita (sentido horário)
+  Estação: Verão
+  Clima: Nublado
+  Condição do piso: Bom
+  Variante da pista: Interna
+  Voltas (diagrama): Volta 1: 0–1824 m · Volta 2: 1824–2200 m
+
+Fases:
+  Abertura (início): 0–367 m
+  Meio: 367–1467 m
+  Final: 1467–1833 m
+  Spurt final: 1833–2200 m
+
+Retas:
+  Reta 1 (final): 0–520 m
+  Reta 2 (oposta): 900–1250 m
+  Reta 3 (final): 1844–2200 m
+
+Curvas:
+  Curva 1: 520–710 m
+  Curva 2: 710–900 m
+  Curva 3: 1250–1550 m
+  Curva 4: 1550–1844 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 0–290 m
+  Inclinação 2 (subida 2%): 295–420 m
+  Inclinação 3 (descida 1%): 1400–1995 m
+  Inclinação 4 (subida 2%): 2000–2125 m
+
+Stat Thresholds:
+  Speed
+
+Extras:
+  Spurt final inicia: volta 1, aos 1467 m (curva, descida)
+  Position Keep termina: aos 917 m
+  Sobreposição no diagrama (fases): Abertura (início)+Final · Abertura (início)+Spurt final · Meio+Spurt final
+
+
+
+══════════════════════════════════════════════
+CM 16 — Leo Cup (レオ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 15/07/2026 → 21/07/2026
+  Datas (JP original): 13/08/2022 → 19/08/2022
+
+Corrida:
+  Pista: Nakayama
+  Superfície: Turf (grama)
+  Distância: 1200 m
+  Direção: Direita (sentido horário)
+  Estação: Verão
+  Clima: Ensolarado
+  Condição do piso: Firme
+  Variante da pista: Externa
+  Voltas (diagrama): 1 volta (0–1200 m)
+
+Fases:
+  Abertura (início): 0–200 m
+  Meio: 200–800 m
+  Final: 800–1000 m
+  Spurt final: 1000–1200 m
+
+Retas:
+  Reta 1 (final): 890–1200 m
+
+Curvas:
+  Curva 3: 300–650 m
+  Curva 4: 650–890 m
+
+Inclinações:
+  Inclinação 1 (descida 1.5%): 0–200 m
+  Inclinação 2 (subida 2%): 1025–1135 m
+
+Stat Thresholds:
+  Nenhum
+
+Extras:
+  Spurt final inicia: volta 1, aos 800 m (curva final)
+  Position Keep termina: aos 500 m
+  Trecho neutro (nem reta nem curva): 0–300 m
+
+
+
+══════════════════════════════════════════════
+CM 17 — Virgo Cup (ヴァルゴ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): 08/08/2026 → 14/08/2026
+  Datas (JP original): 15/09/2022 → 21/09/2022
+
+Corrida:
+  Pista: Oi
+  Superfície: Dirt (areia)
+  Distância: 2000 m
+  Direção: Direita (sentido horário)
+  Estação: Outono
+  Clima: Ensolarado
+  Condição do piso: Levemente pesado
+  Voltas (diagrama): Volta 1: 0–1606 m · Volta 2: 1606–2000 m
+
+Fases:
+  Abertura (início): 0–333 m
+  Meio: 333–1333 m
+  Final: 1333–1667 m
+  Spurt final: 1667–2000 m
+
+Retas:
+  Reta 1 (final): 0–500 m
+  Reta 2 (oposta): 800–1300 m
+  Reta 3 (final): 1614–2000 m
+
+Curvas:
+  Curva 1: 500–650 m
+  Curva 2: 650–800 m
+  Curva 3: 1300–1450 m
+  Curva 4: 1450–1614 m
+
+Inclinações:
+  Nenhuma (pista plana)
+
+Stat Thresholds:
+  Stamina
+
+Extras:
+  Spurt final inicia: volta 1, aos 1333 m (curva)
+  Position Keep termina: aos 833 m
+  Sobreposição no diagrama (fases): Abertura (início)+Final · Abertura (início)+Spurt final · Meio+Spurt final
+Notas:
+  - uma.guide descreve o piso como "Good"; os dados da gametora indicam condição 2 em pista de dirt (= Levemente pesado). Mantivemos a classificação da gametora.
+
+
+
+══════════════════════════════════════════════
+CM 18 — Libra Cup (ライブラ杯)
+══════════════════════════════════════════════
+
+Evento:
+  Datas (Global/EN): início estimado em 29/08/2026 (ainda não anunciado)
+  Datas (JP original): 14/10/2022 → 20/10/2022
+
+Corrida:
+  Pista: Hanshin
+  Superfície: Turf (grama)
+  Distância: 1600 m
+  Direção: Direita (sentido horário)
+  Estação: Outono
+  Clima: Nublado
+  Condição do piso: Firme
+  Variante da pista: Externa
+  Voltas (diagrama): 1 volta (0–1600 m)
+
+Fases:
+  Abertura (início): 0–267 m
+  Meio: 267–1067 m
+  Final: 1067–1333 m
+  Spurt final: 1333–1600 m
+
+Retas:
+  Reta 1 (oposta): 0–450 m
+  Reta 2 (final): 1127–1600 m
+
+Curvas:
+  Curva 3: 450–800 m
+  Curva 4: 800–1127 m
+
+Inclinações:
+  Inclinação 1 (descida 1%): 950–1350 m
+  Inclinação 2 (subida 2%): 1405–1525 m
+
+Stat Thresholds:
+  Power
+
+Extras:
+  Spurt final inicia: volta 1, aos 1067 m (curva final, descida)
+  Position Keep termina: aos 667 m
