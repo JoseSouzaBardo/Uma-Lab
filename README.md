@@ -20,14 +20,6 @@ Umamusume: Pretty Derby (servidor Global), montados entre 20 e 21/08/2026.
 | `umalator-global/` | Cópia do simulador de corridas **umalator** (alpha123/uma-tools), versão Global.|
 | `uma_data/`, `gametora_data/`, `game8_guides/`, `uma_guides/` | Dados brutos baixados e scripts geradores (o "rastro" de como cada .txt foi produzido) |
 
-## Como rodar os aplicativos
-
-```bash
-# Analisador de CM
-cd analyst/app && python3 -m http.server 8081
-# Simulador umalator
-cd umalator-global && python3 -m http.server 8080
-```
 
 ## Fontes e atribuição
 
@@ -41,26 +33,4 @@ cd umalator-global && python3 -m http.server 8080
   incluído na pasta `umalator-global/` sob os termos da licença GPL-3.0 (cópia da licença em
   `umalator-global/LICENSE`).
 
-## ⚠️ Licenças — leia antes de publicar este repositório
-
-1. **umalator-global/ (alpha123/uma-tools): GPL-3.0.** Você pode hospedar e redistribuir desde que
-   mantenha a licença (já incluída), os avisos de copyright do autor e disponibilize o código-fonte
-   (o próprio conteúdo da pasta). **Modificação feita:** o arquivo `bundle.js` foi levemente
-   alterado para neutralizar o bloqueio anti-iframe do app (necessário para rodar em preview);
-   a alteração está documentada aqui e o código-fonte (o próprio bundle) acompanha o repositório.
-2. **Ícones dentro de `umalator-global/uma-tools/icons/`:** são assets do jogo (© Cygames).
-   A distribuição em repositórios de fãs é prática comum, mas não há licença formal — se quiser
-   ser conservador, exclua essa pasta (o simulador continua funcionando, apenas sem imagens).
-3. **Textos de guias** (game8, uma.guide, gametora) reproduzidos nos arquivos: são conteúdo
-   protegido por direito autoral dos respectivos sites/autores, usados aqui para referência
-   pessoal com atribuição. Para um repositório público, mantenha a atribuição (presente nos
-   cabeçalhos dos arquivos e neste README) e considere reduzir a reprodução integral dos textos
-   aos pontos de dados — posso gerar versões "enxutas" se preferir.
-4. **Dados factuais** (números de status, condições de skills, layout de pistas) não são
-   protegidos por direito autoral, mas a coleta foi feita de sites de terceiros — a atribuição
-   nos cabeçalhos é questão de boa prática e transparência.
-
-## Aviso
-
-Ferramentas e dados são informativos e foram extraídos automaticamente; valide decisões
 importantes no jogo ou no simulador. Nenhuma afiliação com a Cygames.
