@@ -1734,7 +1734,7 @@ Fontes:
 
 
 ══════════════════════════════════════════════
-SKILLS PASSIVAS (149)
+SKILLS PASSIVAS (111)
 ══════════════════════════════════════════════
 
 ──────────────────────────────────────────────
@@ -1758,15 +1758,6 @@ Variantes (mesma condição): Right-Handed ◎ (200011, White)
 Fontes:
   Personagens: Fine Motion [Noble Seamair], Matikanefukukitaru [Lucky Tidings], Meisho Doto [Dot-o'-Lantern], Satono Diamond [Natural Brilliance]
   Support cards: [Tracen Academy] (Fine Motion), [Tracen Academy] (Narita Brian), [Tracen Academy] (Mejiro Bright), [Grma, Ramen ♪] (Fine Motion), [Wave of Gratitude] (Fine Motion), [Two Pieces] (Narita Brian), [The Whistling Arrow's Taunt] (Narita Brian), [Little by Little] (Mejiro Bright), [Take Hold of Our Dreams!] (Special Week)
-
-
-──────────────────────────────────────────────
-Nome: Right-Handed ×
-ID: 200013 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-rotation==1
-Descrição: Moderately decrease performance on right-handed tracks.
 
 
 ──────────────────────────────────────────────
@@ -1804,15 +1795,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Left-Handed ×
-ID: 200023 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-rotation==2
-Descrição: Moderately decrease performance on left-handed tracks.
-
-
-──────────────────────────────────────────────
 Nome: Tokyo Racecourse ◎
 ID: 200031 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Stamina +60
@@ -1836,15 +1818,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Tokyo Racecourse ×
-ID: 200033 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10006
-Descrição: Moderately decrease performance at Tokyo Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Nakayama Racecourse ◎
 ID: 200041 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Stamina +60
@@ -1864,15 +1837,6 @@ Descrição: Moderately increase performance at Nakayama Racecourse.
 Variantes (mesma condição): Nakayama Racecourse ◎ (200041, White)
 Fontes:
   Support cards: [Tracen Academy] (Grass Wonder), [Tracen Academy] (Yukino Bijin), [Tracen Academy] (Mejiro Palmer), [City Girl 101] (Yukino Bijin), [Fairest Fleur] (Grass Wonder), [Go Ahead and Laugh] (Mejiro Palmer), [Hometown Cheers] (Yukino Bijin), [Dancing Light into the Night] (Yukino Bijin), [Take Hold of Our Dreams!] (Special Week)
-
-
-──────────────────────────────────────────────
-Nome: Nakayama Racecourse ×
-ID: 200043 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10005
-Descrição: Moderately decrease performance at Nakayama Racecourse.
 
 
 ──────────────────────────────────────────────
@@ -1899,15 +1863,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Hanshin Racecourse ×
-ID: 200053 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10009
-Descrição: Moderately decrease performance at Hanshin Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Kyoto Racecourse ◎
 ID: 200061 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Stamina +60
@@ -1928,16 +1883,6 @@ Variantes (mesma condição): Kyoto Racecourse ◎ (200061, White)
 Fontes:
   Personagens: Matikanefukukitaru [Lucky Tidings], Mejiro Dober [Off the Line], Mejiro Dober [Sapphire Sojourn]
   Support cards: [Tracen Academy] (Mejiro McQueen), [Tracen Academy] (Rice Shower), [Tracen Academy] (Mejiro Dober), [Ignore the Stares] (Mejiro Dober), [Your Team Ace] (Mejiro McQueen), [Showered in Joy] (Rice Shower), [Happiness Just around the Bend] (Rice Shower), [My Thoughts, My Desires] (Mejiro Dober)
-
-
-──────────────────────────────────────────────
-Nome: Kyoto Racecourse ×
-ID: 200063 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10008
-Descrição: Moderately decrease performance at Kyoto Racecourse.
-Variantes (mesma condição): Unquenched Thirst (300011, White)
 
 
 ──────────────────────────────────────────────
@@ -1972,15 +1917,6 @@ Variantes (mesma condição): Chukyo Racecourse ◎ (200071, White)
 
 
 ──────────────────────────────────────────────
-Nome: Chukyo Racecourse ×
-ID: 200073 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10007
-Descrição: Moderately decrease performance at Chukyo Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Sapporo Racecourse ◎
 ID: 200081 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Stamina +60
@@ -2000,15 +1936,6 @@ Descrição: Moderately increase performance at Sapporo Racecourse.
 Variantes (mesma condição): Sapporo Racecourse ◎ (200081, White)
 Fontes:
   Support cards: [Tracen Academy] (Gold City), [Run(my)way] (Gold City)
-
-
-──────────────────────────────────────────────
-Nome: Sapporo Racecourse ×
-ID: 200083 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10001
-Descrição: Moderately decrease performance at Sapporo Racecourse.
 
 
 ──────────────────────────────────────────────
@@ -2034,15 +1961,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Hakodate Racecourse ×
-ID: 200093 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10002
-Descrição: Moderately decrease performance at Hakodate Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Fukushima Racecourse ◎
 ID: 200101 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Stamina +60
@@ -2063,15 +1981,6 @@ Variantes (mesma condição): Fukushima Racecourse ◎ (200101, White)
 
 
 ──────────────────────────────────────────────
-Nome: Fukushima Racecourse ×
-ID: 200103 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10004
-Descrição: Moderately decrease performance at Fukushima Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Niigata Racecourse ◎
 ID: 200111 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Stamina +60
@@ -2089,15 +1998,6 @@ Condições de ativação:
 track_id==10003
 Descrição: Moderately increase performance at Niigata Racecourse.
 Variantes (mesma condição): Niigata Racecourse ◎ (200111, White)
-
-
-──────────────────────────────────────────────
-Nome: Niigata Racecourse ×
-ID: 200113 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10003
-Descrição: Moderately decrease performance at Niigata Racecourse.
 
 
 ──────────────────────────────────────────────
@@ -2124,15 +2024,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Kokura Racecourse ×
-ID: 200123 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10010
-Descrição: Moderately decrease performance at Kokura Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Standard Distance ◎
 ID: 200131 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Stamina +60
@@ -2153,15 +2044,6 @@ Variantes (mesma condição): Standard Distance ◎ (200131, White)
 Fontes:
   Personagens: Agnes Tachyon [tach-nology], Kawakami Princess [Princess of Pink]
   Support cards: [Tracen Academy] (El Condor Pasa), [Tracen Academy] (Eishin Flash), [Tracen Academy] (Nishino Flower), [Tracen Academy] (Kawakami Princess), [5:00 a.m.—Right on Schedule] (Eishin Flash), [Lifting Your Spirits] (Nishino Flower), [Mud-Caked Compañero] (El Condor Pasa), [Champion's Passion] (El Condor Pasa), [Even the Littlest Bud] (Nishino Flower), [Princess Bride] (Kawakami Princess), [Little Cupcakes, Big Emotions] (Nishino Flower), [Go Go☆Princess!] (Kawakami Princess), [Twinkle in Your Eyes ∞] (El Condor Pasa)
-
-
-──────────────────────────────────────────────
-Nome: Standard Distance ×
-ID: 200133 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-is_basis_distance==1
-Descrição: Moderately decrease performance over standard distances (multiples of 400m).
 
 
 ──────────────────────────────────────────────
@@ -2188,15 +2070,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Non-Standard Distance ×
-ID: 200143 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-is_basis_distance==0
-Descrição: Moderately decrease performance over non-standard distances (non-multiples of 400m).
-
-
-──────────────────────────────────────────────
 Nome: Firm Conditions ◎
 ID: 200151 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Power +60
@@ -2217,15 +2090,6 @@ Variantes (mesma condição): Firm Conditions ◎ (200151, White)
 Fontes:
   Personagens: Fine Motion [Titania], Winning Ticket [Get to Winning!], Seeking the Pearl [Rocket☆Star], Satono Diamond [Natural Brilliance]
   Support cards: [Tracen Academy] (Winning Ticket), [Tracen Academy] (Super Creek), [Tracen Academy] (Nishino Flower), [Tracen Academy] (Meisho Doto), [Tracen Academy] (King Halo), [Tracen Academy] (Satono Diamond), [Tracen Academy] (Seeking the Pearl), [Tracen Academy] (Narita Top Road), [Fighting for Fortune] (Meisho Doto), [First-Rate Plan] (King Halo), [Lifting Your Spirits] (Nishino Flower), [The World's My Oyster] (Seeking the Pearl), [BNWinner!] (Winning Ticket), [Piece of Mind] (Super Creek), [Even the Littlest Bud] (Nishino Flower), [The Will to Overtake] (Satono Diamond), [Dreams <I>Do</I> Come True!] (Winning Ticket), [Full-Blown Tantrum] (Winning Ticket), [Tonight, We Waltz] (King Halo), [Leaping into the Unknown] (Meisho Doto), [Little Cupcakes, Big Emotions] (Nishino Flower), [Peachy Silhouette] (Narita Top Road), [Cheer that Changed the World] (Seeking the Pearl), [Sunlit Angel ♪] (Daitaku Helios)
-
-
-──────────────────────────────────────────────
-Nome: Firm Conditions ×
-ID: 200153 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Power -40
-Condições de ativação:
-ground_condition==1
-Descrição: Moderately decrease performance on firm ground.
 
 
 ──────────────────────────────────────────────
@@ -2269,19 +2133,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Wet Conditions ×
-ID: 200163 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Power -40
-Condições de ativação:
-ground_condition==2
---- OU ---
-ground_condition==3
---- OU ---
-ground_condition==4
-Descrição: Moderately decrease performance on good, soft, and heavy ground.
-
-
-──────────────────────────────────────────────
 Nome: Spring Runner ◎
 ID: 200171 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Speed +60
@@ -2306,17 +2157,6 @@ Variantes (mesma condição): Spring Runner ◎ (200171, White)
 Fontes:
   Personagens: Tokai Teio [Beyond the Horizon], Mejiro McQueen [Frontline Elegance], Seiun Sky [Soirée des Chatons], King Halo [Cheerleader in Noble White], Sakura Chiyono O [Strength in Full Bloom]
   Support cards: [Tracen Academy] (Mejiro McQueen), [Tracen Academy] (Inari One), [Laughing through the Mud] (Inari One)
-
-
-──────────────────────────────────────────────
-Nome: Spring Runner ×
-ID: 200173 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-season==1
---- OU ---
-season==5
-Descrição: Moderately decrease performance in spring.
 
 
 ──────────────────────────────────────────────
@@ -2355,15 +2195,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Summer Runner ×
-ID: 200183 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-season==2
-Descrição: Moderately decrease performance in summer.
-
-
-──────────────────────────────────────────────
 Nome: Fall Runner ◎
 ID: 200191 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Speed +60
@@ -2384,15 +2215,6 @@ Variantes (mesma condição): Fall Runner ◎ (200191, White)
 Fontes:
   Personagens: Mejiro McQueen [End of the Skies], Symboli Rudolf [Archer by Moonlight], Fine Motion [Noble Seamair], Fine Motion [Titania]
   Support cards: [Tracen Academy] (Fine Motion), [Grma, Ramen ♪] (Fine Motion), [Wave of Gratitude] (Fine Motion), [Sunlit Angel ♪] (Daitaku Helios)
-
-
-──────────────────────────────────────────────
-Nome: Fall Runner ×
-ID: 200193 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-season==3
-Descrição: Moderately decrease performance in fall.
 
 
 ──────────────────────────────────────────────
@@ -2427,16 +2249,6 @@ Variantes (mesma condição): Winter Runner ◎ (200201, White)
 Fontes:
   Personagens: T.M. Opera O [New Year, Same Radiance!], Inari One [Edomurasaki]
   Support cards: [Tracen Academy] (Yukino Bijin), [Tracen Academy] (Inari One), [City Girl 101] (Yukino Bijin), [Laughing through the Mud] (Inari One), [Hometown Cheers] (Yukino Bijin), [Dancing Light into the Night] (Yukino Bijin), [Take Hold of Our Dreams!] (Special Week)
-
-
-──────────────────────────────────────────────
-Nome: Winter Runner ×
-ID: 200203 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-season==4
-Descrição: Moderately decrease performance in winter.
-Variantes (mesma condição): Unchanging (300021, Gold)
 
 
 ──────────────────────────────────────────────
@@ -2509,15 +2321,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Rainy Days ×
-ID: 200233 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Guts -40
-Condições de ativação:
-weather==3
-Descrição: Moderately decrease performance in rainy weather.
-
-
-──────────────────────────────────────────────
 Nome: Snowy Days ◎
 ID: 200241 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Guts +60
@@ -2564,15 +2367,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Inner Post Averseness
-ID: 200253 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Wit -40
-Condições de ativação:
-post_number<=3
-Descrição: Moderately decrease performance in brackets 1–3.
-
-
-──────────────────────────────────────────────
 Nome: Outer Post Proficiency ◎
 ID: 200261 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Speed +60
@@ -2593,15 +2387,6 @@ Variantes (mesma condição): Outer Post Proficiency ◎ (200261, White)
 Fontes:
   Personagens: Biwa Hayahide [pf. Winning Equation...], King Halo [King of Emeralds]
   Support cards: [Tracen Academy] (Fine Motion), [Tracen Academy] (Biwa Hayahide), [Tracen Academy] (Smart Falcon), [Tracen Academy] (Biko Pegasus), [Tracen Academy] (King Halo), [Trial Initiation] (Biwa Hayahide), [First-Rate Plan] (King Halo), [Grma, Ramen ♪] (Fine Motion), [Wave of Gratitude] (Fine Motion), [My Umadol Way! ☆] (Smart Falcon), [Double Carrot Punch!] (Biko Pegasus), [Tonight, We Waltz] (King Halo), [Our Resounding Steps] (Biwa Hayahide), [Uchronia Architect] (Biwa Hayahide)
-
-
-──────────────────────────────────────────────
-Nome: Outer Post Averseness
-ID: 200263 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-post_number>=6
-Descrição: Moderately decrease performance in brackets 6–8.
 
 
 ──────────────────────────────────────────────
@@ -2650,15 +2435,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Wallflower
-ID: 200283 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Power -40
-Condições de ativação:
-running_style_count_same_rate>=40
-Descrição: Moderately decrease performance when many other runners are using the same strategy.
-
-
-──────────────────────────────────────────────
 Nome: Target in Sight ◎
 ID: 200291 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Guts +60
@@ -2704,24 +2480,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: G1 Averseness
-ID: 200311 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-grade==100
-Descrição: Moderately decrease performance in G1 or otherwise important races.
-
-
-──────────────────────────────────────────────
-Nome: Paddock Fright
-ID: 200321 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-popularity==1
-Descrição: Moderately decrease performance when the favorite.
-
-
-──────────────────────────────────────────────
 Nome: Oi Racecourse ◎
 ID: 200951 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 110 sp
 Efeito: Stamina +60
@@ -2742,15 +2500,6 @@ Variantes (mesma condição): Oi Racecourse ◎ (200951, White)
 Fontes:
   Personagens: Smart Falcon [LOVE☆4EVER]
   Support cards: [Tracen Academy] (Smart Falcon), [Almost... an Umadol?! ♡] (Smart Falcon), [My Umadol Way! ☆] (Smart Falcon)
-
-
-──────────────────────────────────────────────
-Nome: Oi Racecourse ×
-ID: 200953 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10101
-Descrição: Moderately decrease performance at Oi Racecourse.
 
 
 ──────────────────────────────────────────────
@@ -2896,29 +2645,11 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: ♡ 3D Nail Art
-ID: 201801 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-ground_condition==1
-Descrição: Moderately decrease performance on firm ground.
-
-
-──────────────────────────────────────────────
 Nome: Runaway
 ID: 202051 | Categoria: Passive | Raridade: Gold | Grau: 370 | Custo: 200 sp
 Condições de ativação:
 running_style==1
 Descrição: Attempt to gain an especially large lead and keep it until the finish. (Front Runner)
-
-
-──────────────────────────────────────────────
-Nome: You're Not the Boss of Me!
-ID: 202141 | Categoria: Passive | Raridade: White | Grau: -174
-Efeito: Wit -40
-Condições de ativação:
-always==1
-Descrição: Increase time lost to slow starts and moderately decrease Wit.
 
 
 ──────────────────────────────────────────────
@@ -2928,15 +2659,6 @@ Efeito: Wit +60 · Rushed Chance -3
 Condições de ativação:
 always==1
 Descrição: Increase Wit and moderately decrease the chance of being Rushed.
-
-
-──────────────────────────────────────────────
-Nome: 99 Problems
-ID: 202181 | Categoria: Passive | Raridade: White | Grau: -174
-Efeito: Guts -40 · Wit -40
-Condições de ativação:
-always==1
-Descrição: Get overwhelmed by powerful opponents, moderately decreasing Guts and Wit.
 
 
 ──────────────────────────────────────────────
@@ -2960,15 +2682,6 @@ Variantes (mesma condição): Kawasaki Racecourse ◎ (202201, White)
 
 
 ──────────────────────────────────────────────
-Nome: Kawasaki Racecourse ×
-ID: 202203 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10103
-Descrição: Moderately decrease performance at Kawasaki Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Funabashi Racecourse ◎
 ID: 202211 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Stamina +60
@@ -2986,15 +2699,6 @@ Condições de ativação:
 track_id==10104
 Descrição: Moderately increase performance at Funabashi Racecourse.
 Variantes (mesma condição): Funabashi Racecourse ◎ (202211, White)
-
-
-──────────────────────────────────────────────
-Nome: Funabashi Racecourse ×
-ID: 202213 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10104
-Descrição: Moderately decrease performance at Funabashi Racecourse.
 
 
 ──────────────────────────────────────────────
@@ -3018,15 +2722,6 @@ Variantes (mesma condição): Morioka Racecourse ◎ (202221, White)
 
 
 ──────────────────────────────────────────────
-Nome: Morioka Racecourse ×
-ID: 202223 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Stamina -40
-Condições de ativação:
-track_id==10105
-Descrição: Moderately decrease performance at Morioka Racecourse.
-
-
-──────────────────────────────────────────────
 Nome: Night Races ◎
 ID: 202231 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Wit +60
@@ -3044,15 +2739,6 @@ Condições de ativação:
 time==4
 Descrição: Moderately increase performance at night.
 Variantes (mesma condição): Night Races ◎ (202231, White)
-
-
-──────────────────────────────────────────────
-Nome: Night Races ×
-ID: 202233 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Wit -40
-Condições de ativação:
-time==4
-Descrição: Moderately decrease performance at night.
 
 
 ──────────────────────────────────────────────
@@ -3096,25 +2782,6 @@ Variantes (mesma condição): Sharp Turns ◎ (202241, White)
 
 
 ──────────────────────────────────────────────
-Nome: Sharp Turns ×
-ID: 202243 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Wit -40
-Condições de ativação:
-track_id==10001
---- OU ---
-track_id==10002
---- OU ---
-track_id==10004
---- OU ---
-track_id==10010
---- OU ---
-track_id==10103
---- OU ---
-track_id==10104
-Descrição: Moderately decrease performance on tracks with sharp turns.
-
-
-──────────────────────────────────────────────
 Nome: Collaborative Graded Races ◎
 ID: 202251 | Categoria: Passive | Raridade: White | Grau: 174 | Custo: 90 sp
 Efeito: Speed +60
@@ -3134,15 +2801,6 @@ Descrição: Moderately increase performance in collaborative graded races.
 Variantes (mesma condição): Collaborative Graded Races ◎ (202251, White)
 Fontes:
   Personagens: Copano Rickey [Eightfold☆Fortune]
-
-
-──────────────────────────────────────────────
-Nome: Collaborative Graded Races ×
-ID: 202253 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 40 sp
-Efeito: Speed -40
-Condições de ativação:
-is_dirtgrade==1
-Descrição: Moderately decrease performance in collaborative graded races.
 
 
 ──────────────────────────────────────────────
@@ -3227,19 +2885,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Muddy ×
-ID: 202344 | Categoria: Passive | Raridade: White | Grau: -129 | Custo: 50 sp
-Efeito: Speed -40
-Condições de ativação:
-ground_type==2
-ground_condition==3
---- OU ---
-ground_type==2
-ground_condition==4
-Descrição: Decrease performance on soft and heavy ground, moderately decreasing Speed. (Dirt)
-
-
-──────────────────────────────────────────────
 Nome: Risk-Maker
 ID: 202441 | Categoria: Passive | Raridade: Gold | Grau: 508 | Custo: 180 sp
 Efeito: Speed +80 · Power +80 · Guts +80
@@ -3270,7 +2915,6 @@ Efeito: Stamina +40
 Condições de ativação:
 track_id==10008
 Descrição: Moderately increase performance with the desire to race.
-Variantes (mesma condição): Kyoto Racecourse × (200063, White)
 
 
 ──────────────────────────────────────────────
@@ -3280,7 +2924,6 @@ Efeito: Speed +80
 Condições de ativação:
 season==4
 Descrição: Greatly increase performance with the same ambition of days past.
-Variantes (mesma condição): Winter Runner × (200203, White)
 
 
 ──────────────────────────────────────────────
@@ -3291,15 +2934,6 @@ Condições de ativação:
 always==1
 Descrição: Moderately increase performance in pursuit of that long sought-after scenery.
 Variantes (mesma condição): Chin Up, Derby Umamusume! (300111, White)
-
-
-──────────────────────────────────────────────
-Nome: Creeping Anxiety
-ID: 300041 | Categoria: Passive | Raridade: White | Grau: 0
-Efeito: Speed -40
-Condições de ativação:
-always==1
-Descrição: Moderately decrease performance due to Trainer's anxiety.
 
 
 ──────────────────────────────────────────────
@@ -5189,7 +4823,7 @@ ground_type==2
 accumulatetime>=5
 infront_near_lane_time>=3
 Descrição: Increase velocity when following directly behind a runner. (Dirt)
-Variantes (mesma condição): Down in the Dirt ○ (202302, White) · Down in the Dirt × (202303, White)
+Variantes (mesma condição): Down in the Dirt ○ (202302, White)
 
 
 ──────────────────────────────────────────────
@@ -5202,7 +4836,7 @@ ground_type==2
 accumulatetime>=5
 infront_near_lane_time>=3
 Descrição: Slightly increase velocity when following directly behind a runner. (Dirt)
-Variantes (mesma condição): Dancer in the Dirt (202301, Gold) · Down in the Dirt × (202303, White)
+Variantes (mesma condição): Dancer in the Dirt (202301, Gold)
 Fontes:
   Support cards: [Onwards, Demon Queen Lackeys!] (Shinko Windy)
 
@@ -7502,134 +7136,36 @@ Fontes:
 
 
 ══════════════════════════════════════════════
-DEBUFF (60)
+GATE (2)
 ══════════════════════════════════════════════
 
 ──────────────────────────────────────────────
-Nome: Corner Adept ×
-ID: 200333 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: Current Speed -20%
-Duração base: 2.4s
-Cooldown: 30s
-Condições de ativação:
-all_corner_random==1
-Descrição: Moderately decrease velocity on a corner with clumsy turning.
-Variantes (mesma condição): Professor of Curvature (200331, Gold) · Corner Adept ○ (200332, White)
-
-
-──────────────────────────────────────────────
-Nome: Corner Acceleration ×
-ID: 200343 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: Acceleration -20%
-Duração base: 3s
-Cooldown: 30s
-Condições de ativação:
-all_corner_random==1
-Descrição: Moderately decrease acceleration on a corner with awkward turning.
-Variantes (mesma condição): Corner Connoisseur (200341, Gold) · Corner Acceleration ○ (200342, White)
-
-
-──────────────────────────────────────────────
-Nome: Corner Recovery ×
-ID: 200353 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: HP Recovery -2%
-Condições de ativação:
-corner_random==1
---- OU ---
-corner_random==2
---- OU ---
-corner_random==3
---- OU ---
-corner_random==4
-Descrição: Moderately lose endurance on a corner with inefficient turning.
-Variantes (mesma condição): Swinging Maestro (200351, Gold) · Corner Recovery ○ (200352, White)
-
-
-──────────────────────────────────────────────
-Nome: Ramp Revulsion
-ID: 200391 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: HP Recovery -2%
-Condições de ativação:
-up_slope_random==1
-Descrição: Moderately increase fatigue on an uphill.
-
-
-──────────────────────────────────────────────
-Nome: Packphobia
-ID: 200401 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: HP Recovery -2%
-Condições de ativação:
-accumulatetime>=2
-is_surrounded==1
-Descrição: Moderately lose endurance when surrounded.
-
-
-──────────────────────────────────────────────
-Nome: Defeatist
-ID: 200411 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: Current Speed -20%
-Duração base: 3s
-Cooldown: 30s
-Condições de ativação:
-last_straight_random==1
-distance_diff_rate>=75
-Descrição: Moderately increase urge to give up when positioned around the very back on the final straight.
-
-
-──────────────────────────────────────────────
-Nome: Reckless
-ID: 200421 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: Current Speed -20%
-Duração base: 3s
-Cooldown: 30s
-Condições de ativação:
-remain_distance==200
-order==1
-bashin_diff_behind>=1
-Descrição: Moderately increase carelessness when in the lead with around 200m remaining.
-
-
-──────────────────────────────────────────────
 Nome: Concentration
-ID: 200431 | Categoria: Debuff | Raridade: Gold | Grau: 394 | Custo: 140 sp
+ID: 200431 | Categoria: Gate | Raridade: Gold | Grau: 394 | Custo: 140 sp
 Condições de ativação:
 always==1
 Descrição: Decrease time lost to slow starts.
-Variantes (mesma condição): Focus (200432, White) · Gatekept (200433, White)
+Variantes (mesma condição): Focus (200432, White)
 Fontes:
   Personagens: Silence Suzuka [Innocent Silence], Mihono Bourbon [CODE: ICING]
 
 
 ──────────────────────────────────────────────
 Nome: Focus
-ID: 200432 | Categoria: Debuff | Raridade: White | Grau: 129 | Custo: 140 sp
+ID: 200432 | Categoria: Gate | Raridade: White | Grau: 129 | Custo: 140 sp
 Condições de ativação:
 always==1
 Descrição: Slightly decrease time lost to slow starts.
-Variantes (mesma condição): Concentration (200431, Gold) · Gatekept (200433, White)
+Variantes (mesma condição): Concentration (200431, Gold)
 Fontes:
   Personagens: Silence Suzuka [Innocent Silence], Maruzensky [Formula R], Mejiro McQueen [Fair Lady of the Waves], Mayano Top Gun [Sunlight Bouquet], Mihono Bourbon [CODE: ICING], Eishin Flash [Meisterschaft], Kitasan Black [Gilded Shrine to Glory]
   Support cards: [Tracen Academy] (Silence Suzuka), [Tracen Academy] (Oguri Cap), [Tracen Academy] (Kitasan Black), [Beyond This Shining Moment] (Silence Suzuka), [Get Lots of Hugs for Me] (Oguri Cap), [Fire at My Heels] (Kitasan Black), [Winning Dream] (Silence Suzuka), [Searching for Unseen Sights] (Silence Suzuka), [Sentimental Flare ♪] (Maruzensky), [U & Me] (Mihono Bourbon)
 
 
-──────────────────────────────────────────────
-Nome: Gatekept
-ID: 200433 | Categoria: Debuff | Raridade: White | Grau: -174 | Custo: 70 sp
-Condições de ativação:
-always==1
-Descrição: Moderately increase time lost to slow starts.
-Variantes (mesma condição): Concentration (200431, Gold) · Focus (200432, White)
 
-
-──────────────────────────────────────────────
-Nome: Running Idle
-ID: 200521 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: HP Recovery -2%
-Condições de ativação:
-accumulatetime>=2
-order==1
-bashin_diff_behind>=1
-Descrição: Moderately increase fatigue when in the lead by too large of a margin.
+══════════════════════════════════════════════
+DEBUFF (44)
+══════════════════════════════════════════════
 
 
 ──────────────────────────────────────────────
@@ -8235,19 +7771,6 @@ Fontes:
 
 
 ──────────────────────────────────────────────
-Nome: Down in the Dirt ×
-ID: 202303 | Categoria: Debuff | Raridade: White | Grau: -262 | Custo: 100 sp
-Efeito: Current Speed -20%
-Duração base: 3s
-Condições de ativação:
-ground_type==2
-accumulatetime>=5
-infront_near_lane_time>=3
-Descrição: Moderately decrease velocity when following directly behind a runner. (Dirt)
-Variantes (mesma condição): Dancer in the Dirt (202301, Gold) · Down in the Dirt ○ (202302, White)
-
-
-──────────────────────────────────────────────
 Nome: Dust Cloud Idol
 ID: 202351 | Categoria: Debuff | Raridade: Gold | Grau: 461 | Custo: 120 sp
 Efeito: Enemy Speed -25%
@@ -8307,48 +7830,6 @@ Fontes:
   Support cards: [Onwards, Demon Queen Lackeys!] (Shinko Windy)
 
 
-──────────────────────────────────────────────
-Nome: Blatant Fear
-ID: 300051 | Categoria: Debuff | Raridade: Gold | Grau: 0
-Efeito: Enemy Speed -30%
-Duração base: 5s
-Condições de ativação:
-remain_distance>=800
-remain_distance<=850
-Descrição: Greatly decrease velocity on a corner in the second half of the race due to Trainer's obvious anxiety.
-
-
-──────────────────────────────────────────────
-Nome: Feelin' a Bit Silly
-ID: 1100011 | Categoria: Debuff | Raridade: White | Grau: -500
-Efeito: Acceleration -1800%
-Duração base: 2s
-Condições de ativação:
-always==1
-Descrição: Greatly decrease the racer's proficiency in starting races. Effects include slow starts and reduced starting acceleration. Removed at the end of the Career playthrough.
-
-
-══════════════════════════════════════════════
-OUTRAS CATEGORIAS (2)
-══════════════════════════════════════════════
-
-──────────────────────────────────────────────
-Nome: Carnival Bonus
-ID: 1000011 | Categoria: Category101 | Raridade: White | Grau: 0
-Condições de ativação:
-Nenhuma condição (ativa automaticamente)
-Descrição: Increase attributes by +{0}％ in the Racing Carnival. {1}％ chance to also raise runner's mood to Great. This skill will disappear when the event ends.
-Variantes (mesma condição): Carnival Bonus (1000012, White)
-
-
-──────────────────────────────────────────────
-Nome: Carnival Bonus
-ID: 1000012 | Categoria: Special | Raridade: White | Grau: 0
-Condições de ativação:
-Nenhuma condição (ativa automaticamente)
-Descrição: Increase attributes by +{0}％ in the Racing Carnival. {1}％ chance to also raise runner's mood to Great. This skill will disappear when the event ends.
-Variantes (mesma condição): Carnival Bonus (1000011, White)
-
 
 ══════════════════════════════════════════════
 ÍNDICE ALFABÉTICO
@@ -8356,12 +7837,10 @@ Variantes (mesma condição): Carnival Bonus (1000011, White)
 
 #LookatCurren — 100381 (Unique)
 ∴win Q.E.D. — 100231 (Unique)
-♡ 3D Nail Art — 201801 (Passive)
 1,500,000 CC — 201412 (Speed Boost)
 114th Time's the Charm — 110521 (Unique)
 15,000,000 CC — 201411 (Speed Boost)
 564 Escapades — 110071 (Unique)
-99 Problems — 202181 (Passive)
 A Kiss for Courage — 110041 (Unique)
 A Lifelong Dream, A Moment's Flight — 100711 (Unique)
 A Princess Must Seize Victory! — 100391 (Unique)
@@ -8392,7 +7871,6 @@ Best Day Ever — 110221 (Unique)
 Best in Japan — 202061 (Speed Boost)
 Big-Sisterly — 201071 (Speed Boost)
 Blast Forward — 201173 (Speed Boost)
-Blatant Fear — 300051 (Debuff)
 Blazing Pride — 100181 (Unique)
 Blinding Flash — 200671 (Speed Boost)
 Blue Rose Closer — 100301 (Unique)
@@ -8412,8 +7890,6 @@ Calm and Collected — 200561 (Recovery)
 Calm in a Crowd — 200482 (Recovery)
 Can't Even Catch My Shadow — 202461 (Speed Boost)
 Can't Keep Me Down — 202271 (Speed Boost)
-Carnival Bonus — 1000011 (Category101)
-Carnival Bonus — 1000012 (Special)
 Catch 'Em Off Guard — 202361 (Debuff)
 Center Stage — 200451 (Lane Effect)
 Certain Victory — 110031 (Unique)
@@ -8422,32 +7898,26 @@ Changing Gears — 201051 (Speed Boost)
 Chasing After You — 100251 (Unique)
 Cheers of a Fellow Dreamer — 300101 (Recovery)
 Chin Up, Derby Umamusume! — 300111 (Passive)
-Chukyo Racecourse × — 200073 (Passive)
 Chukyo Racecourse ○ — 200072 (Passive)
 Chukyo Racecourse ◎ — 200071 (Passive)
 Clairvoyance — 201121 (Vision)
 Claw Forward — 202421 (Acceleration)
 Cloudy Days ○ — 200222 (Passive)
 Cloudy Days ◎ — 200221 (Passive)
-Collaborative Graded Races × — 202253 (Passive)
 Collaborative Graded Races ○ — 202252 (Passive)
 Collaborative Graded Races ◎ — 202251 (Passive)
 Come What May — 201701 (Speed Boost)
 Comeback — 202272 (Speed Boost)
 Competitive Spirit ○ — 200282 (Passive)
 Competitive Spirit ◎ — 200281 (Passive)
-Concentration — 200431 (Debuff)
+Concentration — 200431 (Gate)
 Condor's Fury — 110141 (Unique)
 Cooldown — 200741 (Recovery)
-Corner Acceleration × — 200343 (Debuff)
 Corner Acceleration ○ — 200342 (Acceleration)
-Corner Adept × — 200333 (Debuff)
 Corner Adept ○ — 200332 (Speed Boost)
 Corner Connoisseur — 200341 (Acceleration)
-Corner Recovery × — 200353 (Debuff)
 Corner Recovery ○ — 200352 (Recovery)
 Countermeasure — 200992 (Acceleration)
-Creeping Anxiety — 300041 (Passive)
 Crusader — 201501 (Vision)
 Crystal Clear — 202291 (Speed Boost)
 Cut and Drive! — 100081 (Unique)
@@ -8458,12 +7928,10 @@ Dauntless — 202121 (Speed Boost)
 Dazzl'n ♪ Diver — 110011 (Unique)
 Dazzling Disorientation — 201371 (Debuff)
 Deep Breaths — 200742 (Recovery)
-Defeatist — 200411 (Debuff)
 Determined Descent — 201341 (Acceleration)
 Disorient — 201372 (Debuff)
 Dodging Danger — 201262 (Lane Effect)
 Dominator — 201151 (Debuff)
-Down in the Dirt × — 202303 (Debuff)
 Down in the Dirt ○ — 202302 (Speed Boost)
 Downhill Speedster — 202172 (Speed Boost)
 Dream Run — 300061 (Speed Boost)
@@ -8489,7 +7957,6 @@ Extra Tank — 200762 (Recovery)
 Eyes on the Goal — 210082 (Speed Boost)
 Fairy Tale — 100221 (Unique)
 Fall Frenzy — 200194 (Passive)
-Fall Runner × — 200193 (Passive)
 Fall Runner ○ — 200192 (Passive)
 Fall Runner ◎ — 200191 (Passive)
 Familiar Ground — 202002 (Recovery)
@@ -8497,12 +7964,10 @@ Fast & Furious — 200591 (Speed Boost)
 Fast-Paced — 200542 (Speed Boost)
 Fearless — 202122 (Speed Boost)
 Feature Act — 202012 (Speed Boost)
-Feelin' a Bit Silly — 1100011 (Debuff)
 Festive Miracle — 110061 (Unique)
 Fighter — 201402 (Acceleration)
 Fighting Spirit — 202092 (Speed Boost)
 Final Push — 200552 (Acceleration)
-Firm Conditions × — 200153 (Passive)
 Firm Conditions ○ — 200152 (Passive)
 Firm Conditions ◎ — 200151 (Passive)
 Firm Course Menace — 200154 (Passive)
@@ -8514,7 +7979,7 @@ Flustered End Closers — 200931 (Debuff)
 Flustered Front Runners — 200841 (Debuff)
 Flustered Late Surgers — 200901 (Debuff)
 Flustered Pace Chasers — 200871 (Debuff)
-Focus — 200432 (Debuff)
+Focus — 200432 (Gate)
 For the Team — 300121 (Passive)
 Forward, March! — 201682 (Lane Effect)
 Free-Spirited — 202072 (Recovery)
@@ -8529,21 +7994,17 @@ Front Runner Savvy ○ — 201522 (Passive)
 Front Runner Savvy ◎ — 201521 (Passive)
 Front Runner Straightaways ○ — 201242 (Speed Boost)
 Front Runner Straightaways ◎ — 201241 (Speed Boost)
-Fukushima Racecourse × — 200103 (Passive)
 Fukushima Racecourse ○ — 200102 (Passive)
 Fukushima Racecourse ◎ — 200101 (Passive)
 Full of Vigor — 202111 (Speed Boost)
 Full Speed! — 202281 (Speed Boost)
 Full Throttle — 202152 (Speed Boost)
 Full Tilt — 202282 (Speed Boost)
-Funabashi Racecourse × — 202213 (Passive)
 Funabashi Racecourse ○ — 202212 (Passive)
 Funabashi Racecourse ◎ — 202211 (Passive)
 Furious Feat — 200701 (Acceleration)
 G00 1st. F∞; — 100261 (Unique)
-G1 Averseness — 200311 (Passive)
 Gap Closer — 200672 (Speed Boost)
-Gatekept — 200433 (Debuff)
 Genius x Bakushin = Victory — 100411 (Unique)
 Give Mummy a Hug ♡ — 110451 (Unique)
 Givin' It 1000% — 202391 (Speed Boost)
@@ -8557,10 +8018,8 @@ Gourmand — 201351 (Recovery)
 Greed for Speed — 201081 (Debuff)
 Groundwork — 201601 (Acceleration)
 Guten Appetit ♪ — 110371 (Unique)
-Hakodate Racecourse × — 200093 (Passive)
 Hakodate Racecourse ○ — 200092 (Passive)
 Hakodate Racecourse ◎ — 200091 (Passive)
-Hanshin Racecourse × — 200053 (Passive)
 Hanshin Racecourse ○ — 200052 (Passive)
 Hanshin Racecourse ◎ — 200051 (Passive)
 Hard Worker — 201401 (Acceleration)
@@ -8594,7 +8053,6 @@ In Body and Mind — 200511 (Speed Boost)
 In High Spirits — 202041 (Speed Boost)
 Indomitable — 200471 (Recovery)
 Innate Experience — 200751 (Speed Boost)
-Inner Post Averseness — 200253 (Passive)
 Inner Post Proficiency ○ — 200252 (Passive)
 Inner Post Proficiency ◎ — 200251 (Passive)
 Inside Scoop — 200752 (Speed Boost)
@@ -8604,7 +8062,6 @@ Iron Will — 200441 (Recovery)
 It's On! — 200461 (Speed Boost)
 Joyful Voyage! — 110101 (Unique)
 Just a Little Farther! — 100601 (Unique)
-Kawasaki Racecourse × — 202203 (Passive)
 Kawasaki Racecourse ○ — 202202 (Passive)
 Kawasaki Racecourse ◎ — 202201 (Passive)
 Keen Eye — 200691 (Recovery)
@@ -8613,10 +8070,8 @@ KEEP IT REAL. — 100401 (Unique)
 Keep Pushing Ahead — 100641 (Unique)
 Keeping the Lead — 201192 (Speed Boost)
 Killer Tunes — 200721 (Speed Boost)
-Kokura Racecourse × — 200123 (Passive)
 Kokura Racecourse ○ — 200122 (Passive)
 Kokura Racecourse ◎ — 200121 (Passive)
-Kyoto Racecourse × — 200063 (Passive)
 Kyoto Racecourse ○ — 200062 (Passive)
 Kyoto Racecourse ◎ — 200061 (Passive)
 Lane Legerdemain — 200501 (Lane Effect)
@@ -8631,7 +8086,6 @@ Lay Low — 200442 (Recovery)
 Lead the Charge! — 201681 (Lane Effect)
 Leader's Pride — 201272 (Speed Boost)
 Leap Forward — 202402 (Acceleration)
-Left-Handed × — 200023 (Passive)
 Left-Handed ○ — 200022 (Passive)
 Left-Handed ◎ — 200021 (Passive)
 Legacy of the Strong — 110131 (Unique)
@@ -8674,38 +8128,31 @@ Mile Straightaways ○ — 201032 (Speed Boost)
 Mile Straightaways ◎ — 201031 (Speed Boost)
 Miraculous Step — 201141 (Recovery)
 Moonlit Flash — 201453 (Speed Boost)
-Morioka Racecourse × — 202223 (Passive)
 Morioka Racecourse ○ — 202222 (Passive)
 Morioka Racecourse ◎ — 202221 (Passive)
 Moving Past, and Beyond — 100591 (Unique)
 Moxie — 201282 (Recovery)
-Muddy × — 202344 (Passive)
 Muddy ○ — 202343 (Passive)
 Muddy ◎ — 202342 (Passive)
 Murmur — 201162 (Debuff)
 My True Strength — 202482 (Acceleration)
 Mystifying Murmur — 201161 (Debuff)
-Nakayama Racecourse × — 200043 (Passive)
 Nakayama Racecourse ○ — 200042 (Passive)
 Nakayama Racecourse ◎ — 200041 (Passive)
 Neck and Neck — 201901 (Acceleration)
 Nemesis — 100501 (Unique)
-Night Races × — 202233 (Passive)
 Night Races ○ — 202232 (Passive)
 Night Races ◎ — 202231 (Passive)
-Niigata Racecourse × — 200113 (Passive)
 Niigata Racecourse ○ — 200112 (Passive)
 Niigata Racecourse ◎ — 200111 (Passive)
 Nimble Navigator — 200492 (Acceleration)
 No Looking Back — 202502 (Speed Boost)
 No Stopping Me! — 200491 (Acceleration)
-Non-Standard Distance × — 200143 (Passive)
 Non-Standard Distance ○ — 200142 (Passive)
 Non-Standard Distance ◎ — 200141 (Passive)
 Nothing Ventured — 202031 (Speed Boost)
 Now We're Cruisin'! — 100341 (Unique)
 Of Calm Mind — 202071 (Recovery)
-Oi Racecourse × — 200953 (Passive)
 Oi Racecourse ○ — 200952 (Passive)
 Oi Racecourse ◎ — 200951 (Passive)
 OMG! (ﾟ∀ﾟ)  The Final Sprint! ☆ — 100191 (Unique)
@@ -8717,7 +8164,6 @@ Opening Gambit — 201092 (Debuff)
 Operation Cacao — 110261 (Unique)
 Oppression — 202362 (Debuff)
 Our Ticket to Win! — 100351 (Unique)
-Outer Post Averseness — 200263 (Passive)
 Outer Post Proficiency ○ — 200262 (Passive)
 Outer Post Proficiency ◎ — 200261 (Passive)
 Outer Swell — 200612 (Speed Boost)
@@ -8729,8 +8175,6 @@ Pace Chaser Savvy ◎ — 201531 (Passive)
 Pace Chaser Straightaways ○ — 201312 (Speed Boost)
 Pace Chaser Straightaways ◎ — 201311 (Speed Boost)
 Pace Strategy — 200472 (Recovery)
-Packphobia — 200401 (Debuff)
-Paddock Fright — 200321 (Passive)
 Passing Pro — 201202 (Recovery)
 Past My Limits — 210081 (Speed Boost)
 Pedal to the Metal — 202452 (Speed Boost)
@@ -8760,10 +8204,8 @@ Racing Spirit: Speed — 210091 (Speed Boost)
 Racing Spirit: Stamina — 210101 (Speed Boost)
 Racing Spirit: Wit — 210131 (Speed Boost)
 Radiant Star — 210061 (Speed Boost)
-Rainy Days × — 200233 (Passive)
 Rainy Days ○ — 200232 (Passive)
 Rainy Days ◎ — 200231 (Passive)
-Ramp Revulsion — 200391 (Debuff)
 Ramp Up — 200462 (Speed Boost)
 Rapid Gain — 202322 (Acceleration)
 Rational — 202292 (Speed Boost)
@@ -8779,7 +8221,6 @@ Resplendent Red Ace — 100091 (Unique)
 Restart — 201302 (Debuff)
 Restless — 201281 (Recovery)
 Restraint — 202161 (Passive)
-Right-Handed × — 200013 (Passive)
 Right-Handed ○ — 200012 (Passive)
 Right-Handed ◎ — 200011 (Passive)
 Right-Handed Demon — 200014 (Passive)
@@ -8789,9 +8230,7 @@ Risky Business — 202032 (Speed Boost)
 Rosy Outlook — 200712 (Recovery)
 Run Like Crazy! — 202321 (Acceleration)
 Runaway — 202051 (Passive)
-Running Idle — 200521 (Debuff)
 Rushing Gale! — 200371 (Acceleration)
-Sapporo Racecourse × — 200083 (Passive)
 Sapporo Racecourse ○ — 200082 (Passive)
 Sapporo Racecourse ◎ — 200081 (Passive)
 Schwarzes Schwert — 100371 (Unique)
@@ -8802,7 +8241,6 @@ Serenity — 201491 (Recovery)
 Shadow Break — 100161 (Unique)
 Shake It Out — 201621 (Recovery)
 Sharp Gaze — 201442 (Debuff)
-Sharp Turns × — 202243 (Passive)
 Sharp Turns ○ — 202242 (Passive)
 Sharp Turns ◎ — 202241 (Passive)
 Shatterproof — 201361 (Acceleration)
@@ -8829,7 +8267,6 @@ SPARKLY☆STARDOM — 100461 (Unique)
 Speed Eater — 201082 (Debuff)
 Speed Star — 200581 (Speed Boost)
 Spooky, Scary, Happy — 110581 (Unique)
-Spring Runner × — 200173 (Passive)
 Spring Runner ○ — 200172 (Passive)
 Spring Runner ◎ — 200171 (Passive)
 Spring Spectacle — 200174 (Passive)
@@ -8842,7 +8279,6 @@ Staggering Lead — 200981 (Speed Boost)
 Stamina Eater — 201222 (Debuff)
 Stamina Siphon — 201221 (Debuff)
 Stamina to Spare — 200562 (Recovery)
-Standard Distance × — 200133 (Passive)
 Standard Distance ○ — 200132 (Passive)
 Standard Distance ◎ — 200131 (Passive)
 Standing By — 200622 (Recovery)
@@ -8863,7 +8299,6 @@ Subdued End Closers — 200921 (Debuff)
 Subdued Front Runners — 200831 (Debuff)
 Subdued Late Surgers — 200891 (Debuff)
 Subdued Pace Chasers — 200861 (Debuff)
-Summer Runner × — 200183 (Passive)
 Summer Runner ○ — 200182 (Passive)
 Summer Runner ◎ — 200181 (Passive)
 Sunny Days ○ — 200212 (Passive)
@@ -8893,7 +8328,6 @@ The View from the Lead Is Mine! — 100021 (Unique)
 This Dance Is for Vittoria! — 100151 (Unique)
 Thunderbolt Step — 201132 (Lane Effect)
 Ticket to Your Dreams! — 110351 (Unique)
-Tokyo Racecourse × — 200033 (Passive)
 Tokyo Racecourse ○ — 200032 (Passive)
 Tokyo Racecourse ◎ — 200031 (Passive)
 Top Gear — 202451 (Speed Boost)
@@ -8925,22 +8359,18 @@ Victory belongs to me—Strelitzia! ☆ — 100441 (Unique)
 Victory Cheer! — 100681 (Unique)
 VIP Pass — 201201 (Recovery)
 Wait-and-See — 200662 (Recovery)
-Wallflower — 200283 (Passive)
 Watchful Eye — 200692 (Recovery)
-Wet Conditions × — 200163 (Passive)
 Wet Conditions ○ — 200162 (Passive)
 Wet Conditions ◎ — 200161 (Passive)
 Where There's a Will, There's a Way — 100111 (Unique)
 Wherever This Wonder Leads — 110591 (Unique)
 White Lightning Comin' Through! — 100211 (Unique)
 Wild Wind — 202131 (Speed Boost)
-Winter Runner × — 200203 (Passive)
 Winter Runner ○ — 200202 (Passive)
 Winter Runner ◎ — 200201 (Passive)
 With All My Soul — 202132 (Speed Boost)
 Yodo Invicta — 200064 (Passive)
 You and Me! One-on-One! — 100121 (Unique)
-You're Not the Boss of Me! — 202141 (Passive)
 You've Got No Shot — 201021 (Debuff)
 Your Smile Sparkles as the Waves — 120131 (Unique)
 YUMMY☆SPEED! — 100281 (Unique)
