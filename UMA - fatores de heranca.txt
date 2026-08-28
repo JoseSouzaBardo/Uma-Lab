@@ -45,78 +45,19 @@ Sparks ROSA (pink):
 ──────────────────────────────────────────────
 
 1 spark rosa por carreira, sorteado entre as aptidões que a personagem "gosta"
-(nunca sai uma aptidão com nota G). Estrelas: aleatórias.
+(nunca sai uma aptidão com nota B ou menor). Estrelas: aleatórias.
 Melhora a aptidão correspondente no início do treino (até A); se sair de novo em
-inspiração, pode subir de A para S.
+inspiração, pode subir um nível acima ou para S se a aptidão for A.
 
 Categorias: Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
 
-Sparks rosa possíveis por personagem (aptidões base ≠ G):
-
-  Special Week           Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Silence Suzuka         Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Tokai Teio             Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Maruzensky             Turf · Dirt · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
-  Fuji Kiseki            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Oguri Cap              Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Gold Ship              Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Vodka                  Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Daiwa Scarlet          Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Taiki Shuttle          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
-  Grass Wonder           Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Hishi Amazon           Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Mejiro McQueen         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  El Condor Pasa         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  T.M. Opera O           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
-  Narita Brian           Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Symboli Rudolf         Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Air Groove             Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Agnes Digital          Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
-  Seiun Sky              Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Tamamo Cross           Turf · Dirt · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Fine Motion            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Biwa Hayahide          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Mayano Top Gun         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Manhattan Cafe         Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Mihono Bourbon         Turf · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
-  Mejiro Ryan            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Hishi Akebono          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
-  Yukino Bijin           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Rice Shower            Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Ines Fujin             Turf · Front Runner · Pace Chaser · Mile · Medium · Long
-  Agnes Tachyon          Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Admire Vega            Turf · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Inari One              Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Winning Ticket         Turf · Pace Chaser · Late Surger · Mile · Medium · Long
-  Air Shakur             Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Eishin Flash           Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Curren Chan            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile
-  Kawakami Princess      Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Gold City              Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Sakura Bakushin O      Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile
-  Seeking the Pearl      Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
-  Sweep Tosho            Turf · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Super Creek            Turf · Front Runner · Pace Chaser · Late Surger · Medium · Long
-  Smart Falcon           Turf · Dirt · Front Runner · Pace Chaser · Sprint · Mile · Medium · Long
-  Tosen Jordan           Turf · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
-  Narita Taishin         Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Nishino Flower         Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
-  Haru Urara             Dirt · Late Surger · End Closer · Sprint · Mile
-  Bamboo Memory          Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium
-  Matikanefukukitaru     Turf · Dirt · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Meisho Doto            Turf · Dirt · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Mejiro Dober           Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Nice Nature            Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  King Halo              Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Matikanetannhauser     Turf · Front Runner · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Mejiro Palmer          Turf · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
-  Satono Diamond         Turf · Pace Chaser · Late Surger · End Closer · Mile · Medium · Long
-  Kitasan Black          Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Sakura Chiyono O       Turf · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Mejiro Ardan           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium · Long
-  Yaeno Muteki           Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Mile · Medium · Long
-  Mejiro Bright          Turf · Pace Chaser · Late Surger · End Closer · Sprint · Mile · Medium · Long
-  Copano Rickey          Turf · Dirt · Front Runner · Pace Chaser · Late Surger · Sprint · Mile · Medium
+Tabela do aumento da aptidão correspondente é de:
+G -> F = 1★
+G -> E = 4★
+G -> D = 7★
+G -> C = 10★
+G -> B = 13★
+G -> A = 17★
 
 
 Sparks VERDES (green):
