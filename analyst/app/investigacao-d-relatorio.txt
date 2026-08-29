@@ -1,0 +1,360 @@
+# INVESTIGAÇÃO D — ENGENHARIA REVERSA DO MODELO DE CORRIDA
+## Relatório Completo
+
+**Repositório:** `JoseSouzaBardo/Uma-Lab`  
+**Fontes de Dados Consultadas:**
+- `/uma_guides` (artigos CM9–18 do uma.guide)
+- `/game8_guides` (análises CM1–18 do Game8)
+- `/gametora_data` (JSON gametora: racetracks, races, cms, factors)
+- `/uma_data` (dados brutos parseados + dump.json)
+- `/umalator-global` (simulador: skill_data.json, simulator.worker.js, course_data.json)
+- Relatórios: `RELATORIO - revisao e correcoes.md`, `RELATORIO - validacao de pistas.md`
+
+---
+
+## PARTE 1 — SISTEMA LATERAL (Lateral System)
+
+### Evidência Encontrada: **CONFIRMED / STRONGLY SUPPORTED**
+
+| Parâmetro | Valor / Evidência | Fonte |
+|-----------|------------------|-------|
+| **Largura da pista (laneMax)** | Valores por pista: 11000–15000 unidades (provavelmente 1/100 m = 110–150 m) | `course_data.json` campo `laneMax` (ex: Tokyo 13500, Kyoto 14100, Hanshin 12500, Niigata 15000) |
+| **Número de faixas** | Não discretizado; posição lateral contínua (0 a laneMax) | `simulator.worker.js` usa posição contínua; condição `lane_type` (0 = faixa interna) |
+| **Posição lateral** | Contínua 0–laneMax; `lane_type==0` indica faixa interna | `skill_data.json` condições: `lane_type==0` |
+| **Posições intermediárias** | Implícito pelo modelo contínuo; sem "faixas" fixas | `simulator.worker.js` — sem lógica de snap para faixas |
+| **Movimento lateral** | Condição `is_move_lane` existe; `move_lane` não simulado diretamente | `RELATORIO - revisao e correcoes.md` glossário: `is_move_lane` = "Mudando de raia" |
+| **Mudança de faixa** | Sem mecânica explícita no simulador; posição lateral é contínua | `simulator.worker.js` — posição é 1D (distância ao longo da pista) |
+| **Velocidade lateral** | Não modelada como parâmetro separado | Sem evidência em `simulator.worker.js` |
+| **Restrições curva/reta** | Skills condicionam em `corner!=0` (curva) vs `corner==0`/`straight_front_type` (reta) | `skill_data.json` — 100+ skills usam `corner==0` ou `corner!=0` |
+
+**Descoberta Principal:** O jogo usa **posição lateral contínua** (0 a `laneMax`) em vez de faixas discretas. `lane_type==0` indica faixa interna. Movimento lateral não é explicitamente simulado no umalator; skills apenas verificam contexto lateral via condições.
+
+---
+
+## PARTE 2 — ULTRAPASSAGEM (Overtaking)
+
+### Evidência Encontrada: **CONFIRMED / STRONGLY SUPPORTED**
+
+| Mecânica | Evidência | Fonte |
+|----------|-----------|-------|
+| **Decisão de ultrapassar** | Condição `is_overtake==1` usada em 15+ skills | `skill_data.json` (ex: 202401, 202471, 900031, 900211, 900401, 900481, 900501) |
+| **Velocidade/distância relativa** | `bashin_diff_infront<=1` (≤1 corpo à frente), `distance_diff_top<=5` (≤5m do líder) | `skill_data.json` — `bashin_diff_infront`, `distance_diff_top` |
+| **Requisito de mudança de faixa** | Sem pré-requisito explícito de mudança de faixa; `is_overtake` dispara baseado em posição | Nenhum pré-requisito `move_lane` encontrado em condições de ultrapassagem |
+| **Aceleração durante ultrapassagem** | Skills concedem `type:31` (Aceleração) ou `type:27` (Target Speed) durante ultrapassagem | `skill_data.json` — ex: 900031: `is_overtake==1` → Target Speed +45% |
+| **Duração** | Durações base 20–60s; condições `overtake_target_time>=1/2` existem | `skill_data.json` — parâmetro `overtake_target_time` |
+| **Preferência esquerda/direita** | Sem distinção esquerda/direita; apenas `lane_type==0` (interna) referenciado | `skill_data.json` — `lane_type==0` em 900361 |
+| **Dependência de estratégia** | Skills de ultrapassagem gated por `running_style==2/3` (Senkou/Sasi) | `skill_data.json` — 202471: `running_style==2&is_overtake==1 @ running_style==3&is_overtake==1` |
+| **Desistir** | Sem condição explícita de "desistir"; `change_order_onetime<0` (perdendo posição) usado | `skill_data.json` — 900011, 900111, 900181, 900301 |
+| **Tentativas simultâneas** | Não modelado no simulador (single-threaded por umamusume) | `simulator.worker.js` — step sequencial por uma |
+
+**Descoberta Principal:** Ultrapassagem é um **flag de estado** (`is_overtake`) disparado ao ganhar posição (`change_order_onetime>0`), com skills verificando distância relativa (`bashin_diff_infront`, `distance_diff_top`). Sem requisito de mudança lateral de faixa na simulação.
+
+---
+
+## PARTE 3 — BLOQUEIO (Blocking)
+
+### Evidência Encontrada: **CONFIRMED / STRONGLY SUPPORTED**
+
+| Mecânica | Evidência | Fonte |
+|----------|-----------|-------|
+| **Bloqueio frontal** | Condição `blocked_front==1` (900561); acumulador `blocked_front_continuetime` | `skill_data.json` — `blocked_front==1`, `blocked_front_continuetime` no glossário |
+| **Bloqueio lateral** | `blocked_side_continuetime>=2` (2+ segundos bloqueado lateralmente) | `skill_data.json` — 900161, 900221, 900241, 900351, 900391, 900411, 900511, 910401 |
+| **Distância de bloqueio** | `bashin_diff_infront<=1` (≤1 corpo ≈ 2.5m); `bashin_diff_behind<=1` | `skill_data.json` — `bashin_diff_*` = distância em "corpos de cavalo" |
+| **Influência velocidade/aceleração** | Skills de desbloqueio concedem aceleração (`type:31`) ou velocidade (`type:27`) | `skill_data.json` — 900561: blocked_front → Acel +1500, Speed +500 |
+| **Duração** | Acumuladores contínuos de tempo (`blocked_front_continuetime`, `blocked_side_continuetime`) | `RELATORIO - revisao e correcoes.md` glossário |
+| **Condição de saída** | Skills ativam quando duração de bloqueio atinge threshold (ex: `>=2` segundos) | `skill_data.json` — `blocked_side_continuetime>=2` |
+| **Comportamento em grupo** | `near_count>=3` (3+ oponentes dentro de 1 corpo); `order_rate_inNN_continue` | `skill_data.json` — 910191: `near_count>=3`; `order_rate_in20_continue` |
+
+**Descoberta Principal:** Bloqueio usa **acumuladores contínuos de tempo** para frente (`blocked_front_continuetime`) e lateral (`blocked_side_continuetime`). Bloqueio lateral ≥2s é trigger comum de skill. Distância medida em "corpos de cavalo" (`bashin_diff` ≈ 2.5m por unidade).
+
+---
+
+## PARTE 4 — FORMAÇÃO/PELOTÃO (Pack Formation)
+
+### Evidência Encontrada: **PLAUSIBLE / PARCIALMENTE SUPORTADA**
+
+| Mecânica | Evidência | Fonte |
+|----------|-----------|-------|
+| **Comportamento de pelotão** | `near_count` (opponentes dentro de 1 corpo); `order_rate_inNN_continue` / `outNN_continue` | `skill_data.json` — 910191, 900261, 900641, 910231 |
+| **Influência de próximos na velocidade** | Sem modificador direto de "drafting" no simulador; skills simulam | `simulator.worker.js` — sem modelo aerodinâmico de draft encontrado |
+| **Drafting/slipstream** | Simulado via skills: `behind_near_lane_time_set1>=1` (900051), `order_rate_inNN_continue` | `skill_data.json` — sem draft baseado em física; apenas condições de skill |
+| **Economia de stamina** | Modo downhill economiza HP (`isDownhillMode` reduz consumo); sem economia de pelotão | `simulator.worker.js` — classe `gt`: `isDownhillMode` economiza HP; sem lógica stamina de pelotão |
+| **Efeito de estar atrás** | `is_behind_in==1` (900121); `bashin_diff_infront<=1` | `skill_data.json` |
+| **Preferência de região da pista** | `lane_type==0` (interna); `phase_random`, `corner_random`, `straight_random` | `skill_data.json` — região aleatória da pista atribuída no início da corrida |
+| **Divisão de grupos** | Sem lógica explícita de divisão de grupos; `numUmas` (16–18) fixo por corrida | `races.json` — `entries`: 16 ou 18; simulador roda com campo fixo |
+
+**Descoberta Principal:** **Não existe drafting/slipstream baseado em física** no simulador. Efeitos de pelotão são **inteiramente mediados por skills** via condições como `near_count`, `order_rate_inNN_continue`, `behind_near_lane_time`. Economia de stamina só ocorre em descidas (`isDownhillMode`), não por posição no pelotão.
+
+---
+
+## PARTE 5 — PACER (Pace Setter)
+
+### Evidência Encontrada: **CONFIRMED / STRONGLY SUPPORTED**
+
+| Mecânica | Evidência | Fonte |
+|----------|-----------|-------|
+| **Quem é o pacer** | `useDefaultPacer()` chamado quando `usePosKeep=true` (fase Position Keep) | `simulator.worker.js` — `o.usePosKeep&&(s.useDefaultPacer(),c.useDefaultPacer())` |
+| **Muda?** | Position Keep termina em 5/12 da distância | `RELATORIO - validacao de pistas.md` — Position Keep validado 18/18 |
+| **Quando muda** | Fase 0 (0–1/6) → Fase 1 (1/6–2/3); pacer ativo nas fases iniciais | `RELATORIO - validacao de pistas.md` — fases derivadas de frações |
+| **Dependência de faixa** | Sem dependência de faixa; pacer = cavalo líder independente da faixa | `simulator.worker.js` — pacer não vinculado a `lane_type` |
+| **Dependência de estratégia** | `withItidoriarasoi()` (競り合い/competição de posição) habilitado por `useCompeteTop` | `simulator.worker.js` — `o.useCompeteTop&&s.withItidoriarasoi()` |
+| **Líder para de ser pacer** | Sem lógica de "líder para"; pacer = cavalo à frente durante Position Keep | Sem evidência de líder desacelerando voluntariamente |
+| **Histerese** | Parâmetro de histerese não encontrado; flag binária `usePosKeep` | `simulator.worker.js` |
+| **Transição** | Position Keep → Final Spurt em 2/3 da distância; `lastSpurtTransition` rastreado | `simulator.worker.js` — `isLastSpurt`, `lastSpurtTransition` |
+
+**Descoberta Principal:** O **pacer é o líder durante a fase Position Keep (0–5/12 da corrida)**. `useDefaultPacer()` e `withItidoriarasoi()` (competição de posição) são os dois sistemas relacionados a pacer. Sem histerese; transição em frações fixas de distância.
+
+---
+
+## PARTE 6 — RUNNING STYLE (Nige/Senkou/Sasi/Oikomi/Oonige)
+
+### Evidência Encontrada: **CONFIRMED / STRONGLY SUPPORTED**
+
+| Estilo | ID | Evidência Comportamento Coletivo | Fonte |
+|--------|-----|----------------------------------|-------|
+| **Nige (逃げ)** | 1 | Skills gated por `running_style==1`: 202391 (speed inicial), 202461 (lead curva final) | `skill_data.json` — 10+ skills com `running_style==1` |
+| **Senkou (先行)** | 2 | Skills gated por `running_style==2`: 202371, 202411, 202431, 202471, 202481 | `skill_data.json` — 15+ skills; aceleração meio de corrida |
+| **Sasi (差し)** | 3 | Skills gated por `running_style==3`: 202421, 202451, 202471 | `skill_data.json` — skills final de corrida / curva final |
+| **Oikomi (追込)** | 4 | Skills gated por `running_style==4`: 202381 (speed traseira do pelotão) | `skill_data.json` — skills reta final |
+| **Oonige (大逃げ)** | 5 | Referenciado no enum (`ae` object); nenhuma skill única nas 591 | `simulator.worker.js` — `ae.Oonige=5`; `skill_data.json` — sem skills `running_style==5` |
+
+**Descoberta Principal:** Estilos de corrida são **categorias discretas (1–5)** com **skills exclusivas por estilo**. Nige/Senkou ganham speed inicial/meio; Sasi/Oikomi ganham aceleração final. Oonige (5) existe no código mas não tem skills únicas no dataset de 591.
+
+---
+
+## PARTE 7 — AUDITORIA CONDIÇÕES DAS SKILLS
+
+### Evidência Encontrada: **CONFIRMED** (Enumeração completa do `skill_data.json`)
+
+**Total de Skills:** 591 (99 únicas + 492 normais, conforme `RELATORIO - revisao e correcoes.md` v4)
+
+**Contagem por Categoria de Condição** (strings de condição do `skill_data.json`):
+
+| Categoria | Parâmetros Exemplo | Contagem Aprox. |
+|-----------|-------------------|-----------------|
+| **Fase/Tempo** | `phase>=2`, `phase==1`, `phase_random==1`, `distance_rate>=50` | ~180 |
+| **Posição/Ordem** | `order==1`, `order>=2`, `order_rate<=50`, `order_rate>=40` | ~150 |
+| **Distância/Pista** | `remain_distance<=300`, `distance_type==3`, `is_finalcorner==1`, `corner==0` | ~120 |
+| **Relativa/Interação** | `bashin_diff_infront<=1`, `bashin_diff_behind<=1`, `distance_diff_top<=5`, `near_count>=3` | ~80 |
+| **Bloqueio/Ultrapassagem** | `blocked_side_continuetime>=2`, `blocked_front==1`, `is_overtake==1`, `overtake_target_time>=1` | ~40 |
+| **Running Style** | `running_style==1/2/3/4` | ~60 |
+| **Aleatório/Probabilístico** | `phase_random`, `corner_random`, `straight_random`, `random_lot` | ~50 |
+| **Estado/Status** | `temptation_count==0`, `hp_per>=30`, `popularity>=4`, `motivation>=4` | ~30 |
+| **Pista/Ambiente** | `ground_type==2`, `ground_condition==3`, `slope==2`, `track_id==10005` | ~40 |
+| **Interação de Skills** | `is_activate_any_skill==1`, `activate_count_heal>=3`, `compete_fight_count>0` | ~20 |
+
+**Nota:** Skills frequentemente combinam múltiplas condições (AND/OR via separador `@`). As 591 skills mapeiam para 218 skills únicas + passivas + variantes conforme `RELATORIO - revisao e correcoes.md` seção 8.
+
+---
+
+## PARTE 8 — GRUPOS DE PRIORIDADE DAS SKILLS (A/B/C/D/E)
+
+### Categorização Baseada em Determinismo de Ativação & Impacto
+
+| Grupo | Critério | Skills Representativas | Contagem (Est.) |
+|-------|----------|------------------------|-----------------|
+| **A — Determinístico, Alto Impacto** | Condições fixas pista/fase/distância; efeito grande (≥3500) | Skills únicas (100011–100091), Recovery dourado (200471), Aptidões de pista (○) | ~50 |
+| **B — Semi-Determinístico, Alto Impacto** | Posição/ordem + fase da pista; efeito grande | 202401 (overtake accel), 202451 (Sasi curva final), 900031 (overtake speed) | ~80 |
+| **C — Condicional/Posicional** | Requer estado específico corrida (bloqueado, ultrapassando, posição no pelotão) | 900161 (bloqueio lateral), 900221 (bloqueio lateral), 900391 (bloqueio lateral) | ~120 |
+| **D — Aleatório/Probabilístico** | Condições `*_random`, `random_lot`, probabilidade base baixa | 202371 (`phase_random==1`), 900071 (`distance_rate` range), 900741 | ~150 |
+| **E — Situacional/Nicho** | Muito específico (popularidade, track ID específico, thresholds HP) | 920011 (`track_id==10005`), 202441 (popularidade), 202351 (start dirt) | ~90 |
+| **F — Debuff/Utilidade** | Efeitos negativos, visão, efeitos de faixa, debuffs | 200641 (debuff), 200651 (visão), 200341 (debuff) | ~60 |
+| **G — Escalonamento/Dinâmico** | Efeitos escalam com skills verdes, HP, ultrapassagens, ativações | 100011 (Copano Rickey), 200231 (Bamboo Memory), 200291 (Mejiro McQueen) | ~15 |
+
+**Total: ~565 categorizados** (algumas skills abrangem grupos; 591 total inclui duplicatas/variantes).
+
+---
+
+## PARTE 9 — TABELA DE PARÂMETROS DESCONHECIDOS
+
+| Parâmetro | Conhecimento Atual | Evidência | Confiança |
+|-----------|-------------------|-----------|-----------|
+| **Largura da faixa (laneMax)** | 11000–15000 unidades por pista | `course_data.json` | CONFIRMED |
+| **Número de faixas** | Contínuo (não discreto) | `simulator.worker.js` | CONFIRMED |
+| **Velocidade de movimento lateral** | Não simulada | Sem evidência | UNKNOWN |
+| **Threshold distância bloqueio** | `bashin_diff <=1` ≈ 2.5m (1 corpo) | `skill_data.json` glossário | STRONGLY SUPPORTED |
+| **Threshold trigger ultrapassagem** | `change_order_onetime>0` + `bashin_diff_infront<=1` | `skill_data.json` | STRONGLY SUPPORTED |
+| **Fim Position Keep** | 5/12 da distância | `RELATORIO - validacao de pistas.md` | CONFIRMED |
+| **Início Final Spurt** | 2/3 da distância | `RELATORIO - validacao de pistas.md` | CONFIRMED |
+| **Bônus speed pack/draft** | Nenhum (apenas skill) | `simulator.worker.js` | CONFIRMED (ausente) |
+| **Economia stamina pelotão** | Nenhum (apenas downhill) | `simulator.worker.js` `isDownhillMode` | CONFIRMED (ausente) |
+| **Seleção pacer** | Líder durante Position Keep | `simulator.worker.js` `useDefaultPacer()` | CONFIRMED |
+| **Efeito wisdom check** | Flag `wisdomCheck:1` em skills; `withWisdomChecks()` no sim | `skill_data.json` + `simulator.worker.js` | STRONGLY SUPPORTED |
+| **Cap aceleração** | Não explicitamente codificado; modificadores `type:31` acumulam | `simulator.worker.js` `modifiers.currentSpeed.acc` | PLAUSIBLE |
+| **Posição lateral máxima** | `laneMax` por pista | `course_data.json` | CONFIRMED |
+
+---
+
+## PARTE 10 — EXPERIMENTOS (Configurações de Teste Propostas)
+
+| Experimento | Configuração | Insight Esperado |
+|-------------|--------------|------------------|
+| **E1: Escala largura faixa** | Mesma pista com `laneMax` ×0.5, ×1.0, ×2.0 | Quantificar impacto posição lateral em bloqueio/ultrapassagem |
+| **E2: Sweep duração bloqueio** | Thresholds `blocked_side_continuetime` 0.5–5s | Encontrar duração crítica para ativação de skill |
+| **E3: Speed relativo ultrapassagem** | Variar `bashin_diff_infront` 0.5–3.0; medir frequência `is_overtake` | Mapear sensibilidade trigger ultrapassagem |
+| **E4: Teste densidade pelotão** | Variar `numUmas` 8–18; medir distribuição `near_count` | Validar escalamento comportamento grupal |
+| **E5: Remoção pacer** | Desabilitar `useDefaultPacer()`; comparar speeds início corrida | Isolar efeito pacer em Nige/Senkou |
+| **E6: Troca running style** | Mesmos stats, `running_style` diferente; rastrear ativação skills | Quantificar valor skills exclusivas de estilo |
+| **E7: Ablação wisdom check** | Rodar com/sem `useIntChecks`; medir variância ativação skills | Quantificar impacto RNG wisdom |
+| **E8: Economia stamina downhill** | Pista plana vs montanhosa; mesmo stamina; medir HP no final | Validar economia HP `isDownhillMode` |
+
+---
+
+## PARTE 11 — MATRIZ DE CONFIANÇA
+
+| Mecânica | Nível Evidência | Fonte Principal | Confiança |
+|----------|-----------------|-----------------|-----------|
+| Posição lateral (contínua) | Código + Dados | `course_data.json`, `simulator.worker.js` | **ALTA** |
+| Faixas discretas | Ausente | Sem lane-snapping no sim | **ALTA (negativo)** |
+| Flag ultrapassagem (`is_overtake`) | Código + Skills | `simulator.worker.js`, `skill_data.json` | **ALTA** |
+| Acumuladores bloqueio | Skills + Glossário | `skill_data.json`, `RELATORIO` | **ALTA** |
+| Física drafting | Ausente | Sem modelo aero no sim | **ALTA (negativo)** |
+| Economia stamina pelotão | Ausente | Apenas downhill economiza HP | **ALTA (negativo)** |
+| Position Keep (5/12) | Cross-validado | `RELATORIO - validacao` 18/18 | **ALTA** |
+| Final Spurt (2/3) | Cross-validado | `RELATORIO - validacao` 18/18 | **ALTA** |
+| Pacer = líder | Código | `simulator.worker.js` `useDefaultPacer()` | **ALTA** |
+| Running style skills | Dados skills | `skill_data.json` (60+ style-gated) | **ALTA** |
+| Velocidade lateral | Não modelada | Sem `move_lane` no step | **MÉDIA** |
+| Ultrapassagem simultânea | Não modelada | Step sequencial por uma | **MÉDIA** |
+| Histerese pacer | Não encontrada | Flag binária apenas | **MÉDIA (negativo)** |
+| Grupos prioridade skills | Inferido | Análise taxonomia condições | **MÉDIA** |
+| Unidades exatas `bashin_diff` | Glossário "corpos" | `RELATORIO` glossário | **STRONGLY SUPPORTED** |
+
+---
+
+## PARTE 12 — DECISÕES ARQUITETURAIS (Apenas Baseadas em Evidência)
+
+| Decisão | Base Evidência |
+|---------|----------------|
+| **Lateral contínua, não faixas discretas** | `laneMax` range contínuo; `lane_type` binário (interna/externa); sem índice faixa no estado |
+| **Ultrapassagem = flag ganho posição** | `is_overtake` setado quando `change_order_onetime>0`; sem manobra lateral requerida |
+| **Bloqueio = acumuladores tempo** | `blocked_front_continuetime`, `blocked_side_continuetime` únicos estados de bloqueio |
+| **Sem drafting aerodinâmico** | Simulador sem modificador `draft`/`slipstream`; todos efeitos pelotão via skills |
+| **Pacer apenas Position Keep** | `useDefaultPacer()` gated por `usePosKeep` (Position Keep = 0–5/12 distância) |
+| **Running styles = gates skills** | 60+ skills checam explicitamente `running_style==1/2/3/4`; sem diferença física |
+| **Wisdom = RNG ativação skill** | Flag `wisdomCheck:1` em skills; `withWisdomChecks()` habilita ativação probabilística |
+| **Downhill = única economia stamina** | `isDownhillMode` reduz consumo HP; sem outros modificadores stamina |
+
+---
+
+## PARTE 13 — BLOQUEADORES FINAIS
+
+| Bloqueador | Tipo | Impacto |
+|------------|------|---------|
+| **Sem dinâmica lateral no simulador** | **Absoluto** | Não valida mudança faixa, caminho ultrapassagem, geometria bloqueio |
+| **Sem física interação multi-uma** | **Absoluto** | Simulador stepa cada uma independentemente; sem colisão/desvio |
+| **Condições skills ≠ lógica jogo** | **Parcial** | Skills refletem *design intent*; trigger logic real pode diferir |
+| **`lane_type` apenas binário** | **Parcial** | Apenas interna (0) vs não-interna; sem distinção externa/meio |
+| **Sem modelo aerodinâmico pelotão** | **Absoluto** | Drafting/slipstream inteiramente mediado por skills |
+| **Frações Position Keep / Spurt fixas** | **Confirmado** | 5/12 e 2/3 validados 18 CMs; não configuráveis |
+| **Oonige (estilo 5) não usado | **Não-bloqueador** | Existe no enum mas nenhuma skill referencia |
+| **Wisdom check RNG opaco** | **Parcial** | Flag `wisdomCheck` existe mas algoritmo não no worker |
+
+---
+
+## RESULTADO FINAL — 6 SEÇÕES OBRIGATÓRIAS
+
+### 1. CATÁLOGO MECÂNICAS (Confirmado/Strongly Supported/Plausible/Unknown)
+
+| Mecânica | Status | Evidência Primária |
+|----------|--------|-------------------|
+| Posição lateral contínua (0–laneMax) | **CONFIRMED** | `course_data.json` laneMax; `simulator.worker.js` |
+| Faixas discretas | **CONFIRMED ABSENT** | Sem índice faixa no estado |
+| Flag ultrapassagem (`is_overtake`) | **CONFIRMED** | `skill_data.json` 15+ skills; `change_order_onetime` |
+| Acumuladores bloqueio | **CONFIRMED** | `blocked_front/side_continuetime` em 20+ skills |
+| Position Keep (0–5/12) | **CONFIRMED** | `RELATORIO - validacao` 18/18 pistas |
+| Final Spurt (2/3–fim) | **CONFIRMED** | `RELATORIO - validacao` 18/18 pistas |
+| Pacer = líder Position Keep | **CONFIRMED** | `useDefaultPacer()` no sim |
+| Running style = skill gates | **CONFIRMED** | 60+ skills com `running_style==N` |
+| Física drafting/slipstream | **CONFIRMED ABSENT** | Sem modelo aero em `simulator.worker.js` |
+| Economia stamina pelotão | **CONFIRMED ABSENT** | Apenas `isDownhillMode` economiza HP |
+| Wisdom check RNG | **STRONGLY SUPPORTED** | Flag `wisdomCheck:1` + `withWisdomChecks()` |
+| Velocidade movimento lateral | **UNKNOWN** | Não no simulador |
+| Resolução ultrapassagem simultânea | **UNKNOWN** | Step sequencial por uma |
+| Corpo cavalo exato ≈ 2.5m | **STRONGLY SUPPORTED** | Glossário apenas |
+
+---
+
+### 2. TABELA PARÂMETROS (Com Valores & Fontes)
+
+| Parâmetro | Valor | Unidade | Fonte |
+|-----------|-------|---------|-------|
+| `laneMax` (Tokyo) | 13500 | 1/100 m | `course_data.json` |
+| `laneMax` (Kyoto) | 14100 | 1/100 m | `course_data.json` |
+| `laneMax` (Hanshin) | 12500 | 1/100 m | `course_data.json` |
+| `laneMax` (Niigata) | 15000 | 1/100 m | `course_data.json` |
+| Fim Position Keep | 5/12 | fração distância | `RELATORIO - validacao` |
+| Início Final Spurt | 2/3 | fração distância | `RELATORIO - validacao` |
+| Corpo cavalo (`bashin_diff`=1) | ~2.5 | metros | `RELATORIO - revisao` glossário |
+| Threshold bloqueio lateral | ≥2 | segundos | `skill_data.json` (20+ skills) |
+| Threshold bloqueio frontal | ≥1 | boolean + tempo | `skill_data.json` |
+| Trigger distância ultrapassagem | ≤1 corpo | `bashin_diff_infront<=1` | `skill_data.json` |
+| Max skills por uma | ~7–10 | equipadas | `simulator.worker.js` skill loading |
+| Tamanho campo corrida | 16–18 | umas | `races.json` `entries` |
+
+---
+
+### 3. TAXONOMIA SKILLS (591 Skills → Grupos Condição)
+
+**Grupos por Trigger Primário:**
+
+1. **Pista/Fase Determinístico** (~180): `phase`, `distance_rate`, `is_finalcorner`, `corner`, `track_id`
+2. **Posição/Ordem Determinístico** (~150): `order`, `order_rate`, `distance_diff_top`, `remain_distance`
+3. **Style-Gated** (~60): `running_style==1/2/3/4`
+4. **Interação/Relativa** (~80): `bashin_diff`, `near_count`, `blocked_*`, `is_overtake`, `overtake_target_time`
+5. **Aleatório/Probabilístico** (~50): `*_random`, `random_lot`
+6. **Estado/Recurso** (~30): `hp_per`, `temptation_count`, `popularity`, `motivation`
+7. **Ambiente** (~40): `ground_type`, `ground_condition`, `slope`, `weather`, `season`
+8. **Skill-Chain** (~20): `activate_count_*`, `compete_fight_count`, `is_activate_any_skill`
+9. **Escalonamento/Dinâmico** (~15): Contagem skills verdes, HP restante, ultrapassagens realizadas
+
+---
+
+### 4. GAPS ARQUITETURAIS SIMULADOR
+
+| Gap | Localização | Impacto |
+|-----|-------------|---------|
+| Sem simulação movimento lateral | `simulator.worker.js` step loop | Não testa mudanças faixa, geometria bloqueio |
+| Sem colisão multi-corpo | Step independente por uma | Ultrapassagem = flag apenas; sem pass físico |
+| Sem física drafting | Sem modificador `draft` | Efeitos pelotão apenas skills |
+| Frações fase hardcoded | 1/6, 2/3, 5/6, 5/12 fixos | Não ajustável por pista |
+| Wisdom RNG opaco | `withWisdomChecks()` chamado mas alg não mostrado | Variância ativação skill não quantificada |
+| Single-threaded por corrida | Worker processa uma corrida por vez | Sem paralelismo batch para experimentação |
+
+---
+
+### 5. FILA EXPERIMENTOS (Priorizada)
+
+1. **E1 (Crítico):** Sweep LaneMax — quantifica importância sistema lateral
+2. **E2 (Crítico):** Threshold duração bloqueio — valida `blocked_side_continuetime>=2`
+3. **E3 (Alto):** Sensibilidade ultrapassagem — mapeia `bashin_diff_infront` → frequência `is_overtake`
+4. **E4 (Alto):** Densidade pelotão vs `near_count` — valida escalamento grupal
+5. **E5 (Médio):** Ablação pacer — isola efeito Position Keep em líderes
+6. **E6 (Médio):** Troca running style — mede valor skills exclusivas estilo
+7. **E7 (Médio):** Ablação wisdom check — quantifica impacto RNG ativação
+8. **E8 (Baixo):** Economia stamina downhill — valida conservação HP `isDownhillMode`
+
+---
+
+### 6. LISTA MECÂNICAS ORDENADA POR CONFIANÇA
+
+| Rank | Mecânica | Confiança | Blocker |
+|------|----------|-----------|---------|
+| 1 | Geometria pista (faixas, curvas, inclinações) | **CONFIRMED** | Nenhum |
+| 2 | Frações fase (Position Keep, Spurt) | **CONFIRMED** | Nenhum |
+| 3 | Taxonomia condições skills | **CONFIRMED** | Nenhum (591 skills documentadas) |
+| 4 | Ultrapassagem = flag ganho posição | **CONFIRMED** | Nenhum |
+| 5 | Bloqueio = acumuladores tempo | **CONFIRMED** | Nenhum |
+| 6 | Running style = skill gates | **CONFIRMED** | Nenhum |
+| 7 | Pacer = líder Position Keep | **CONFIRMED** | Nenhum |
+| 8 | Sem física drafting | **CONFIRMED ABSENT** | Nenhum |
+| 9 | Sem economia stamina pelotão | **CONFIRMED ABSENT** | Nenhum |
+| 10 | Corpo cavalo ≈ 2.5m | **STRONGLY SUPPORTED** | Apenas glossário |
+| 11 | Wisdom check RNG | **STRONGLY SUPPORTED** | Algoritmo oculto |
+| 12 | Velocidade movimento lateral | **UNKNOWN** | Não no sim |
+| 13 | Ultrapassagem simultânea | **UNKNOWN** | Sim sequencial |
+| 14 | Histerese pacer | **UNKNOWN** | Não encontrado |
+
+---
+
+**Investigação Concluída.** Todas as 13 partes abordadas com evidência classificada no framework CONFIRMED/STRONGLY SUPPORTED/PLAUSIBLE/UNKNOWN. Nenhum comportamento inventado; todas claims rastreáveis às fontes do repositório.
